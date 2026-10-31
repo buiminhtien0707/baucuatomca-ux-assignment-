@@ -124,6 +124,8 @@ window.BCGame = (function () {
       ? (res.matches > 1 ? "play.statusWin" : "play.statusWinOnly")
       : "play.statusLose", { x: res.matches, n: Math.abs(res.net) });
     setStatus(msg);
+    spawnFloat(res.net);
+    bumpPill();
     BCUI.toast(msg, res.net > 0 ? "win" : "lose");
     updateHistory();
     renderHolds();
@@ -190,6 +192,26 @@ window.BCGame = (function () {
         (r.net > 0 ? "+" : "") + r.net + "</span>";
       zone.appendChild(div);
     });
+  }
+
+  function spawnFloat(net) {
+    var zone = document.querySelector(".bowl-zone");
+    if (!zone) return;
+    var el = document.createElement("div");
+    el.className = "float-xu " + (net > 0 ? "plus" : "minus");
+    var key = net > 0 ? "float.plus" : "float.minus";
+    el.textContent = BCi18n.t(key, { n: Math.abs(net).toLocaleString("vi-VN") });
+    zone.appendChild(el);
+    setTimeout(function () { el.remove(); }, 1500);
+  }
+
+  function bumpPill() {
+    var pill = document.querySelector(".coin-pill");
+    if (!pill) return;
+    pill.classList.remove("bump");
+    void pill.offsetWidth; /* restart animation */
+    pill.classList.add("bump");
+    setTimeout(function () { pill.classList.remove("bump"); }, 500);
   }
 
   function setStatus(txt) { $(".status-line").textContent = txt; }

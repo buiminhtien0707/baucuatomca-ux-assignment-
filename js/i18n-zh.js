@@ -54,7 +54,8 @@ window.BC_I18N_ZH = {
   "quiz.start": "开始", "quiz.next": "下一题", "quiz.finish": "看成绩",
   "quiz.score": "答对 {x}/8", "quiz.reward": "获得 +{n} 金币", "quiz.perfect": "满分通关——加赠 +100！",
   "quiz.replay": "再试一次", "quiz.best": "纪录",
-  "quiz.q": "第 {x}/{y} 题", "quiz.correct": "答对：{x}",
+  "quiz.q": "第 {x}/{y} 题",
+  "float.plus": "+{n} 金币", "float.minus": "−{n} 金币", "quiz.correct": "答对：{x}",
 
   "lab.title": "概率实验室",
   "lab.sub": "别信传言——亲手跑 1000 局，让数字说话。",

@@ -55,7 +55,8 @@ window.BC_I18N_EN = {
   "quiz.start": "Start", "quiz.next": "Next", "quiz.finish": "See score",
   "quiz.score": "Scored {x}/8", "quiz.reward": "Earned +{n} xu", "quiz.perfect": "Perfect run — +100 bonus!",
   "quiz.replay": "Try again", "quiz.best": "Best",
-  "quiz.q": "Question {x}/{y}", "quiz.correct": "Correct: {x}",
+  "quiz.q": "Question {x}/{y}",
+  "float.plus": "+{n} xu", "float.minus": "−{n} xu", "quiz.correct": "Correct: {x}",
 
   "lab.title": "Probability Lab",
   "lab.sub": "Don't take rumors for it — run 1,000 rounds and let the numbers talk.",

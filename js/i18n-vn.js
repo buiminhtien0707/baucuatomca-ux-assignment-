@@ -55,7 +55,8 @@ window.BC_I18N_VN = {
   "quiz.start": "Bắt đầu", "quiz.next": "Tiếp", "quiz.finish": "Xem điểm",
   "quiz.score": "Đúng {x}/8", "quiz.reward": "Nhận +{n} xu", "quiz.perfect": "Điểm tuyệt đối — thưởng thêm +100!",
   "quiz.replay": "Làm lại", "quiz.best": "Kỷ lục",
-  "quiz.q": "Câu {x}/{y}", "quiz.correct": "Đúng: {x}",
+  "quiz.q": "Câu {x}/{y}",
+  "float.plus": "+{n} xu", "float.minus": "−{n} xu", "quiz.correct": "Đúng: {x}",
 
   "lab.title": "Phòng thí nghiệm xác suất",
   "lab.sub": "Đừng tin lời đồn — tự chạy 1.000 ván và xem con số tự nói.",

@@ -239,3 +239,21 @@ img{ max-width:100%; }
   *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
   .marquee .track{ animation:none; }
 }
+
+/* ---------- floating win/lose amount ---------- */
+.bowl-zone{ position:relative; }
+.float-xu{
+  position:absolute; left:50%; top:14px; z-index:6; pointer-events:none;
+  transform:translate(-50%,0);
+  font-family:var(--font-mono); font-weight:700; font-size:28px;
+  animation:floatUp 1.4s ease forwards;
+}
+.float-xu.plus{ color:var(--gold); }
+.float-xu.minus{ color:#FFB4A8; }
+@keyframes floatUp{
+  0%{ opacity:0; transform:translate(-50%,14px) scale(.7); }
+  18%{ opacity:1; transform:translate(-50%,0) scale(1.1); }
+  100%{ opacity:0; transform:translate(-50%,-48px) scale(1.2); }
+}
+.coin-pill.bump{ animation:bump .45s ease; }
+@keyframes bump{ 35%{ transform:scale(1.14) rotate(-2deg); } }
