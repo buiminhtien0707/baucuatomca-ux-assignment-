@@ -1,6 +1,8 @@
 /* i18n — Vietnamese (default language) */
 window.BC_I18N_VN = {
   "nav.home": "Trang chủ", "nav.play": "Chơi", "nav.learn": "Học", "nav.lab": "Lab", "nav.tet": "Tết",
+  "brand.short": "BẦU CUA!", "brand.full": "Bầu Cua Vui",
+  "hero.t1": "BẦU CUA", "hero.t2": "TÔM CÁ",
 
   "hero.kicker": "Trò chơi Tết Việt Nam",
   "hero.sub": "Học luật trong 30 giây, lắc bát bằng xu ảo, soi xác suất — để lần được mời vào bàn là bạn vào ngay tự tin.",

@@ -14,7 +14,7 @@
   --border:3px solid var(--ink);
   --shadow:4px 4px 0 var(--ink);
   --shadow-lg:7px 7px 0 var(--ink);
-  --font-display:'Archivo Black','Be Vietnam Pro',sans-serif;
+  --font-display:'Baloo 2','Be Vietnam Pro',sans-serif;
   --font-body:'Be Vietnam Pro',system-ui,sans-serif;
   --font-mono:'Space Mono',monospace;
   --radius:14px;
@@ -36,7 +36,7 @@ body::before{ /* subtle paper dots */
   background-size:22px 22px;
 }
 main{ position:relative; z-index:1; }
-h1,h2,h3,.display{ font-family:var(--font-display); text-transform:uppercase; letter-spacing:.5px; }
+h1,h2,h3,.display{ font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:.5px; }
 a{ color:var(--ink); text-decoration-thickness:2px; text-underline-offset:3px; }
 img{ max-width:100%; }
 .mono{ font-family:var(--font-mono); }
@@ -146,6 +146,9 @@ img{ max-width:100%; }
   .lang-group button{ padding:5px 7px; font-size:12px; }
   .icon-btn{ width:34px; height:34px; font-size:15px; }
 }
+
+/* headings must never tilt (sticker base is rotated) */
+.section-head .sticker, .hero .sticker{ transform:none; }
 
 /* ---------- marquee ticker ---------- */
 .marquee{

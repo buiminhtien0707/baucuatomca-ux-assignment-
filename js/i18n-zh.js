@@ -1,6 +1,8 @@
 /* i18n — 中文 (Chinese, simplified) */
 window.BC_I18N_ZH = {
   "nav.home": "首页", "nav.play": "玩", "nav.learn": "学", "nav.lab": "实验室", "nav.tet": "春节",
+  "brand.short": "骰宝!", "brand.full": "欢乐骰宝",
+  "hero.t1": "鱼虾蟹", "hero.t2": "春节骰宝",
 
   "hero.kicker": "越南春节民间游戏",
   "hero.sub": "30 秒学会规则，用虚拟金币摇盅，再亲手跑一遍概率——下次被邀请上桌，你已胸有成竹。",

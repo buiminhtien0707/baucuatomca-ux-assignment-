@@ -26,6 +26,8 @@ window.BCi18n = (function () {
 
   function apply() {
     document.documentElement.lang = lang() === "zh" ? "zh-CN" : lang();
+    var page = document.body.dataset.page;
+    if (page) document.title = t("brand.full") + " — " + t("nav." + page);
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       el.textContent = t(el.getAttribute("data-i18n"));
     });

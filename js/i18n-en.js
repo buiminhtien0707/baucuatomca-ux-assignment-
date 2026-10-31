@@ -1,6 +1,8 @@
 /* i18n — English */
 window.BC_I18N_EN = {
   "nav.home": "Home", "nav.play": "Play", "nav.learn": "Learn", "nav.lab": "Lab", "nav.tet": "Tết",
+  "brand.short": "BAU CUA!", "brand.full": "Bau Cua Fun",
+  "hero.t1": "BAU CUA", "hero.t2": "TẾT DICE",
 
   "hero.kicker": "A Vietnamese Tết folk game",
   "hero.sub": "Learn the rules in 30 seconds, shake the bowl with virtual coins, then run the odds yourself — so the next time you're invited to a Tết table, you're ready.",
