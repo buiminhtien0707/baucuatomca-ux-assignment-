@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BẦU CUA VUI — Home</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Đến nội dung chính</a>
+
+  <nav class="bc-nav">
+    <div class="inner">
+      <a class="brand" href="index.html">BẦU CUA!</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <div class="bc-links">
+        <a href="index.html" data-page="home" data-i18n="nav.home"></a>
+        <a href="play.html" data-page="play" data-i18n="nav.play"></a>
+        <a href="learn.html" data-page="learn" data-i18n="nav.learn"></a>
+        <a href="lab.html" data-page="lab" data-i18n="nav.lab"></a>
+        <a href="tet.html" data-page="tet" data-i18n="nav.tet"></a>
+      </div>
+      <div class="nav-tools">
+        <div class="lang-group" role="group" aria-label="Language">
+          <button data-lang="vn" class="active">VN</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="zh">ZH</button>
+        </div>
+        <button class="icon-btn" data-act="sound" data-i18n-aria="a11y.sound">🔊</button>
+        <button class="coin-pill" data-act="drawer-open" data-i18n-aria="a11y.coin">🪙 1.000 xu</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- hero -->
+    <section class="hero">
+      <div class="grid">
+        <div>
+          <span class="sticker red" data-i18n="hero.kicker"></span>
+          <h1>BẦU CUA<br><span class="hl">TÔM CÁ</span></h1>
+          <p class="lead" data-i18n="hero.sub"></p>
+          <div class="cta">
+            <a class="btn-bc btn-red" href="play.html" data-i18n="hero.ctaPlay"></a>
+            <a class="btn-bc" href="learn.html" data-i18n="hero.ctaLearn"></a>
+          </div>
+          <p class="mono mut" style="margin-top:14px" data-i18n="footer.warn"></p>
+          <p class="mono mut" style="margin-top:4px" data-i18n="hero.kicker"></p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="big-sticker s1">🦀<small>Cua</small></div>
+          <div class="big-sticker s2">🎲<small>xí ngầu</small></div>
+          <div class="big-sticker s3">🧧<small>lì xì</small></div>
+        
+      </div>
+    </section>
+
+    <!-- ticker -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span data-i18n="ticker.1"></span><span data-i18n="ticker.2"></span><span data-i18n="ticker.3"></span>
+      </div>
+    </div>
+
+    <!-- how it works -->
+    <section class="section">
+      <div class="section-head">
+        <span class="sticker" data-i18n="how.title"></span>
+        <h2 data-i18n="how.sub"></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4"><div class="card-bc how-card">
+          <div class="ic">1️⃣</div><h3 data-i18n="how.1t"></h3><p data-i18n="how.1d"></p>
+        </div></div>
+        <div class="col-md-4"><div class="card-bc how-card">
+          <div class="ic">2️⃣</div><h3 data-i18n="how.2t"></h3><p data-i18n="how.2d"></p>
+        </div></div>
+        <div class="col-md-4"><div class="card-bc how-card">
+          <div class="ic">3️⃣</div><h3 data-i18n="how.3t"></h3><p data-i18n="how.3d"></p>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- animals -->
+    <section class="section">
+      <div class="section-head">
+        <span class="sticker indigo" data-i18n="animals.title"></span>
+        <h2 data-i18n="animals.sub"></h2>
+      </div>
+      <div class="carousel-wrap">
+        <button class="car-btn prev" data-act="car-prev" aria-label="Previous">◀</button>
+        <div class="animal-track" id="animal-track"></div>
+        <button class="car-btn next" data-act="car-next" aria-label="Next">▶</button>
+      </div>
+    </section>
+
+    <!-- faq -->
+    <section class="section">
+      <div class="section-head">
+        <span class="sticker" data-i18n="faq.title"></span>
+      </div>
+      <div id="faq-zone"></div>
+    </section>
+  </main>
+
+  <footer class="bc-footer">
+    <div class="inner">
+      <div>
+        <strong>BẦU CUA VUI</strong>
+        <p class="fine" data-i18n="footer.blurb"></p>
+      </div>
+      <div class="fine">
+        <p data-i18n="footer.warn"></p>
+        <p data-i18n="footer.made"></p>
+      </div>
+      <div class="fine">
+        <a href="index.html" data-i18n="nav.home"></a><br>
+        <a href="play.html" data-i18n="nav.play"></a><br>
+        <a href="learn.html" data-i18n="nav.learn"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- animal detail modal -->
+  <div class="modal-bc" id="modal-animal" role="dialog" aria-modal="true">
+    <div class="box"></div>
+  </div>
+
+  <!-- Túi xu drawer -->
+  <div class="drawer-backdrop"></div>
+  <aside class="drawer" aria-label="Túi xu">
+    <div class="close-row"><button class="icon-btn" data-act="drawer-close" aria-label="Close">✕</button></div>
+    <h3>💰 <span data-i18n="drawer.title"></span></h3>
+    <button class="btn-bc btn-red" data-act="lixi" style="width:100%" data-i18n="drawer.lixi"></button>
+    <p class="mono mut" style="font-size:12px" data-i18n="footer.warn"></p>
+    <h3 style="font-size:18px" data-i18n="drawer.badges"></h3>
+    <div class="badge-grid" id="badge-grid"></div>
+    <h3 style="font-size:18px" data-i18n="drawer.stats"></h3>
+    <div id="drawer-stats" style="display:grid;gap:6px"></div>
+    <button class="btn-bc btn-sm" data-act="reset" style="margin-top:14px" data-i18n="drawer.reset"></button>
+  </aside>
+
+  <button class="icon-btn" data-act="drawer-open" aria-label="Túi xu"
+    style="position:fixed;bottom:18px;right:18px;z-index:150;width:56px;height:56px;font-size:24px;border-radius:50%">💰</button>
+  <div class="toast-zone"></div>
+
+  <script src="js/data-core.js"></script>
+  <script src="js/data-content.js"></script>
+  <script src="js/i18n-vn.js"></script>
+  <script src="js/i18n-en.js"></script>
+  <script src="js/i18n-zh.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/badges.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/page-home.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      BCUI.boot();
+      // reset data button (drawer)
+      var resetBtn = document.querySelector("[data-act=reset]");
+      if (resetBtn) resetBtn.addEventListener("click", function () {
+        BCStore.reset();
+        BCUI.toast(BCi18n.t("drawer.resetOk"));
+        setTimeout(function () { location.reload(); }, 600);
+      });
+    });
+  </script>
+</body>
+</html>

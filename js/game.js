@@ -1,0 +1,268 @@
+/* game.js — Play page controller: board, chips, shake/reveal/settle */
+window.BCGame = (function () {
+  "use strict";
+
+  var EMOJI = window.BCGameCore.EMOJI;
+  var state = "IDLE";            // IDLE → SHAKING → IDLE
+  var selectedChip = 100;
+  var pendingTimer = null;
+
+  function $(sel) { return document.querySelector(sel); }
+  function byId(id) {
+    return BC_DATA.ANIMALS.filter(function (a) { return a.id === id; })[0];
+  }
+
+  /* ---------- render ---------- */
+  function renderBoard() {
+    var board = $(".board");
+    board.innerHTML = "";
+    BC_DATA.ANIMALS.forEach(function (a) {
+      var b = document.createElement("button");
+      b.className = "cell";
+      b.dataset.animal = a.id;
+      b.setAttribute("aria-label", BCi18n.L(a.name));
+      b.innerHTML =
+        '<span class="name">' + BCi18n.L(a.name) + "</span>" +
+        '<img src="' + a.img + '" alt="">' +
+        '<span class="amt"></span>';
+      b.addEventListener("click", function () { onCell(a.id); });
+      board.appendChild(b);
+    });
+  }
+
+  function renderChips() {
+    var tray = $(".chip-tray");
+    tray.innerHTML = "";
+    [10, 50, 100, 500].forEach(function (v) {
+      var c = document.createElement("button");
+      c.className = "chip" + (v === selectedChip ? " selected" : "");
+      c.dataset.value = v;
+      c.textContent = v;
+      c.setAttribute("aria-label", v + " xu");
+      c.addEventListener("click", function () {
+        selectedChip = v;
+        document.querySelectorAll(".chip").forEach(function (x) {
+          x.classList.toggle("selected", x === c);
+        });
+        BCAudio.chip();
+      });
+      tray.appendChild(c);
+    });
+    refreshChipAvailability();
+  }
+
+  function refreshChipAvailability() {
+    var spendable = BCWallet.balance() - BCWallet.holdTotal();
+    document.querySelectorAll(".chip").forEach(function (c) {
+      c.disabled = Number(c.dataset.value) > spendable;
+    });
+    var anyChip = document.querySelector(".chip:not(:disabled)");
+    if (anyChip && Number(document.querySelector(".chip.selected").dataset.value) > spendable) {
+      document.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("selected"); });
+      anyChip.classList.add("selected");
+      selectedChip = Number(anyChip.dataset.value);
+    }
+    var undoBtn = $("[data-act=undo]");
+    if (undoBtn) undoBtn.disabled = BCWallet.holdTotal() === 0;
+    var clearBtn = $("[data-act=clear]");
+    if (clearBtn) clearBtn.disabled = BCWallet.holdTotal() === 0;
+    var rebetBtn = $("[data-act=rebet]");
+    if (rebetBtn) rebetBtn.disabled = !BCWallet.hasLastBets();
+  }
+
+  function renderHolds() {
+    var holds = BCWallet.holds();
+    document.querySelectorAll(".cell").forEach(function (c) {
+      var amt = holds[c.dataset.animal] || 0;
+      c.classList.toggle("has-bet", amt > 0);
+      c.querySelector(".amt").textContent = amt ? amt.toLocaleString("vi-VN") : "";
+    });
+    refreshChipAvailability();
+  }
+
+  /* ---------- round flow ---------- */
+  function onCell(id) {
+    if (state !== "IDLE") return;
+    if (!BCWallet.addHold(id, selectedChip)) {
+      BCUI.toast(BCi18n.t("play.broke"), "lose");
+      return;
+    }
+    BCAudio.chip();
+    renderHolds();
+  }
+
+  function shake() {
+    if (state !== "IDLE") return;
+    if (BCWallet.holdTotal() === 0) {
+      BCUI.toast(BCi18n.t("play.needBet"), "lose");
+      return;
+    }
+    state = "SHAKING";
+    var reduced = BCUI.reducedMotion();
+    BCWallet.commit();
+    lockBoard(true);
+    setStatus(BCi18n.t("play.statusShake"));
+    $("[data-act=shake]").disabled = true;
+    $("[data-act=rebet]").disabled = true;
+
+    var secs = reduced ? 0.4 : 1.5;
+    BCAudio.rattle(secs);
+    $(".bowl").classList.add("shaking");
+    pendingTimer = setTimeout(finishRound, secs * 1000);
+  }
+
+  function finishRound() {
+    pendingTimer = null;
+    var dice = BCGameCore.rollDice();
+    var res = BCWallet.settle(dice);
+    var reduced = BCUI.reducedMotion();
+
+    $(".bowl").classList.remove("shaking");
+    renderDice(dice, reduced ? 0 : 260);
+    highlightWinners(res.perCell, reduced ? 0 : 500);
+    var msg = BCi18n.t(res.net > 0
+      ? (res.matches > 1 ? "play.statusWin" : "play.statusWinOnly")
+      : "play.statusLose", { x: res.matches, n: Math.abs(res.net) });
+    setStatus(msg);
+    BCUI.toast(msg, res.net > 0 ? "win" : "lose");
+    updateHistory();
+    renderHolds();
+
+    $("[data-act=shake]").disabled = false;
+    lockBoard(false);
+
+    BCBadges.check("first_round");
+    BCBadges.check("first_loss");
+    BCBadges.check("streak3");
+    if (res.net > 0) BCAudio.win(); else BCAudio.lose();
+    setStatusIdleAfter(2.6);
+  }
+
+  function setStatusIdleAfter(secs) {
+    setTimeout(function () {
+      if (state === "IDLE") setStatus(BCi18n.t("play.statusIdle"));
+    }, secs * 1000);
+  }
+
+  function renderDice(dice, delayMs) {
+    var row = $(".dice-row");
+    row.innerHTML = "";
+    dice.forEach(function (id, i) {
+      var die = document.createElement("div");
+      die.className = "die";
+      die.textContent = EMOJI[id];
+      die.setAttribute("aria-label", BCi18n.L(byId(id).name));
+      if (delayMs) {
+        setTimeout(function () { row.appendChild(die); }, delayMs * i);
+      } else {
+        row.appendChild(die);
+      }
+    });
+  }
+
+  function highlightWinners(perCell, delayMs) {
+    setTimeout(function () {
+      document.querySelectorAll(".cell").forEach(function (c) {
+        var k = perCell[c.dataset.animal] || 0;
+        c.classList.toggle("win-flash", k > 0);
+      });
+      setTimeout(function () {
+        document.querySelectorAll(".cell").forEach(function (c) {
+          c.classList.remove("win-flash");
+        });
+      }, 2200);
+    }, delayMs);
+  }
+
+  function updateHistory() {
+    var st = BCStore.load();
+    var zone = $(".history-strip");
+    zone.innerHTML = "";
+    if (!st.rounds.length) {
+      zone.innerHTML = '<span class="mut">' + BCi18n.t("play.historyEmpty") + "</span>";
+      return;
+    }
+    st.rounds.forEach(function (r) {
+      var div = document.createElement("div");
+      div.className = "hist-round";
+      div.innerHTML = r.dice.map(function (id) { return EMOJI[id]; }).join("") +
+        '<span class="net ' + (r.net > 0 ? "pos" : "neg") + '">' +
+        (r.net > 0 ? "+" : "") + r.net + "</span>";
+      zone.appendChild(div);
+    });
+  }
+
+  function setStatus(txt) { $(".status-line").textContent = txt; }
+
+  function lockBoard(lock) {
+    state = lock ? "SHAKING" : "IDLE";
+    $(".board").classList.toggle("locked", lock);
+  }
+
+  /* ---------- boot ---------- */
+  function boot() {
+    renderBoard(); renderChips(); updateHistory();
+    setStatus(BCi18n.t("play.statusIdle"));
+    $("[data-act=shake]").addEventListener("click", shake);
+    $("[data-act=undo]").addEventListener("click", function () {
+      if (state !== "IDLE") return;
+      BCWallet.undoHold();
+      renderHolds();
+      BCAudio.chip();
+    });
+    $("[data-act=clear]").addEventListener("click", function () {
+      if (state !== "IDLE") return;
+      BCWallet.clearHolds();
+      renderHolds();
+    });
+    $("[data-act=rebet]").addEventListener("click", function () {
+      if (state !== "IDLE") return;
+      if (BCWallet.rebet()) { renderHolds(); BCAudio.chip(); }
+      else BCUI.toast(BCi18n.t("play.broke"), "lose");
+    });
+    // tap the bowl zone to skip the shake animation
+    $(".bowl-zone").addEventListener("click", function () {
+      if (pendingTimer) { clearTimeout(pendingTimer); finishRound(); }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" && state === "IDLE" && document.activeElement === document.body) shake();
+    });
+
+    BCi18n.onLangChange(function () {
+      document.querySelectorAll(".cell .name").forEach(function (el, i) {
+        el.textContent = BCi18n.L(BC_DATA.ANIMALS[i].name);
+      });
+      if (state === "IDLE") setStatus(BCi18n.t("play.statusIdle"));
+    });
+
+    if (!BCStore.load().coachDone) showCoach();
+  }
+
+  /* ---------- first-visit coach marks ---------- */
+  function showCoach() {
+    var d = document.createElement("div");
+    d.className = "coach";
+    d.innerHTML =
+      '<div class="box card-bc">' +
+      "<h3>" + BCi18n.t("coach.t") + "</h3>" +
+      '<div class="steps">' +
+      step(1, "coach.1") + step(2, "coach.2") + step(3, "coach.3") +
+      "</div>" +
+      '<button class="btn-bc btn-gold" data-act="coach-ok">' + BCi18n.t("coach.btn") + "</button>" +
+      "</div>";
+    document.body.appendChild(d);
+    d.querySelector("[data-act=coach-ok]").addEventListener("click", function () {
+      BCStore.load().coachDone = true;
+      BCStore.save();
+      d.remove();
+      BCAudio.pop();
+    });
+  }
+
+  function step(n, key) {
+    return '<div class="step-row"><span class="n">' + n + "</span><span>" + BCi18n.t(key) + "</span></div>";
+  }
+
+  return { boot: boot };
+})();

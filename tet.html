@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BẦU CUA VUI — Tết</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="tet">
+  <a class="skip-link" href="#main">Đến nội dung chính</a>
+
+  <nav class="bc-nav">
+    <div class="inner">
+      <a class="brand" href="index.html">BẦU CUA!</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <div class="bc-links">
+        <a href="index.html" data-page="home" data-i18n="nav.home"></a>
+        <a href="play.html" data-page="play" data-i18n="nav.play"></a>
+        <a href="learn.html" data-page="learn" data-i18n="nav.learn"></a>
+        <a href="lab.html" data-page="lab" data-i18n="nav.lab"></a>
+        <a href="tet.html" data-page="tet" data-i18n="nav.tet"></a>
+      </div>
+      <div class="nav-tools">
+        <div class="lang-group" role="group" aria-label="Language">
+          <button data-lang="vn" class="active">VN</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="zh">ZH</button>
+        </div>
+        <button class="icon-btn" data-act="sound" data-i18n-aria="a11y.sound">🔊</button>
+        <button class="coin-pill" data-act="drawer-open" data-i18n-aria="a11y.coin">🪙 1.000 xu</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="section" id="tet-root">
+      <div class="section-head">
+        <span class="sticker red" data-i18n="tet.title"></span>
+        <h2 data-i18n="tet.sub"></h2>
+      </div>
+      <div class="resp-callout">
+        <h3 style="margin:0 0 6px">🛡️ <span data-i18n="tet.resp"></span></h3>
+        <p style="margin:0" data-i18n="tet.respBody"></p>
+      </div>
+      <div class="card-bc" style="padding:24px">
+        <h3 data-i18n="tet.tlTitle"></h3>
+        <div class="timeline" id="tet-timeline"></div>
+      </div>
+      <div style="height:26px"></div>
+      <div class="card-bc form-wrap">
+        <h3 data-i18n="tet.formTitle"></h3>
+        <form id="fb-form" novalidate>
+          <div class="field">
+            <label for="fb-name" data-i18n="tet.name"></label>
+            <input id="fb-name" name="name" type="text" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="fb-email" data-i18n="tet.email"></label>
+            <input id="fb-email" name="email" type="email" required data-i18n-ph="tet.phEmail">
+          </you@example.com placeholder marker>
+          <div class="err" data-i18n="tet.errEmail"></div>
+        </div>
+          <div class="field">
+            <label for="fb-msg" data-i18n="tet.msg"></label>
+            <textarea id="fb-msg" name="message" rows="4"></textarea>
+            <div class="char-count mono"><span id="fb-count">0 ký tự</span></div>
+            <div class="err" data-i18n="tet.errMsg"></div>
+          </div>
+          <button class="btn-bc btn-green" type="submit" data-i18n="tet.send"></button>
+        </form>
+      </div>
+    </section></main>
+
+  <footer class="bc-footer">
+    <div class="inner">
+      <div>
+        <strong>BẦU CUA VUI</strong>
+        <p class="fine" data-i18n="footer.blurb"></p>
+      </div>
+      <div class="fine">
+        <p data-i18n="footer.warn"></p>
+        <p data-i18n="footer.made"></p>
+      </div>
+      <div class="fine">
+        <a href="index.html" data-i18n="nav.home"></a><br>
+        <a href="play.html" data-i18n="nav.play"></a><br>
+        <a href="learn.html" data-i18n="nav.learn"></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- animal detail modal -->
+  <div class="modal-bc" id="modal-animal" role="dialog" aria-modal="true">
+    <div class="box"></div>
+  </div>
+
+  <!-- Túi xu drawer -->
+  <div class="drawer-backdrop"></div>
+  <aside class="drawer" aria-label="Túi xu">
+    <div class="close-row"><button class="icon-btn" data-act="drawer-close" aria-label="Close">✕</button></div>
+    <h3>💰 <span data-i18n="drawer.title"></span></h3>
+    <button class="btn-bc btn-red" data-act="lixi" style="width:100%" data-i18n="drawer.lixi"></button>
+    <p class="mono mut" style="font-size:12px" data-i18n="footer.warn"></p>
+    <h3 style="font-size:18px" data-i18n="drawer.badges"></h3>
+    <div class="badge-grid" id="badge-grid"></div>
+    <h3 style="font-size:18px" data-i18n="drawer.stats"></h3>
+    <div id="drawer-stats" style="display:grid;gap:6px"></div>
+    <button class="btn-bc btn-sm" data-act="reset" style="margin-top:14px" data-i18n="drawer.reset"></button>
+  </aside>
+
+  <button class="icon-btn" data-act="drawer-open" aria-label="Túi xu"
+    style="position:fixed;bottom:18px;right:18px;z-index:150;width:56px;height:56px;font-size:24px;border-radius:50%">💰</button>
+  <div class="toast-zone"></div>
+
+  <script src="js/data-core.js"></script>
+  <script src="js/data-content.js"></script>
+  <script src="js/i18n-vn.js"></script>
+  <script src="js/i18n-en.js"></script>
+  <script src="js/i18n-zh.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/badges.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/page-tet.js"></script>
+  <script src="js/page-home.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      BCUI.boot();
+
+      var resetBtn = document.querySelector("[data-act=reset]");
+      if (resetBtn) resetBtn.addEventListener("click", function () {
+        BCStore.reset();
+        BCUI.toast(BCi18n.t("drawer.resetOk"));
+        setTimeout(function () { location.reload(); }, 600);
+      });
+    });
+  </script>
+</body>
+</html>

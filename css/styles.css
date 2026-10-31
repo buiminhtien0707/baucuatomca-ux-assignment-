@@ -1,0 +1,238 @@
+/* ============================================================
+   BẦU CUA VUI — design system: Neo Brutalism × Vietnamese Tết
+   tokens + base + components (pages live in pages.css)
+   ============================================================ */
+
+:root{
+  --paper:#F6F1E5;
+  --ink:#141414;
+  --red:#E8442E;
+  --gold:#FFC93C;
+  --indigo:#2F4BD8;
+  --green:#0E7A4A;
+  --cream:#FFFBF2;
+  --border:3px solid var(--ink);
+  --shadow:4px 4px 0 var(--ink);
+  --shadow-lg:7px 7px 0 var(--ink);
+  --font-display:'Archivo Black','Be Vietnam Pro',sans-serif;
+  --font-body:'Be Vietnam Pro',system-ui,sans-serif;
+  --font-mono:'Space Mono',monospace;
+  --radius:14px;
+}
+
+/* ---------- base ---------- */
+*{ box-sizing:border-box; }
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.55;
+  min-height:100vh;
+}
+body::before{ /* subtle paper dots */
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:radial-gradient(rgba(20,20,20,.06) 1.2px, transparent 1.2px);
+  background-size:22px 22px;
+}
+main{ position:relative; z-index:1; }
+h1,h2,h3,.display{ font-family:var(--font-display); text-transform:uppercase; letter-spacing:.5px; }
+a{ color:var(--ink); text-decoration-thickness:2px; text-underline-offset:3px; }
+img{ max-width:100%; }
+.mono{ font-family:var(--font-mono); }
+.mut{ color:rgba(20,20,20,.66); }
+
+:focus-visible{ outline:3px dashed var(--indigo); outline-offset:3px; border-radius:4px; }
+.skip-link{
+  position:absolute; left:-9999px; top:8px; z-index:200;
+  background:var(--gold); border:var(--border); box-shadow:var(--shadow);
+  padding:8px 14px; font-weight:700;
+}
+.skip-link:focus{ left:8px; }
+
+/* ---------- buttons: physical press language ---------- */
+.btn-bc{
+  display:inline-block; border:var(--border); border-radius:var(--radius);
+  background:var(--cream); color:var(--ink);
+  font-family:var(--font-body); font-weight:700;
+  padding:10px 20px; cursor:pointer; text-decoration:none; text-align:center;
+  box-shadow:var(--shadow);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  user-select:none;
+}
+.btn-bc:hover{ transform:translate(-2px,-2px); box-shadow:var(--shadow-lg); }
+.btn-bc:active{ transform:translate(3px,3px); box-shadow:0 0 0 var(--ink); }
+.btn-bc:disabled{ opacity:.45; cursor:not-allowed; transform:none; box-shadow:var(--shadow); }
+.btn-gold{ background:var(--gold); }
+.btn-red{ background:var(--red); color:#fff; }
+.btn-indigo{ background:var(--indigo); color:#fff; }
+.btn-green{ background:var(--green); color:#fff; }
+.btn-sm{ padding:6px 12px; font-size:14px; border-width:2px; }
+
+/* ---------- cards / stickers ---------- */
+.card-bc{
+  background:var(--cream); border:var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:20px;
+}
+.sticker{
+  display:inline-block; background:var(--gold); border:var(--border);
+  border-radius:10px; padding:2px 12px;
+  font-family:var(--font-mono); font-weight:700; font-size:13px;
+  transform:rotate(-2deg); box-shadow:3px 3px 0 var(--ink);
+}
+.sticker.red{ background:var(--red); color:#fff; transform:rotate(2deg); }
+.sticker.indigo{ background:var(--indigo); color:#fff; transform:rotate(-3deg); }
+
+/* ---------- nav ---------- */
+.bc-nav{
+  position:sticky; top:0; z-index:100;
+  background:var(--paper); border-bottom:var(--border);
+}
+.bc-nav .inner{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  padding:10px 16px; max-width:1160px; margin:0 auto;
+}
+.brand{
+  font-family:var(--font-display); font-size:20px; text-decoration:none;
+  background:var(--gold); border:var(--border); border-radius:10px;
+  padding:4px 12px; box-shadow:3px 3px 0 var(--ink); transform:rotate(-1.5deg);
+  white-space:nowrap;
+}
+.bc-links{ display:flex; gap:4px; margin-left:auto; align-items:center; flex-wrap:wrap; }
+.bc-links a{
+  text-decoration:none; font-weight:700; font-size:15px;
+  padding:6px 12px; border:3px solid transparent; border-radius:10px;
+}
+.bc-links a:hover{ border-color:var(--ink); background:var(--cream); box-shadow:3px 3px 0 var(--ink); }
+.bc-links a.active{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.nav-tools{ display:flex; gap:8px; align-items:center; margin-left:6px; }
+.lang-group{ display:flex; border:var(--border); border-radius:10px; overflow:hidden; background:var(--cream); }
+.lang-group button{
+  border:none; background:transparent; font-family:var(--font-mono); font-weight:700;
+  font-size:13px; padding:6px 9px; cursor:pointer; color:var(--ink);
+}
+.lang-group button + button{ border-left:2px solid var(--ink); }
+.lang-group button.active{ background:var(--indigo); color:#fff; }
+.coin-pill{
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--gold); border:var(--border); border-radius:999px;
+  padding:5px 14px; font-weight:800; font-size:14px; box-shadow:3px 3px 0 var(--ink);
+}
+.icon-btn{
+  border:var(--border); border-radius:10px; background:var(--cream);
+  width:38px; height:38px; font-size:17px; cursor:pointer; line-height:1;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.icon-btn:active{ transform:translate(2px,2px); box-shadow:none; }
+.nav-toggle{ display:none; }
+
+@media (max-width:900px){
+  .nav-toggle{
+    display:block; margin-left:auto;
+    border:var(--border); border-radius:10px; background:var(--gold);
+    font-size:18px; width:42px; height:42px; cursor:pointer; box-shadow:3px 3px 0 var(--ink);
+  }
+  .bc-links{
+    display:none; width:100%; flex-direction:column; align-items:stretch;
+    padding:10px 4px 14px; border-top:2px solid var(--ink); margin-left:0;
+  }
+  .bc-links.open{ display:flex; }
+  .bc-links a{ border:var(--border); background:var(--cream); margin-top:8px; }
+  .nav-tools{ margin-left:auto; }
+}
+
+@media (max-width:600px){
+  .coin-pill{ font-size:12px; padding:4px 10px; }
+  .lang-group button{ padding:5px 7px; font-size:12px; }
+  .icon-btn{ width:34px; height:34px; font-size:15px; }
+}
+
+/* ---------- marquee ticker ---------- */
+.marquee{
+  overflow:hidden; border-top:var(--border); border-bottom:var(--border);
+  background:var(--red); color:#fff; padding:8px 0;
+}
+.marquee .track{
+  display:inline-block; white-space:nowrap; font-family:var(--font-mono); font-weight:700;
+  animation:mq 18s linear infinite;
+}
+.marquee span{ margin:0 18px; }
+@keyframes mq{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ---------- drawer (Túi xu) ---------- */
+.drawer-backdrop{
+  position:fixed; inset:0; background:rgba(20,20,20,.45); z-index:180;
+  opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.drawer-backdrop.show{ opacity:1; pointer-events:auto; }
+.drawer{
+  position:fixed; top:0; right:-400px; width:min(360px,92vw); height:100dvh; z-index:190;
+  background:var(--cream); border-left:var(--border);
+  transition:right .25s ease; overflow-y:auto; padding:18px;
+}
+.drawer.show{ right:0; }
+.drawer h3{ margin:4px 0 12px; }
+.drawer .close-row{ display:flex; justify-content:flex-end; }
+
+/* ---------- toast ---------- */
+.toast-zone{ position:fixed; bottom:18px; left:50%; transform:translateX(-50%); z-index:300; display:flex; flex-direction:column; gap:8px; width:min(420px,92vw); }
+.toast-bc{
+  background:var(--ink); color:var(--paper); border:var(--border); border-radius:12px;
+  box-shadow:4px 4px 0 rgba(20,20,20,.35);
+  padding:10px 16px; font-weight:700; animation:pop .18s ease;
+}
+.toast-bc.win{ background:var(--green); color:#fff; }
+.toast-bc.lose{ background:var(--red); color:#fff; }
+.toast-bc.gold{ background:var(--gold); color:var(--ink); }
+@keyframes pop{ from{ transform:scale(.85); opacity:0; } to{ transform:scale(1); opacity:1; } }
+
+/* ---------- modal ---------- */
+.modal-bc{
+  position:fixed; inset:0; z-index:250; display:none;
+  background:rgba(20,20,20,.5); padding:18px;
+}
+.modal-bc.show{ display:flex; align-items:center; justify-content:center; }
+.modal-bc .box{
+  background:var(--cream); border:var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow-lg); max-width:560px; width:100%;
+  max-height:86dvh; overflow-y:auto; padding:22px;
+}
+
+/* ---------- badges ---------- */
+.badge-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:10px; }
+.badge-cell{
+  border:var(--border); border-radius:12px; background:var(--paper);
+  padding:10px 6px; text-align:center; font-size:12px; font-weight:700;
+}
+.badge-cell .ic{ font-size:26px; display:block; }
+.badge-cell.locked{ opacity:.38; filter:grayscale(1); }
+.badge-cell.unlocked{ background:var(--gold); animation:pop .25s ease; }
+
+/* ---------- forms ---------- */
+.field{ margin-bottom:14px; }
+.field label{ font-weight:800; display:block; margin-bottom:6px; }
+.field input,.field textarea{
+  width:100%; border:var(--border); border-radius:10px; background:#fff;
+  padding:10px 12px; font-family:var(--font-body); font-size:15px;
+}
+.field input:focus,.field textarea:focus{ outline:3px dashed var(--indigo); outline-offset:2px; }
+.field .err{ display:none; color:var(--red); font-weight:700; font-size:13px; margin-top:4px; }
+.field.invalid input,.field.invalid textarea{ border-color:var(--red); background:#FDEBE8; }
+.field.invalid .err{ display:block; }
+.char-count{ font-family:var(--font-mono); font-size:12px; }
+
+/* ---------- footer ---------- */
+.bc-footer{
+  border-top:var(--border); background:var(--ink); color:var(--paper);
+  margin-top:56px; padding:28px 16px 20px; position:relative; z-index:1;
+}
+.bc-footer .inner{ max-width:1160px; margin:0 auto; display:grid; gap:18px; grid-template-columns:2fr 1fr 1fr; }
+.bc-footer a{ color:var(--paper); }
+.bc-footer .fine{ opacity:.75; font-size:13px; }
+@media (max-width:760px){ .bc-footer .inner{ grid-template-columns:1fr; } }
+
+/* ---------- motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  .marquee .track{ animation:none; }
+}
