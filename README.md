@@ -3,7 +3,7 @@
 Website văn hóa–giải trí về **bầu cua tôm cá** — trò chơi Tết dân gian Việt Nam.
 Học luật trong 30 giây, chơi bằng **xu ảo 100%** (không nạp, không rút, không tiền thật), soi xác suất ở Lab.
 
-🔗 **Bản live:** https://buiminhtien0707.github.io/baucuatomca-ux-assignment/
+🔗 **Bản live:** https://buiminhtien0707.github.io/
 
 ---
 
