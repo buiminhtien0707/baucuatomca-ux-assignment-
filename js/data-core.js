@@ -5,7 +5,7 @@ window.BC_DATA = (function () {
 
   var ANIMALS = [
     {
-      id: "bau", img: "assets/img/animals/bau.jpg",
+      id: "bau", img: "assets/img/animals/bau.svg",
       name: { vn: "Bầu", en: "Gourd", zh: "葫芦" },
       line: { vn: "Mộc mạc, đủ đầy", en: "Simple and plentiful", zh: "朴实而富足" },
       fact: {
@@ -15,7 +15,7 @@ window.BC_DATA = (function () {
       }
     },
     {
-      id: "cua", img: "assets/img/animals/cua.jpg",
+      id: "cua", img: "assets/img/animals/cua.svg",
       name: { vn: "Cua", en: "Crab", zh: "蟹" },
       line: { vn: "Đi đường riêng", en: "Walks its own path", zh: "走自己的路" },
       fact: {
@@ -25,7 +25,7 @@ window.BC_DATA = (function () {
       }
     },
     {
-      id: "tom", img: "assets/img/animals/tom.jpg",
+      id: "tom", img: "assets/img/animals/tom.svg",
       name: { vn: "Tôm", en: "Prawn", zh: "虾" },
       line: { vn: "Lộc cong mình", en: "Curved like a bow of luck", zh: "弯身如鞠躬的运气" },
       fact: {
@@ -35,7 +35,7 @@ window.BC_DATA = (function () {
       }
     },
     {
-      id: "ca", img: "assets/img/animals/ca.jpg",
+      id: "ca", img: "assets/img/animals/ca.svg",
       name: { vn: "Cá", en: "Fish", zh: "鱼" },
       line: { vn: "Năm dư tháng đủ", en: "Plenty all year round", zh: "年年有余" },
       fact: {
@@ -45,7 +45,7 @@ window.BC_DATA = (function () {
       }
     },
     {
-      id: "ga", img: "assets/img/animals/ga.jpg",
+      id: "ga", img: "assets/img/animals/ga.svg",
       name: { vn: "Gà", en: "Rooster", zh: "鸡" },
       line: { vn: "Gáy sáng hôm mới", en: "Greets the new day", zh: "啼鸣迎新日" },
       fact: {
@@ -55,7 +55,7 @@ window.BC_DATA = (function () {
       }
     },
     {
-      id: "huou", img: "assets/img/animals/huou.jpg",
+      id: "huou", img: "assets/img/animals/huou.svg",
       name: { vn: "Hươu", en: "Deer", zh: "鹿" },
       line: { vn: "Con vật của “lộc”", en: "The animal of fortune", zh: "象征“禄”的动物" },
       fact: {

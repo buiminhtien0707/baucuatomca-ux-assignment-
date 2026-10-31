@@ -55,8 +55,8 @@ Hoặc trong VS Code: cài extension **Live Server** → chuột phải `index.h
 
 - HTML5 + CSS3 + JavaScript thuần (không framework, không build tool)
 - [Bootstrap 5.3](https://getbootstrap.com) (grid — file local)
-- Font: Archivo Black, Be Vietnam Pro, Space Mono (self-hosted woff2)
-- Ảnh 6 con vật: [Wikimedia Commons](https://commons.wikimedia.org) (free license)
+- Font: Baloo 2 ExtraBold (tiêu đề), Be Vietnam Pro (nội dung), Space Mono (self-hosted woff2)
+- Minh họa 6 con vật: vector vẽ theo phong cách mặt bàn bầu cua (không dùng ảnh chụp)
 - Deploy: GitHub Pages
 
 ## 📝 Cập nhật code rồi đẩy lên
