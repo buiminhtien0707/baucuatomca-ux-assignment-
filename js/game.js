@@ -278,7 +278,31 @@ window.BCGame = (function () {
       if (state === "IDLE") setStatus(BCi18n.t("play.statusIdle"));
     });
 
+    var helpBtn = document.querySelector("[data-act=help]");
+    if (helpBtn) helpBtn.addEventListener("click", showHelp);
+
     if (!BCStore.load().coachDone) showCoach();
+  }
+
+  /* FR-38: rules modal, always reachable */
+  function showHelp() {
+    var m = document.querySelector("#modal-help");
+    m.querySelector("#help-box").innerHTML =
+      "<div class=\"close-row\"><button class=\"icon-btn\" data-act=\"help-close\">✕</button></div>" +
+      "<h3>" + BCi18n.t("help.title") + "</h3>" +
+      "<div class=\"steps\">" + step(1, "coach.1") + step(2, "coach.2") + step(3, "coach.3") + "</div>" +
+      "<p><strong>" + BCi18n.t("help.payout") + "</strong></p>" +
+      "<ul>" +
+      "<li>" + BCi18n.t("learn.rule.0") + "</li>" +
+      "<li>" + BCi18n.t("learn.rule.1") + "</li>" +
+      "<li>" + BCi18n.t("learn.rule.2") + "</li>" +
+      "<li>" + BCi18n.t("learn.rule.3") + "</li>" +
+      "</ul>" +
+      "<a class=\"btn-bc btn-sm\" href=\"learn.html\">" + BCi18n.t("help.link") + "</a>";
+    m.classList.add("show");
+    m.querySelector("[data-act=help-close]").addEventListener("click", function () {
+      m.classList.remove("show");
+    });
   }
 
   /* ---------- first-visit coach marks ---------- */

@@ -103,7 +103,7 @@ window.BC_CONTENT = (function () {
     { q: { vn: "Vì sao nhà cầm bát luôn lãi?", en: "Why does the bowl-keeper profit?", zh: "为什么庄家总赚钱？" },
       a: { vn: "Luật trả thưởng thấp hơn xác suất thật: chênh ≈ 7,9%. Xem Lab để tự chạy 1.000 ván.", en: "Payouts sit below true odds: a gap of about 7.9%. Run 1,000 rounds in the Lab to see it.", zh: "赔率低于真实概率——差距约 7.9%。去实验室跑 1000 局看看。" } },
     { q: { vn: "Chơi trên điện thoại được không?", en: "Can I play on my phone?", zh: "可以用手机玩吗？" },
-      a: { vn: "Được: thiết kế cho 1 tay, ô to, chip to.", en: "Yes: designed one-handed with big cells and big chips.", zh: "可以——为单手设计，格子大、筹码大。" } },
+      a: { vn: "Được chứ — cả trang thiết kế cho một tay cầm điện thoại: ô cược to, chip to, chạm là chơi. Và vì dùng xu ảo nên thua cũng không mất gì.", en: "Absolutely: the whole page is built for one-handed phone play with big cells and big chips. And since coins are virtual, losing costs nothing.", zh: "可以——为单手设计，格子大、筹码大。" } },
     { q: { vn: "Có cần đăng ký tài khoản không?", en: "Do I need an account?", zh: "需要注册账号吗？" },
       a: { vn: "Không cần. Không đăng ký, không thu thập dữ liệu.", en: "No account, no data collection.", zh: "无需注册，不收集数据。" } }
   ];

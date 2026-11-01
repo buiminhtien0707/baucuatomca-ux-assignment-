@@ -56,7 +56,8 @@ window.BCPageLearn = (function () {
     } else {
       box.innerHTML =
         "<h3>" + BCi18n.t("tab.tet") + "</h3><p>" +
-        BCi18n.t("tet.respBody") + "</p>";
+        BCi18n.t("learn.tetBody") + "</p>" +
+        "<p class=\"mut\" style=\"font-size:13px\">" + BCi18n.t("learn.tetNote") + "</p>";
     }
     zone.appendChild(box);
   }

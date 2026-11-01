@@ -38,9 +38,12 @@ window.BC_I18N_ZH = {
   "coach.t": "快速指南", "coach.1": "在筹码区选一枚筹码。",
   "coach.2": "点动物格子下注（可多格）。", "coach.3": "按下摇！——开盅，命中的格子闪金光。",
   "coach.btn": "上桌！",
+  "help.title": "30 秒规则", "help.link": "详见学页", "help.payout": "赔率表",
 
   "learn.title": "文化手册", "learn.sub": "动物、起源、规则——3 分钟读完，安心上桌。",
   "tab.animal": "动物", "tab.history": "起源", "tab.rules": "规则", "tab.tet": "春节文化",
+  "learn.tetBody": "骰宝属于春节：初一家宴过后，全家围坐盅前，为新的一年讨个开门彩。它让满屋热闹，也让孩子们揣着利是学会输得漂亮：赢的请糖，输的笑得最响。年中没人玩，因为这游戏属于新年的头几天。",
+  "learn.tetNote": "小提示：这里的金币是虚拟的，只为好玩。",
   "learn.historyBody": "骰宝摇瓜源自中国的 Hoo Hey How 街头骰子游戏，随商船南来，把“铜钱”面换成了鹿，成为街坊巷尾的春节娱乐。",
   "learn.rulesIntro": "在动物格子上下注，然后盅内摇三颗骰子：",
   "learn.rule.0": "0 个命中 → 输掉赌注",

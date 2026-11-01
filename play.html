@@ -49,6 +49,7 @@
           <h3 style="margin:16px 0 0" data-i18n="play.chips"></h3>
           <div class="chip-tray"></div>
           <div class="play-actions">
+            <button class="icon-btn" data-act="help" aria-label="Luật 30 giay" style="width:38px;height:38px;font-weight:800">?</button>
             <button class="btn-bc btn-sm" data-act="undo" data-i18n="play.undo"></button>
             <button class="btn-bc btn-sm" data-act="clear" data-i18n="play.clear"></button>
             <button class="btn-bc btn-sm" data-act="rebet" data-i18n="play.rebet"></button>
@@ -125,6 +126,7 @@
 
   <button class="icon-btn fab" data-act="drawer-open" aria-label="Túi xu"
      style="position:fixed;bottom:18px;right:18px;z-index:150;width:56px;height:56px;border-radius:50%"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 7c-3 2-5 5-5 8 0 4 4 6 9 6s9-2 9-6c0-3-2-6-5-8" fill="#E8442E" stroke="#141414" stroke-width="2"/><path d="M9 7c0-2 1.4-4 3-4s3 2 3 4" fill="none" stroke="#141414" stroke-width="2"/></svg></button>
+  <div class="modal-bc" id="modal-help" role="dialog" aria-modal="true"><div class="box" id="help-box"></div></div>
   <div class="toast-zone"></div>
 
   <script src="js/data-core.js"></script>

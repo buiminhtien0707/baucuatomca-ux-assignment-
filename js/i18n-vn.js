@@ -39,9 +39,12 @@ window.BC_I18N_VN = {
   "coach.2": "Chạm ô con vật để đặt cược (được nhiều ô).",
   "coach.3": "Bấm LẮC!: bát mở ra, ô khớp sáng vàng.",
   "coach.btn": "Vào bàn!",
+  "help.title": "Luật 30 giây", "help.link": "Xem chi tiết ở Learn", "help.payout": "Bảng thưởng",
 
   "learn.title": "Sổ tay văn hóa", "learn.sub": "Con vật, nguồn gốc, luật chơi: đọc 3 phút là vào bàn tự tin.",
   "tab.animal": "Con vật", "tab.history": "Nguồn gốc", "tab.rules": "Luật chơi", "tab.tet": "Văn hóa Tết",
+  "learn.tetBody": "Bầu cua là trò chơi của ngày Tết: sau mâm cỗ mùng 1, cả nhà quây quần quanh bát để mở đầu năm may mắn. Chơi để nhà rộn ràng, cho trẻ con cầm lì xì mà học cách thua một vui vẻ: khớp thì khao mứt, hụt thì cười lớn. Giữa năm hiếm ai rủ nhau chơi, vì trò này thuộc về những ngày đầu của năm mới.",
+  "learn.tetNote": "Nhắc nhỏ: xu trên site là xu ảo, vui thôi.",
   "learn.historyBody": "Bầu cua tôm cá gốc từ Hoo Hey How: trò cá ngựa đường phố Trung Quốc. Theo thương nhân, nó đi tàu vượt biển vào Nam Bộ, đổi mặt “đồng tiền” thành Hươu, và trở thành món giải trí Tết của cả xóm.",
   "learn.rulesIntro": "Đặt cược lên các ô con vật, lắc 3 viên xí ngầu trong bát:",
   "learn.rule.0": "0 khớp → mất cược",

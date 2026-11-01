@@ -39,9 +39,12 @@ window.BC_I18N_EN = {
   "coach.2": "Tap an animal cell to place your bet (multiple cells allowed).",
   "coach.3": "Hit SHAKE!: the bowl opens and matching cells glow gold.",
   "coach.btn": "To the table!",
+  "help.title": "30-second rules", "help.link": "Details in Learn", "help.payout": "Payouts",
 
   "learn.title": "Culture handbook", "learn.sub": "Animals, origins, rules: a 3-minute read before your first real table.",
   "tab.animal": "Animals", "tab.history": "Origins", "tab.rules": "Rules", "tab.tet": "Tết culture",
+  "learn.tetBody": "Bầu cua belongs to Tết: after the day-one feast, the whole family gathers around the bowl to bring first-day luck into the house. It fills the home with noise and lets kids learn to lose graciously over their li xi: winners share sweets, losers laugh loudest. Nobody plays it mid-year; the game belongs to the first days of a new year.",
+  "learn.tetNote": "Small reminder: coins here are virtual, just for fun.",
   "learn.historyBody": "Bầu cua tôm cá grew from Hoo Hey How, a street dice game from China. It sailed south with traders, swapped its “coin” face for the deer, and became the Tết pastime of whole neighborhoods.",
   "learn.rulesIntro": "Place bets on animal cells, then three dice are shaken in a bowl:",
   "learn.rule.0": "0 matches → lose the bet",
