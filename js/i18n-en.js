@@ -79,6 +79,7 @@ window.BC_I18N_EN = {
   "tet.respBody": "Coins here are 100% virtual. No deposits, no withdrawals, no cash-out ads. Fun first: never let the game turn into money anywhere else.",
   "tet.formTitle": "Send us your thoughts",
   "tet.name": "Name (optional)", "tet.email": "Email", "tet.msg": "Message",
+  "tet.phEmail": "you@example.com",
   "tet.send": "Send feedback",
   "tet.errEmail": "That email doesn't look right.",
   "tet.errMsg": "Give us at least 10 characters.",

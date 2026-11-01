@@ -94,15 +94,20 @@ window.BCUI = (function () {
     });
   }
   function wireSound() {
-    var btn = document.querySelector("[data-act=sound]");
-    if (!btn) return;
-    function paint() { btn.classList.toggle("muted", BCStore.load().muted); }
-    btn.addEventListener("click", function () {
-      var s = BCStore.load();
-      s.muted = !s.muted;
-      BCStore.save();
-      paint();
-      BCAudio.pop();
+    var btns = document.querySelectorAll("[data-act=sound]");
+    if (!btns.length) return;
+    function paint() {
+      var muted = BCStore.load().muted;
+      btns.forEach(function (btn) { btn.classList.toggle("muted", muted); });
+    }
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var s = BCStore.load();
+        s.muted = !s.muted;
+        BCStore.save();
+        paint();
+        BCAudio.pop();
+      });
     });
     paint();
   }
@@ -111,6 +116,25 @@ window.BCUI = (function () {
   function boot() {
     BCWallet.touchVisit();
     BCBadges.check("return_visit");
+
+    // inject mobile menu tools if not present
+    var links = document.querySelector(".bc-links");
+    if (links && !links.querySelector(".mobile-menu-tools")) {
+      var mobileTools = document.createElement("div");
+      mobileTools.className = "mobile-menu-tools";
+      mobileTools.innerHTML =
+        '<div class="lang-group" role="group" aria-label="Language">' +
+        '<button data-lang="vn">VN</button>' +
+        '<button data-lang="en">EN</button>' +
+        '<button data-lang="zh">ZH</button>' +
+        '</div>' +
+        '<button class="icon-btn" data-act="sound" aria-label="Sound">' +
+        '<svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>' +
+        '<svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 9l5 6M21 9l-5 6"/></svg>' +
+        '</button>';
+      links.appendChild(mobileTools);
+    }
+
     BCi18n.apply();
     wireLang();
     wireSound();

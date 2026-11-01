@@ -79,6 +79,7 @@ window.BC_I18N_VN = {
   "tet.respBody": "Bầu cua trên site này dùng xu ảo 100%. Không nạp, không rút, không quảng cáo đổi thưởng. Vui là chính, đừng để trò chơi đổi thành tiền ở bất kỳ đâu ngoài kia.",
   "tet.formTitle": "Góp ý cho tụi mình",
   "tet.name": "Tên (không bắt buộc)", "tet.email": "Email", "tet.msg": "Nội dung",
+  "tet.phEmail": "ban@example.com",
   "tet.send": "Gửi góp ý",
   "tet.errEmail": "Email chưa đúng định dạng.", "tet.errMsg": "Nói cho mình ít nhất 10 ký tự nhé.",
   "tet.ok": "Đã nhận góp ý: cảm ơn bạn nhiều!",

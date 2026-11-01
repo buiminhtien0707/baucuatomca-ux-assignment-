@@ -78,6 +78,7 @@ window.BC_I18N_ZH = {
   "tet.respBody": "这里的金币 100% 虚拟。不可充值、不可提现、没有兑现广告。开心就好——别让游戏在别处变成金钱。",
   "tet.formTitle": "给我们留言",
   "tet.name": "名字（可选）", "tet.email": "邮箱", "tet.msg": "内容",
+  "tet.phEmail": "you@example.com",
   "tet.send": "发送",
   "tet.errEmail": "邮箱格式不正确。", "tet.errMsg": "至少写 10 个字符吧。",
   "tet.ok": "已收到反馈——谢谢！",
