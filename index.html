@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BẦU CUA VUI — Home</title>
+  <meta name="description" content="Bầu Cua Vui: học và chơi bầu cua tôm cá bằng xu ảo. Không nạp, không rút, chỉ để vui ngày Tết.">
+  <title>BẦU CUA VUI: Home</title>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/pages.css">
 </head>
 <body data-page="home">
+  <noscript><p style="padding:10px 16px;background:#E8442E;color:#FFFDF8;font-weight:700">Trang này cần JavaScript để chơi — hãy bật JS trong trình duyệt.</p></noscript>
   <a class="skip-link" href="#main">Đến nội dung chính</a>
 
   <nav class="bc-nav">
     <div class="inner">
       <a class="brand" href="index.html" data-i18n="brand.short"></a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.6"/></svg></button>
       <div class="bc-links">
         <a href="index.html" data-page="home" data-i18n="nav.home"></a>
         <a href="play.html" data-page="play" data-i18n="nav.play"></a>
@@ -29,8 +31,8 @@
           <button data-lang="en">EN</button>
           <button data-lang="zh">ZH</button>
         </div>
-        <button class="icon-btn" data-act="sound" data-i18n-aria="a11y.sound">🔊</button>
-        <button class="coin-pill" data-act="drawer-open" data-i18n-aria="a11y.coin">🪙 1.000 xu</button>
+        <button class="icon-btn" data-act="sound" data-i18n-aria="a11y.sound"><svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg><svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 9l5 6M21 9l-5 6"/></svg></button>
+        <button class="coin-pill" data-act="drawer-open" data-i18n-aria="a11y.coin"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#B8860B" stroke="#141414" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#141414" stroke-width="1.6"/></svg><span>1.000 xu</span></button>
       </div>
     </div>
   </nav>
@@ -48,12 +50,11 @@
             <a class="btn-bc" href="learn.html" data-i18n="hero.ctaLearn"></a>
           </div>
           <p class="mono mut" style="margin-top:14px" data-i18n="footer.warn"></p>
-          <p class="mono mut" style="margin-top:4px" data-i18n="hero.kicker"></p>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <div class="big-sticker s1">🦀<small>Cua</small></div>
-          <div class="big-sticker s2">🎲<small>xí ngầu</small></div>
-          <div class="big-sticker s3">🧧<small>lì xì</small></div>
+          <div class="big-sticker s1"><img src="assets/img/animals/cua.svg" alt="" width="64" height="64"><small>Cua</small></div>
+          <div class="big-sticker s2"><svg viewBox="0 0 44 44" width="44" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="9" fill="#FFFBF2" stroke="#141414" stroke-width="3"/><circle cx="14" cy="14" r="4" fill="#141414"/><circle cx="22" cy="22" r="4" fill="#E8442E"/><circle cx="30" cy="30" r="4" fill="#141414"/></svg><small>xí ngầu</small></div>
+          <div class="big-sticker s3"><svg viewBox="0 0 44 44" width="44" aria-hidden="true"><rect x="6" y="8" width="32" height="30" rx="4" fill="#E8442E" stroke="#141414" stroke-width="3"/><path d="M6 14l16 9 16-9" fill="none" stroke="#FFC93C" stroke-width="3"/><circle cx="22" cy="27" r="4" fill="#FFC93C" stroke="#141414" stroke-width="2"/></svg><small>lì xì</small></div>
         
       </div>
     </section>
@@ -73,13 +74,13 @@
       </div>
       <div class="row g-4">
         <div class="col-md-4"><div class="card-bc how-card">
-          <div class="ic">1️⃣</div><h3 data-i18n="how.1t"></h3><p data-i18n="how.1d"></p>
+          <div class="ic sticker">1</div><h3 data-i18n="how.1t"></h3><p data-i18n="how.1d"></p>
         </div></div>
         <div class="col-md-4"><div class="card-bc how-card">
-          <div class="ic">2️⃣</div><h3 data-i18n="how.2t"></h3><p data-i18n="how.2d"></p>
+          <div class="ic sticker">2</div><h3 data-i18n="how.2t"></h3><p data-i18n="how.2d"></p>
         </div></div>
         <div class="col-md-4"><div class="card-bc how-card">
-          <div class="ic">3️⃣</div><h3 data-i18n="how.3t"></h3><p data-i18n="how.3d"></p>
+          <div class="ic sticker">3</div><h3 data-i18n="how.3t"></h3><p data-i18n="how.3d"></p>
         </div></div>
       </div>
     </section>
@@ -91,9 +92,9 @@
         <h2 data-i18n="animals.sub"></h2>
       </div>
       <div class="carousel-wrap">
-        <button class="car-btn prev" data-act="car-prev" aria-label="Previous">◀</button>
+        <button class="car-btn prev" data-act="car-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3"/></svg></button>
         <div class="animal-track" id="animal-track"></div>
-        <button class="car-btn next" data-act="car-next" aria-label="Next">▶</button>
+        <button class="car-btn next" data-act="car-next" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M10 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3"/></svg></button>
       </div>
     </section>
 
@@ -133,7 +134,7 @@
   <div class="drawer-backdrop"></div>
   <aside class="drawer" aria-label="Túi xu">
     <div class="close-row"><button class="icon-btn" data-act="drawer-close" aria-label="Close">✕</button></div>
-    <h3>💰 <span data-i18n="drawer.title"></span></h3>
+    <h3><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 7c-3 2-5 5-5 8 0 4 4 6 9 6s9-2 9-6c0-3-2-6-5-8" fill="#E8442E" stroke="#141414" stroke-width="2"/><path d="M9 7c0-2 1.4-4 3-4s3 2 3 4" fill="none" stroke="#141414" stroke-width="2"/></svg> <span data-i18n="drawer.title"></span></h3>
     <button class="btn-bc btn-red" data-act="lixi" style="width:100%" data-i18n="drawer.lixi"></button>
     <p class="mono mut" style="font-size:12px" data-i18n="footer.warn"></p>
     <h3 style="font-size:18px" data-i18n="drawer.badges"></h3>
@@ -143,8 +144,8 @@
     <button class="btn-bc btn-sm" data-act="reset" style="margin-top:14px" data-i18n="drawer.reset"></button>
   </aside>
 
-  <button class="icon-btn" data-act="drawer-open" aria-label="Túi xu"
-    style="position:fixed;bottom:18px;right:18px;z-index:150;width:56px;height:56px;font-size:24px;border-radius:50%">💰</button>
+  <button class="icon-btn fab" data-act="drawer-open" aria-label="Túi xu"
+     style="position:fixed;bottom:18px;right:18px;z-index:150;width:56px;height:56px;border-radius:50%"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M8 7c-3 2-5 5-5 8 0 4 4 6 9 6s9-2 9-6c0-3-2-6-5-8" fill="#E8442E" stroke="#141414" stroke-width="2"/><path d="M9 7c0-2 1.4-4 3-4s3 2 3 4" fill="none" stroke="#141414" stroke-width="2"/></svg></button>
   <div class="toast-zone"></div>
 
   <script src="js/data-core.js"></script>

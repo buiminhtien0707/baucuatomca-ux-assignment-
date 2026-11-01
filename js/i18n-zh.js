@@ -91,5 +91,5 @@ window.BC_I18N_ZH = {
   "footer.blurb": "关于越南骰宝的文化娱乐网站。先学——后玩——懂原理。",
   "footer.warn": "100% 虚拟金币——不可充值、不可提现、无真钱。",
   "footer.made": "CSCU9X5 学生项目。图片：Wikimedia Commons（免费许可）。",
-  "a11y.sound": "切换音效", "a11y.coin": "金币余额"
+  "a11y.sound": "切换音效", "a11y.coin": "金币余额", "unit.xu": "金币"
 };

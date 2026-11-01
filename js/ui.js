@@ -78,9 +78,10 @@ window.BCUI = (function () {
   }
 
   /* ---------- coin pill ---------- */
+  var ICON_COIN = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#B8860B" stroke="#141414" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#141414" stroke-width="1.6"/></svg>';
   function renderCoins() {
     var pill = document.querySelector(".coin-pill");
-    if (pill) pill.innerHTML = "🪙 " + BCWallet.balance().toLocaleString("vi-VN") + " xu";
+    if (pill) pill.innerHTML = ICON_COIN + "<span>" + BCWallet.balance().toLocaleString("vi-VN") + " " + BCi18n.t("unit.xu") + "</span>";
   }
 
   /* ---------- lang + sound ---------- */
@@ -95,7 +96,7 @@ window.BCUI = (function () {
   function wireSound() {
     var btn = document.querySelector("[data-act=sound]");
     if (!btn) return;
-    function paint() { btn.textContent = BCStore.load().muted ? "🔇" : "🔊"; }
+    function paint() { btn.classList.toggle("muted", BCStore.load().muted); }
     btn.addEventListener("click", function () {
       var s = BCStore.load();
       s.muted = !s.muted;

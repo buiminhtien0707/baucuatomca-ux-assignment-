@@ -1,3 +1,4 @@
+/* Hallmark · edit-pass 01/11/2026 · critique: P4 H4 E4 S3 R4 V4 · weakest S: game-site copy must stay dense; de-slopped emoji-UI to SVG, tokenised colours, straightened dash copy — design kept */
 /* ============================================================
    BẦU CUA VUI — per-page layouts
    ============================================================ */
@@ -20,7 +21,7 @@
 }
 .hero-art .s1{ top:6%; left:4%; transform:rotate(-6deg); }
 .hero-art .s2{ top:36%; right:2%; transform:rotate(5deg); background:var(--gold); }
-.hero-art .s3{ bottom:4%; left:16%; transform:rotate(-3deg); background:var(--red); color:#fff; }
+.hero-art .s3{ bottom:4%; left:16%; transform:rotate(-3deg); background:var(--red); color:var(--ink-on-dark); }
 .hero-art .s1 small,.hero-art .s2 small,.hero-art .s3 small{
   display:block; font-family:var(--font-mono); font-size:12px; margin-top:6px; color:inherit; opacity:.8;
 }
@@ -108,7 +109,7 @@ details.faq .a{ padding:0 16px 14px; }
 
 .bowl-zone{
   margin-top:14px; border:var(--border); border-radius:var(--radius);
-  background:var(--indigo); color:#fff; box-shadow:var(--shadow);
+  background:var(--indigo); color:var(--ink-on-dark); box-shadow:var(--shadow);
   padding:18px; text-align:center; position:relative; overflow:hidden;
 }
 .bowl{ font-size:74px; display:inline-block; }
@@ -163,7 +164,7 @@ details.faq .a{ padding:0 16px 14px; }
   border:var(--border); border-radius:999px; background:var(--cream);
   font-weight:800; padding:7px 16px; cursor:pointer;
 }
-.tab.active{ background:var(--indigo); color:#fff; }
+.tab.active{ background:var(--indigo); color:var(--ink-on-dark); }
 .learn-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
 .story-card{ cursor:pointer; }
 .story-card .emoji{ font-size:38px; }
@@ -177,8 +178,8 @@ details.faq .a{ padding:0 16px 14px; }
   padding:10px 14px; text-align:left; font-weight:700; cursor:pointer; font-size:15px;
 }
 .quiz-opt:hover{ transform:translate(-2px,-2px); box-shadow:var(--shadow); }
-.quiz-opt.right{ background:var(--green); color:#fff; }
-.quiz-opt.wrong{ background:var(--red); color:#fff; animation:shake .4s ease 1; }
+.quiz-opt.right{ background:var(--green); color:var(--ink-on-dark); }
+.quiz-opt.wrong{ background:var(--red); color:var(--ink); animation:shake .4s ease 1; }
 .quiz-opt:disabled{ cursor:default; }
 .quiz-bar{ display:flex; justify-content:space-between; align-items:center; }
 .quiz-why{ border:3px dashed var(--ink); border-radius:10px; padding:10px 12px; margin-top:12px; background:var(--paper); }
@@ -193,7 +194,7 @@ details.faq .a{ padding:0 16px 14px; }
 }
 .radio-chip input{ accent-color:var(--indigo); width:18px; height:18px; }
 .radio-chip:has(input:checked){ background:var(--gold); }
-.canvas-box{ border:var(--border); border-radius:12px; background:#fff; padding:10px; margin-bottom:14px; }
+.canvas-box{ border:var(--border); border-radius:12px; background:var(--surface); padding:10px; margin-bottom:14px; }
 .canvas-box h4{ margin:2px 0 8px; font-family:var(--font-mono); font-size:14px; }
 .canvas-box canvas{ width:100%; height:200px; display:block; }
 .live-count{ font-family:var(--font-mono); font-size:22px; font-weight:700; }
@@ -209,20 +210,24 @@ details.faq .a{ padding:0 16px 14px; }
 }
 .tl-item h4{ font-family:var(--font-display); text-transform:uppercase; margin:0 0 4px; }
 .resp-callout{
-  border:var(--border); border-radius:var(--radius); background:var(--green); color:#fff;
+  border:var(--border); border-radius:var(--radius); background:var(--green); color:var(--ink-on-dark);
   box-shadow:var(--shadow); padding:18px; margin:26px 0;
 }
 .form-wrap{ max-width:620px; }
 
 /* ---------- coach overlay ---------- */
 .coach{
-  position:fixed; inset:0; z-index:260; background:rgba(20,20,20,.55);
+  position:fixed; inset:0; z-index:260; background:var(--scrim);
   display:flex; align-items:center; justify-content:center; padding:18px;
 }
 .coach .box{ max-width:480px; }
 .coach .steps{ display:grid; gap:10px; margin:14px 0 18px; }
 .coach .step-row{ display:flex; gap:12px; align-items:center; border:var(--border); border-radius:12px; background:var(--paper); padding:10px 12px; font-weight:700; }
 .coach .n{
-  min-width:34px; height:34px; border-radius:50%; border:var(--border); background:var(--red); color:#fff;
+  min-width:34px; height:34px; border-radius:50%; border:var(--border); background:var(--red); color:var(--ink);
   display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:700;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .marquee .track, .bowl.shaking, .float-xu, .coin-pill.bump{ animation:none !important; }
 }
