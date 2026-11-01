@@ -11,7 +11,7 @@ window.BC_I18N_EN = {
 
   "how.title": "30-second guide", "how.sub": "Three steps. No account, no reading homework.",
   "how.1t": "Pick a chip", "how.1d": "Tap 10 / 50 / 100 / 500 to choose a value.",
-  "how.2t": "Place it", "how.2d": "Tap an animal cell to bet: combine as many cells as you like.",
+  "how.2t": "Place it", "how.2d": "Tap one animal to choose it; tap again to raise the bet.",
   "how.3t": "SHAKE!", "how.3d": "Hit SHAKE and watch the bowl open. 1/2/3 matches pay ×1/×2/×3.",
 
   "animals.title": "Six animals, six meanings",
@@ -40,7 +40,7 @@ window.BC_I18N_EN = {
   "lb.rank": "Rank", "lb.name": "Player", "lb.xu": "Xu",
 
   "coach.t": "Quick guide", "coach.1": "Pick one chip from the tray.",
-  "coach.2": "Tap an animal cell to place your bet (multiple cells allowed).",
+  "coach.2": "Tap one animal to choose it.",
   "coach.3": "Hit SHAKE!: the bowl opens and matching cells glow gold.",
   "coach.btn": "To the table!",
   "help.title": "30-second rules", "help.link": "Details in Learn", "help.payout": "Payouts",

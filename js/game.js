@@ -87,10 +87,16 @@ window.BCGame = (function () {
 
   function renderHolds() {
     var holds = BCWallet.holds();
+    var board = document.querySelector(".board");
+    var anySel = false;
     document.querySelectorAll(".cell").forEach(function (c) {
       var id = c.dataset.animal;
       var amt = holds[id] || 0;
       var isMax = amt >= BCWallet.MAX_PER_ANIMAL;
+      var sel = amt > 0;
+      if (sel) anySel = true;
+      c.classList.toggle("selected", sel);
+      c.setAttribute("aria-pressed", sel ? "true" : "false");
       c.classList.toggle("has-bet", amt > 0);
       c.classList.toggle("is-max-bet", isMax);
       var amtEl = c.querySelector(".amt");
@@ -105,6 +111,7 @@ window.BCGame = (function () {
         amtEl.innerHTML = "";
       }
     });
+    if (board) board.classList.toggle("has-selection", anySel);
     refreshChipAvailability();
   }
 
@@ -122,6 +129,10 @@ window.BCGame = (function () {
   /* ---------- round flow ---------- */
   function onCell(id) {
     if (state !== "IDLE") return;
+    /* một con duy nhất: chọn con khác = chuyển cược sang đó */
+    var holds = BCWallet.holds();
+    var otherHasBet = Object.keys(holds).some(function (k) { return k !== id && holds[k] > 0; });
+    if (otherHasBet) BCWallet.clearHolds();
     var res = BCWallet.addHold(id, selectedChip);
     if (!res.ok) {
       if (res.reason === "max_bet") {

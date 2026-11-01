@@ -11,7 +11,7 @@ window.BC_I18N_VN = {
 
   "how.title": "Hướng dẫn 30 giây", "how.sub": "Ba bước, không cần tài khoản, không cần đọc thêm.",
   "how.1t": "Chọn chip", "how.1d": "Chạm 10 / 50 / 100 / 500 để chọn mệnh giá.",
-  "how.2t": "Đặt lên ô", "how.2d": "Chạm ô con vật để đặt cược: đặt nhiều ô thoải mái.",
+  "how.2t": "Đặt lên ô", "how.2d": "Chạm 1 ô con vật để chọn, bấm thêm chip để tăng cược.",
   "how.3t": "LẮC!", "how.3d": "Bấm LẮC và xem bát mở ra. 1/2/3 con khớp = ăn ×1/×2/×3.",
 
   "animals.title": "Sáu con vật: sáu ý nghĩa",
@@ -40,7 +40,7 @@ window.BC_I18N_VN = {
   "lb.rank": "Hạng", "lb.name": "Người chơi", "lb.xu": "Xu",
 
   "coach.t": "Hướng dẫn nhanh", "coach.1": "Chọn 1 chip ở khay chip.",
-  "coach.2": "Chạm ô con vật để đặt cược (được nhiều ô).",
+  "coach.2": "Chạm 1 ô con vật để chọn con của bạn.",
   "coach.3": "Bấm LẮC!: bát mở ra, ô khớp sáng vàng.",
   "coach.btn": "Vào bàn!",
   "help.title": "Luật 30 giây", "help.link": "Xem chi tiết ở Learn", "help.payout": "Bảng thưởng",

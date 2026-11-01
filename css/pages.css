@@ -429,3 +429,13 @@ details.faq .a{ padding:0 16px 14px; }
   .die, .board.lose-shake, .cell .amt.pop{ animation:none !important; }
   .confetti-canvas{ display:none !important; }
 }
+
+/* ---------- single selection: con được chọn sáng đèn ---------- */
+.cell{ transition:opacity .15s ease, filter .15s ease; }
+.cell.selected{
+  outline:5px solid var(--gold); outline-offset:-5px;
+  filter:brightness(1.14);
+}
+.cell.selected .name{ background:var(--gold); }
+.board.has-selection .cell:not(.selected){ opacity:.5; }
+.board.has-selection .cell.selected{ box-shadow:0 0 0 4px rgba(255,201,60,.3), var(--shadow); }
