@@ -27,6 +27,10 @@ window.BC_I18N_ZH = {
   "play.statusWinOnly": "赢 +{n} 金币！",
   "play.statusLose": "没中——输 {n} 金币。开心就好！",
   "play.broke": "金币用完？在“钱袋”里点“利是”继续玩！",
+  "play.maxBet": "每个图案最多投注 {n} 金币！",
+  "play.betLimit": "限额：每门 10 – 500 金币",
+  "play.clearAnimalTip": "取消此门下注",
+  "play.clearedAnimal": "已取消 {name} 下注 (+{n} 金币)",
   "play.history": "最近局数", "play.historyEmpty": "还没有对局——快摇第一局吧！",
   "play.needBet": "先下注，再摇盅！",
 

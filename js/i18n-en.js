@@ -27,6 +27,10 @@ window.BC_I18N_EN = {
   "play.statusWinOnly": "Won +{n} xu!",
   "play.statusLose": "No luck: lost {n} xu. Fun first!",
   "play.broke": "Out of coins? Hit Lì xì in the Túi xu drawer to keep playing!",
+  "play.maxBet": "Max bet per animal is {n} xu!",
+  "play.betLimit": "Table limit: 10 – 500 xu / animal",
+  "play.clearAnimalTip": "Remove bet on this animal",
+  "play.clearedAnimal": "Removed bet on {name} (+{n} xu)",
   "play.history": "Recent rounds", "play.historyEmpty": "No rounds yet: go shake your first!",
   "play.needBet": "Place a bet first, then SHAKE!",
 

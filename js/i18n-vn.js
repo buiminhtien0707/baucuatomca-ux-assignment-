@@ -27,6 +27,10 @@ window.BC_I18N_VN = {
   "play.statusWinOnly": "Thắng +{n} xu!",
   "play.statusLose": "Hụt rồi: thua {n} xu. Vui là chính!",
   "play.broke": "Hết xu? Bấm Lì xì trong Túi xu để chơi tiếp!",
+  "play.maxBet": "Mỗi con chỉ được cược tối đa {n} xu!",
+  "play.betLimit": "Giới hạn: 10 – 500 xu / con",
+  "play.clearAnimalTip": "Hủy cược con này",
+  "play.clearedAnimal": "Đã hủy cược {name} (+{n} xu)",
   "play.history": "Ván gần đây", "play.historyEmpty": "Chưa có ván nào: lắc phát đầu tiên đi!",
   "play.needBet": "Đặt cược trước đã, rồi hẵng LẮC!",
 

@@ -14,15 +14,28 @@ window.BCWallet = (function () {
   var placed = [];      // stack of {id, amt} — undo removes the last placed chip
   var lastBets = {};
   var lastStaked = 0;
+  var MAX_PER_ANIMAL = 500;
 
   function holdTotal() {
     return Object.keys(holds).reduce(function (a, id) { return a + holds[id]; }, 0);
   }
   function addHold(id, amt) {
-    if (holdTotal() + amt > s().balance) return false;   // error prevention: no over-betting
+    if ((holds[id] || 0) + amt > MAX_PER_ANIMAL) {
+      return { ok: false, reason: "max_bet", max: MAX_PER_ANIMAL };
+    }
+    if (holdTotal() + amt > s().balance) {
+      return { ok: false, reason: "broke" };
+    }
     holds[id] = (holds[id] || 0) + amt;
     placed.push({ id: id, amt: amt });
-    return true;
+    return { ok: true };
+  }
+  function removeAnimalHold(id) {
+    if (!holds[id]) return 0;
+    var removed = holds[id];
+    delete holds[id];
+    placed = placed.filter(function (p) { return p.id !== id; });
+    return removed;
   }
   function undoHold() {
     var last = placed.pop();
@@ -107,10 +120,11 @@ window.BCWallet = (function () {
 
   return {
     onChange: onChange, balance: function () { return s().balance; },
-    holdTotal: holdTotal, addHold: addHold, undoHold: undoHold, clearHolds: clearHolds,
+    holdTotal: holdTotal, addHold: addHold, removeAnimalHold: removeAnimalHold, undoHold: undoHold, clearHolds: clearHolds,
     commit: commit, settle: settle, rebet: rebet, hasLastBets: function () { return Object.keys(lastBets).length > 0; },
     canClaimLiXi: canClaimLiXi, claimLiXi: claimLiXi, touchVisit: touchVisit,
     lastBets: function () { return lastBets; },
-    holds: function () { return JSON.parse(JSON.stringify(holds)); }
+    holds: function () { return JSON.parse(JSON.stringify(holds)); },
+    MAX_PER_ANIMAL: MAX_PER_ANIMAL
   };
 })();

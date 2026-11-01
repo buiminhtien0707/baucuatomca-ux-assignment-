@@ -28,7 +28,19 @@ window.BCGame = (function () {
         '<span class="key-hint" aria-hidden="true">[' + (idx + 1) + ']</span>' +
         '<img src="' + a.img + '" alt="">' +
         '<span class="amt"></span>';
-      b.addEventListener("click", function () { onCell(a.id); });
+      b.addEventListener("click", function (e) {
+        if (e.target.closest(".amt-del")) {
+          e.stopPropagation();
+          e.preventDefault();
+          clearAnimalBet(a.id);
+          return;
+        }
+        onCell(a.id);
+      });
+      b.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        clearAnimalBet(a.id);
+      });
       board.appendChild(b);
     });
   }
@@ -76,24 +88,48 @@ window.BCGame = (function () {
   function renderHolds() {
     var holds = BCWallet.holds();
     document.querySelectorAll(".cell").forEach(function (c) {
-      var amt = holds[c.dataset.animal] || 0;
+      var id = c.dataset.animal;
+      var amt = holds[id] || 0;
+      var isMax = amt >= BCWallet.MAX_PER_ANIMAL;
       c.classList.toggle("has-bet", amt > 0);
+      c.classList.toggle("is-max-bet", isMax);
       var amtEl = c.querySelector(".amt");
-      amtEl.textContent = amt ? amt.toLocaleString("vi-VN") : "";
-      if (amt) {
+      if (amt > 0) {
+        amtEl.innerHTML =
+          '<span class="amt-val">' + amt.toLocaleString("vi-VN") + (isMax ? ' <span class="amt-max">MAX</span>' : '') + '</span>' +
+          '<button type="button" class="amt-del" title="' + BCi18n.t("play.clearAnimalTip") + '" aria-label="' + BCi18n.t("play.clearAnimalTip") + '">✕</button>';
         amtEl.classList.remove("pop");
         void amtEl.offsetWidth;
         amtEl.classList.add("pop");
+      } else {
+        amtEl.innerHTML = "";
       }
     });
     refreshChipAvailability();
   }
 
+  function clearAnimalBet(id) {
+    if (state !== "IDLE") return;
+    var removed = BCWallet.removeAnimalHold(id);
+    if (removed > 0) {
+      BCAudio.pop();
+      var animal = byId(id);
+      BCUI.toast(BCi18n.t("play.clearedAnimal", { name: BCi18n.L(animal.name), n: removed.toLocaleString("vi-VN") }));
+      renderHolds();
+    }
+  }
+
   /* ---------- round flow ---------- */
   function onCell(id) {
     if (state !== "IDLE") return;
-    if (!BCWallet.addHold(id, selectedChip)) {
-      BCUI.toast(BCi18n.t("play.broke"), "lose");
+    var res = BCWallet.addHold(id, selectedChip);
+    if (!res.ok) {
+      if (res.reason === "max_bet") {
+        BCUI.toast(BCi18n.t("play.maxBet", { n: BCWallet.MAX_PER_ANIMAL }), "lose");
+        BCAudio.thud();
+      } else {
+        BCUI.toast(BCi18n.t("play.broke"), "lose");
+      }
       return;
     }
     BCAudio.chip();
