@@ -183,8 +183,13 @@ img{ max-width:100%; }
   .brand{ font-size:14px; padding:2px 6px; }
 }
 
-/* headings must never tilt (sticker base is rotated) */
-.section-head .sticker, .hero .sticker{ transform:none; }
+/* headings must never tilt (sticker base is rotated) and never stretch full-width */
+.section-head .sticker, .hero .sticker{
+  transform:none;
+  align-self:flex-start;
+  width:fit-content;
+  max-width:max-content;
+}
 
 /* ---------- drawer (Túi xu) ---------- */
 .drawer-backdrop{
@@ -261,12 +266,18 @@ img{ max-width:100%; }
 /* ---------- footer ---------- */
 .bc-footer{
   border-top:var(--border); background:var(--ink); color:var(--paper);
-  margin-top:56px; padding:28px 16px 20px; position:relative; z-index:1;
+  margin-top:64px; padding:36px 16px 40px; position:relative; z-index:1;
 }
-.bc-footer .inner{ max-width:1160px; margin:0 auto; display:grid; gap:18px; grid-template-columns:2fr 1fr 1fr; }
+.bc-footer .inner{ max-width:1160px; margin:0 auto; display:grid; gap:20px; grid-template-columns:2fr 1fr 1fr; }
 .bc-footer a{ color:var(--paper); }
 .bc-footer .fine{ opacity:.75; font-size:13px; }
-@media (max-width:760px){ .bc-footer .inner{ grid-template-columns:1fr; } }
+@media (max-width:760px){
+  .bc-footer{ padding-bottom:76px; }
+  .bc-footer .inner{ grid-template-columns:1fr; gap:16px; }
+}
+@media (max-width:600px){
+  .fab{ width:48px !important; height:48px !important; bottom:14px !important; right:14px !important; }
+}
 
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion:reduce){
