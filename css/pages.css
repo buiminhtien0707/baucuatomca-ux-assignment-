@@ -10,8 +10,8 @@
 /* ---------- home hero ---------- */
 .hero{ padding:52px 16px 30px; max-width:1160px; margin:0 auto; }
 .hero .grid{ display:grid; grid-template-columns:1.3fr .9fr; gap:28px; align-items:center; }
-.hero h1{ font-size:clamp(34px,6.5vw,64px); line-height:1.02; margin:14px 0 12px; }
-.hero h1 .hl{ background:var(--gold); border:var(--border); padding:0 10px; display:inline-block; transform:rotate(-1deg); box-shadow:var(--shadow); }
+.hero h1{ font-size:clamp(34px,6.5vw,64px); line-height:1.15; margin:14px 0 16px; }
+.hero h1 .hl{ background:var(--gold); border:var(--border); padding:2px 12px; display:inline-block; transform:rotate(-1deg); box-shadow:var(--shadow); margin-top:6px; }
 .hero p.lead{ font-size:18px; max-width:52ch; }
 .hero .cta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:18px; }
 .hero-art{ position:relative; min-height:280px; }
@@ -78,8 +78,39 @@
 }
 
 /* ---------- how it works ---------- */
+.how-card{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:24px 22px 26px;
+}
 .how-card .step{ font-family:var(--font-mono); font-weight:700; }
-.how-card .ic{ font-size:34px; }
+.how-card .ic{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:44px;
+  height:44px;
+  padding:4px 14px;
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:18px;
+  line-height:1;
+  transform:rotate(-2deg);
+}
+.how-card h3{
+  font-size:22px;
+  margin:0 0 10px;
+  line-height:1.25;
+}
+.how-card p{
+  margin:0;
+  color:var(--mut-ink);
+  line-height:1.6;
+  font-size:15px;
+  flex-grow:1;
+}
 
 /* ---------- faq ---------- */
 details.faq{
@@ -126,9 +157,12 @@ details.faq .a{ padding:0 16px 14px; }
   .cell .key-hint{ display:none; }
 }
 .cell .name{
-  position:absolute; top:6px; left:50%; transform:translateX(-50%);
+  position:absolute; top:6px; left:6px;
   background:var(--cream); border:2px solid var(--ink); border-radius:8px;
-  font-weight:800; font-size:12px; padding:0 8px; white-space:nowrap;
+  font-weight:800; font-size:12px; padding:1px 8px; white-space:nowrap;
+}
+@media (max-width: 600px){
+  .cell .name{ left:50%; transform:translateX(-50%); }
 }
 .cell.has-bet .amt{ display:block; }
 .cell.win-flash{ outline:5px solid var(--gold); outline-offset:-5px; animation:pop .3s ease 2; }

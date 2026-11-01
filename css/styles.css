@@ -144,11 +144,11 @@ img{ max-width:100%; }
     display:flex; align-items:center; justify-content:space-between;
     padding:8px 12px; gap:8px;
   }
-  .brand{ font-size:18px; padding:3px 10px; }
-  .nav-tools{ margin-left:auto; display:flex; align-items:center; gap:6px; }
+  .brand{ font-size:18px; padding:3px 10px; order:1; }
+  .nav-tools{ margin-left:auto; display:flex; align-items:center; gap:6px; order:2; }
   .nav-toggle{
     display:flex; align-items:center; justify-content:center;
-    margin-left:0; flex-shrink:0;
+    margin-left:4px; flex-shrink:0; order:3;
     border:var(--border); border-radius:10px; background:var(--gold);
     font-size:18px; width:40px; height:40px; cursor:pointer; box-shadow:3px 3px 0 var(--ink);
   }
