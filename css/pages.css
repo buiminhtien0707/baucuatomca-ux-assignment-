@@ -85,7 +85,18 @@ details.faq .a{ padding:0 16px 14px; }
   position:absolute; bottom:6px; left:50%; transform:translateX(-50%);
   background:var(--gold); border:2px solid var(--ink); border-radius:999px;
   font-family:var(--font-mono); font-weight:700; font-size:13px; padding:1px 10px;
-  display:none;
+  box-shadow:2px 2px 0 var(--ink);
+  display:none; white-space:nowrap;
+}
+.cell .key-hint{
+  position:absolute; top:6px; right:6px;
+  background:var(--cream); border:1.8px solid var(--ink); border-radius:6px;
+  font-family:var(--font-mono); font-weight:700; font-size:11px; line-height:1.2;
+  padding:1px 5px; box-shadow:1.5px 1.5px 0 var(--ink);
+  color:var(--ink); opacity:.85; pointer-events:none;
+}
+@media (max-width: 600px){
+  .cell .key-hint{ display:none; }
 }
 .cell .name{
   position:absolute; top:6px; left:50%; transform:translateX(-50%);
@@ -260,8 +271,8 @@ details.faq .a{ padding:0 16px 14px; }
 
 /* chip amount pop when placed */
 .cell .amt{ animation:none; }
-.cell .amt.pop{ animation:amtPop .18s var(--spring); }
-@keyframes amtPop{ 0%{ transform:translateX(-50%) scale(.6); } 100%{ transform:translateX(-50%) scale(1); } }
+.cell .amt.pop{ animation:amtPop .2s var(--spring); }
+@keyframes amtPop{ 0%{ transform:translateX(-50%) scale(.65); } 50%{ transform:translateX(-50%) scale(1.18); } 100%{ transform:translateX(-50%) scale(1); } }
 
 /* confetti canvas overlay */
 .confetti-canvas{

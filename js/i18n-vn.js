@@ -65,6 +65,7 @@ window.BC_I18N_VN = {
   "lab.sub": "Đừng tin lời đồn: tự chạy 1.000 ván và xem con số tự nói.",
   "lab.cfg": "Cấu hình", "lab.bet1": "1 ô · 100 xu/ván", "lab.bet3": "3 ô · 100 xu/ô/ván",
   "lab.r100": "100 ván", "lab.r1000": "1.000 ván",
+  "lab.speedFast": "⚡ Nhanh", "lab.speedSlow": "🐢 Xem từng ván",
   "lab.run": "Chạy mô phỏng", "lab.running": "Đang chạy… {x}%",
   "lab.chart1": "Ván theo số mặt khớp", "lab.chart2": "Tổng xu qua các ván",
   "lab.evTheory": "Toán nói: EV ≈ −7,9% mỗi xu cược: người cầm bát luôn lãi nhẹ về dài hạn.",

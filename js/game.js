@@ -17,13 +17,15 @@ window.BCGame = (function () {
   function renderBoard() {
     var board = $(".board");
     board.innerHTML = "";
-    BC_DATA.ANIMALS.forEach(function (a) {
+    BC_DATA.ANIMALS.forEach(function (a, idx) {
       var b = document.createElement("button");
       b.className = "cell";
       b.dataset.animal = a.id;
       b.setAttribute("aria-label", BCi18n.L(a.name));
+      b.setAttribute("aria-keyshortcuts", String(idx + 1));
       b.innerHTML =
         '<span class="name">' + BCi18n.L(a.name) + "</span>" +
+        '<span class="key-hint" aria-hidden="true">[' + (idx + 1) + ']</span>' +
         '<img src="' + a.img + '" alt="">' +
         '<span class="amt"></span>';
       b.addEventListener("click", function () { onCell(a.id); });
@@ -115,6 +117,9 @@ window.BCGame = (function () {
 
     var secs = reduced ? 0.4 : 1.5;
     BCAudio.rattle(secs);
+    if (!reduced && "vibrate" in navigator) {
+      try { navigator.vibrate([25, 40, 30, 40, 35]); } catch (e) {}
+    }
     $(".bowl").classList.add("shaking");
     pendingTimer = setTimeout(finishRound, secs * 1000);
   }
@@ -134,6 +139,13 @@ window.BCGame = (function () {
     setStatus(msg);
     spawnFloat(res.net);
     bumpPill();
+    if (!reduced && "vibrate" in navigator) {
+      try {
+        if (res.net > 0) {
+          navigator.vibrate(res.matches >= 2 ? [60, 80, 100, 80, 120] : [40, 60, 40]);
+        }
+      } catch (e) {}
+    }
     if (res.net > 0) {
       BCFx.confetti(res.matches >= 2 || res.net >= 200);
     } else {
@@ -268,7 +280,36 @@ window.BCGame = (function () {
     });
 
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" && state === "IDLE" && document.activeElement === document.body) shake();
+      if (e.target && (e.target.matches("input, textarea, select") || e.target.isContentEditable)) return;
+      var key = e.key.toLowerCase();
+      if ((e.key === "Enter" || e.code === "Space") && state === "IDLE") {
+        e.preventDefault();
+        shake();
+        return;
+      }
+      if (state === "IDLE" && e.key >= "1" && e.key <= "6") {
+        var num = parseInt(e.key, 10);
+        if (num >= 1 && num <= BC_DATA.ANIMALS.length) {
+          e.preventDefault();
+          onCell(BC_DATA.ANIMALS[num - 1].id);
+        }
+        return;
+      }
+      if (state === "IDLE" && (key === "u" || ((e.ctrlKey || e.metaKey) && key === "z"))) {
+        var uBtn = $("[data-act=undo]");
+        if (uBtn && !uBtn.disabled) { e.preventDefault(); uBtn.click(); }
+        return;
+      }
+      if (state === "IDLE" && key === "c") {
+        var cBtn = $("[data-act=clear]");
+        if (cBtn && !cBtn.disabled) { e.preventDefault(); cBtn.click(); }
+        return;
+      }
+      if (state === "IDLE" && key === "r") {
+        var rBtn = $("[data-act=rebet]");
+        if (rBtn && !rBtn.disabled) { e.preventDefault(); rBtn.click(); }
+        return;
+      }
     });
 
     BCi18n.onLangChange(function () {

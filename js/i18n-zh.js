@@ -64,6 +64,7 @@ window.BC_I18N_ZH = {
   "lab.sub": "别信传言——亲手跑 1000 局，让数字说话。",
   "lab.cfg": "设置", "lab.bet1": "押 1 格 · 每局 100", "lab.bet3": "押 3 格 · 每格 100",
   "lab.r100": "100 局", "lab.r1000": "1000 局",
+  "lab.speedFast": "⚡ 极速", "lab.speedSlow": "🐢 慢速观察",
   "lab.run": "运行模拟", "lab.running": "运行中…… {x}%",
   "lab.chart1": "各命中数的局数", "lab.chart2": "金币走势",
   "lab.evTheory": "数学说：期望 ≈ −7.9%/注——庄家优势是真的，但很小。",

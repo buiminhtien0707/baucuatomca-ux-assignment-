@@ -65,6 +65,7 @@ window.BC_I18N_EN = {
   "lab.sub": "Don't take rumors for it: run 1,000 rounds and let the numbers talk.",
   "lab.cfg": "Setup", "lab.bet1": "1 cell · 100 xu/round", "lab.bet3": "3 cells · 100 xu each",
   "lab.r100": "100 rounds", "lab.r1000": "1,000 rounds",
+  "lab.speedFast": "⚡ Instant", "lab.speedSlow": "🐢 Step-by-step",
   "lab.run": "Run simulation", "lab.runLabel": "Run simulation", "lab.running": "Running… {x}%",
   "lab.chart1": "Rounds by number of matches", "lab.chart2": "Coins across rounds",
   "lab.evTheory": "Math says: EV ≈ −7.9% per xu bet: the house edge is real but small.",
