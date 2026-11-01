@@ -144,9 +144,41 @@ window.BCUI = (function () {
     });
     // mobile menu
     var tg = document.querySelector(".nav-toggle");
-    if (tg) tg.addEventListener("click", function () {
-      document.querySelector(".bc-links").classList.toggle("open");
-    });
+    var links = document.querySelector(".bc-links");
+    var HAMBURGER_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.6"/></svg>';
+    var CLOSE_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2.6"/></svg>';
+
+    function closeNav() {
+      if (!links || !links.classList.contains("open")) return;
+      links.classList.remove("open");
+      if (tg) {
+        tg.setAttribute("aria-expanded", "false");
+        tg.innerHTML = HAMBURGER_SVG;
+      }
+    }
+
+    if (tg && links) {
+      tg.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isOpen = links.classList.toggle("open");
+        tg.setAttribute("aria-expanded", String(isOpen));
+        tg.innerHTML = isOpen ? CLOSE_SVG : HAMBURGER_SVG;
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!tg.contains(e.target) && !links.contains(e.target)) {
+          closeNav();
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeNav();
+      });
+
+      links.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", closeNav);
+      });
+    }
 
     BCWallet.onChange(function () { renderCoins(); renderDrawer(); });
     BCi18n.onLangChange(function () { renderDrawer(); });
