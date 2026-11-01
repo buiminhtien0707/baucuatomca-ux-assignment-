@@ -5,10 +5,6 @@ window.BCPageHome = (function () {
   function boot() {
     if (!document.querySelector("#animal-track")) return;
 
-    /* ticker: duplicate content once for a seamless loop */
-    var track = document.querySelector(".marquee .track");
-    if (track) track.innerHTML += track.innerHTML;
-
     /* animals carousel */
     var zone = document.querySelector("#animal-track");
     BC_DATA.ANIMALS.forEach(function (a) {

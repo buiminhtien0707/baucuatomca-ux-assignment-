@@ -186,19 +186,6 @@ img{ max-width:100%; }
 /* headings must never tilt (sticker base is rotated) */
 .section-head .sticker, .hero .sticker{ transform:none; }
 
-/* ---------- marquee ticker ---------- */
-.marquee{
-  overflow:hidden; border-top:var(--border); border-bottom:var(--border);
-  background:var(--red); color:var(--ink); padding:8px 0;
-}
-.marquee:hover .track, .marquee:focus-within .track{ animation-play-state:paused; }
-.marquee .track{
-  display:inline-block; white-space:nowrap; font-family:var(--font-mono); font-weight:700;
-  animation:mq 18s linear infinite;
-}
-.marquee span{ margin:0 18px; }
-@keyframes mq{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-
 /* ---------- drawer (Túi xu) ---------- */
 .drawer-backdrop{
   position:fixed; inset:0; background:var(--scrim); z-index:180;
@@ -284,7 +271,6 @@ img{ max-width:100%; }
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
-  .marquee .track{ animation:none; }
 }
 
 /* ---------- floating win/lose amount ---------- */
