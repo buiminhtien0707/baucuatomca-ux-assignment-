@@ -6,6 +6,7 @@ window.BCGame = (function () {
   var state = "IDLE";            // IDLE → SHAKING → IDLE
   var selectedChip = 100;
   var pendingTimer = null;
+  var pillFrom = 0;
 
   function $(sel) { return document.querySelector(sel); }
   function byId(id) {
@@ -75,7 +76,13 @@ window.BCGame = (function () {
     document.querySelectorAll(".cell").forEach(function (c) {
       var amt = holds[c.dataset.animal] || 0;
       c.classList.toggle("has-bet", amt > 0);
-      c.querySelector(".amt").textContent = amt ? amt.toLocaleString("vi-VN") : "";
+      var amtEl = c.querySelector(".amt");
+      amtEl.textContent = amt ? amt.toLocaleString("vi-VN") : "";
+      if (amt) {
+        amtEl.classList.remove("pop");
+        void amtEl.offsetWidth;
+        amtEl.classList.add("pop");
+      }
     });
     refreshChipAvailability();
   }
@@ -99,6 +106,7 @@ window.BCGame = (function () {
     }
     state = "SHAKING";
     var reduced = BCUI.reducedMotion();
+    pillFrom = BCWallet.balance();
     BCWallet.commit();
     lockBoard(true);
     setStatus(BCi18n.t("play.statusShake"));
@@ -126,7 +134,13 @@ window.BCGame = (function () {
     setStatus(msg);
     spawnFloat(res.net);
     bumpPill();
+    if (res.net > 0) {
+      BCFx.confetti(res.matches >= 2 || res.net >= 200);
+    } else {
+      BCFx.shake(document.querySelector(".board"), "lose-shake");
+    }
     BCUI.toast(msg, res.net > 0 ? "win" : "lose");
+    countPill();
     updateHistory();
     renderHolds();
 
@@ -136,8 +150,11 @@ window.BCGame = (function () {
     BCBadges.check("first_round");
     BCBadges.check("first_loss");
     BCBadges.check("streak3");
-    if (res.net > 0) BCAudio.win(); else BCAudio.lose();
     setStatusIdleAfter(2.6);
+  }
+
+  function countPill() {
+    BCFx.countUp(document.querySelector(".coin-pill span"), pillFrom, BCWallet.balance(), 700, BCi18n.t("unit.xu"));
   }
 
   function setStatusIdleAfter(secs) {
@@ -155,7 +172,10 @@ window.BCGame = (function () {
       die.textContent = EMOJI[id];
       die.setAttribute("aria-label", BCi18n.L(byId(id).name));
       if (delayMs) {
-        setTimeout(function () { row.appendChild(die); }, delayMs * i);
+        setTimeout(function () {
+        row.appendChild(die);
+        BCAudio.clack(520 + i * 140);
+      }, delayMs * i);
       } else {
         row.appendChild(die);
       }

@@ -27,6 +27,9 @@
   --toast-shadow:rgba(20,20,20,.35);
   --invalid:#FDEBE8;
   --minus:#FFB4A8;
+  --red-2:#C7361F;
+  --gold-2:#EBB520;
+  --spring:cubic-bezier(.34,1.56,.64,1);
 }
 
 /* ---------- base ---------- */
@@ -277,3 +280,6 @@ img{ max-width:100%; }
 .icon-btn.muted .ic-off{ display:block; }
 .btn-ghost{ background:transparent; }
 .fab svg{ width:26px; height:26px; }
+
+.btn-ghost{ background:transparent; box-shadow:var(--shadow); }
+.btn-ghost:hover{ background:var(--cream); }
