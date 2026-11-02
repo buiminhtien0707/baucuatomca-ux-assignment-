@@ -129,10 +129,7 @@ window.BCGame = (function () {
   /* ---------- round flow ---------- */
   function onCell(id) {
     if (state !== "IDLE") return;
-    /* một con duy nhất: chọn con khác = chuyển cược sang đó */
-    var holds = BCWallet.holds();
-    var otherHasBet = Object.keys(holds).some(function (k) { return k !== id && holds[k] > 0; });
-    if (otherHasBet) BCWallet.clearHolds();
+    /* đúng luật truyền thống: cược bao nhiêu ô tùy thích (giới hạn bởi xu + MAX/con) */
     var res = BCWallet.addHold(id, selectedChip);
     if (!res.ok) {
       if (res.reason === "max_bet") {
