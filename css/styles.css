@@ -5,13 +5,13 @@
    ============================================================ */
 
 :root{
-  --paper:#F6F1E5;
-  --ink:#141414;
+  --paper:#F4DEC6;
+  --ink:#191A1C;
   --red:#E8442E;
   --gold:#FFC93C;
   --indigo:#2F4BD8;
   --green:#0E7A4A;
-  --cream:#FFFBF2;
+  --cream:#FAF3E7;
   --border:3px solid var(--ink);
   --shadow:4px 4px 0 var(--ink);
   --shadow-lg:7px 7px 0 var(--ink);
