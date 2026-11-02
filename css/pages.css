@@ -484,3 +484,5 @@ details.faq .a{ padding:0 16px 14px; }
 .cell.selected .name{ background:var(--gold); }
 .board.has-selection .cell:not(.selected){ opacity:.5; }
 .board.has-selection .cell.selected{ box-shadow:0 0 0 4px rgba(255,201,60,.3), var(--shadow); }
+
+.float-xu.zero{ color:var(--cream); }

@@ -177,9 +177,10 @@ window.BCGame = (function () {
     $(".bowl").classList.remove("shaking");
     renderDice(dice, reduced ? 0 : 260);
     highlightWinners(res.perCell, reduced ? 0 : 500);
-    var msg = BCi18n.t(res.net > 0
+    var msgKey = res.net > 0
       ? (res.matches > 1 ? "play.statusWin" : "play.statusWinOnly")
-      : "play.statusLose", { x: res.matches, n: Math.abs(res.net) });
+      : (res.net === 0 ? "play.statusBreak" : "play.statusLose");
+    var msg = BCi18n.t(msgKey, { x: res.matches, n: Math.abs(res.net) });
     setStatus(msg);
     spawnFloat(res.net);
     bumpPill();
@@ -192,10 +193,10 @@ window.BCGame = (function () {
     }
     if (res.net > 0) {
       BCFx.confetti(res.matches >= 2 || res.net >= 200);
-    } else {
+    } else if (res.net < 0) {
       BCFx.shake(document.querySelector(".board"), "lose-shake");
     }
-    BCUI.toast(msg, res.net > 0 ? "win" : "lose");
+    BCUI.toast(msg, res.net > 0 ? "win" : (res.net === 0 ? "gold" : "lose"));
     countPill();
     updateHistory();
     renderHolds();
@@ -282,9 +283,10 @@ window.BCGame = (function () {
     var zone = document.querySelector(".bowl-zone");
     if (!zone) return;
     var el = document.createElement("div");
-    el.className = "float-xu " + (net > 0 ? "plus" : "minus");
-    var key = net > 0 ? "float.plus" : "float.minus";
-    el.textContent = BCi18n.t(key, { n: Math.abs(net).toLocaleString("vi-VN") });
+    var cls = net > 0 ? "plus" : (net === 0 ? "zero" : "minus");
+    el.className = "float-xu " + cls;
+    var key = net > 0 ? "float.plus" : (net === 0 ? "float.zero" : "float.minus");
+    el.textContent = net === 0 ? BCi18n.t(key) : BCi18n.t(key, { n: Math.abs(net).toLocaleString("vi-VN") });
     zone.appendChild(el);
     setTimeout(function () { el.remove(); }, 1500);
   }

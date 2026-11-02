@@ -26,6 +26,8 @@ window.BC_I18N_EN = {
   "play.statusWin": "Matched {x}: won +{n} xu!",
   "play.statusWinOnly": "Won +{n} xu!",
   "play.statusLose": "No luck: lost {n} xu. Fun first!",
+  "play.statusBreak": "Break even! Your winning animal refunded the losing cell.",
+  "float.zero": "Break even",
   "play.broke": "Out of coins? Tap [+500 xu] to add more immediately!",
   "play.maxBet": "Max bet per animal is {n} xu!",
   "play.betLimit": "Table limit: 10 – 500 xu / animal",

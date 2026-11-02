@@ -26,6 +26,8 @@ window.BC_I18N_VN = {
   "play.statusWin": "Khớp {x} con: thắng +{n} xu!",
   "play.statusWinOnly": "Thắng +{n} xu!",
   "play.statusLose": "Hụt rồi: thua {n} xu. Vui là chính!",
+  "play.statusBreak": "Hòa vốn! Con khớp hoàn lại đúng tiền cược của ô hụt.",
+  "float.zero": "Hòa vốn",
   "play.broke": "Hết xu? Bấm nút [+500 xu] để nhận thêm ngay!",
   "play.maxBet": "Mỗi con chỉ được cược tối đa {n} xu!",
   "play.betLimit": "Giới hạn: 10 – 500 xu / con",

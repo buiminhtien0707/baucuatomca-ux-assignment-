@@ -26,6 +26,8 @@ window.BC_I18N_ZH = {
   "play.statusWin": "中 {x} 个——赢 +{n} 金币！",
   "play.statusWinOnly": "赢 +{n} 金币！",
   "play.statusLose": "没中——输 {n} 金币。开心就好！",
+  "play.statusBreak": "保本！命中的格子退回了输掉的那注。",
+  "float.zero": "保本",
   "play.broke": "金币用完？点击【+500 金币】立即领取！",
   "play.maxBet": "每个图案最多投注 {n} 金币！",
   "play.betLimit": "限额：每门 10 – 500 金币",
