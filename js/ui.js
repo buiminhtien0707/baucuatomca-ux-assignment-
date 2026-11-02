@@ -45,8 +45,7 @@ window.BCUI = (function () {
     var st = BCStore.load();
     var lixiBtn = document.querySelector("[data-act=lixi]");
     if (lixiBtn) {
-      var can = BCWallet.canClaimLiXi();
-      lixiBtn.disabled = !can;
+      lixiBtn.disabled = false;
       lixiBtn.textContent = BCi18n.t("drawer.lixi");
     }
     var list = document.querySelector("#badge-grid");
@@ -147,19 +146,29 @@ window.BCUI = (function () {
       if (e.key === "Escape") closeDrawer();
     });
 
+    function handleClaim(e) {
+      if (e) e.stopPropagation();
+      if (BCWallet.claimLiXi()) {
+        BCBadges.check("lixi");
+        BCAudio.drum();
+        BCUI.toast(BCi18n.t("drawer.lixiGot"), "win");
+        var pill = document.querySelector(".coin-pill");
+        if (pill) {
+          pill.classList.remove("bump");
+          void pill.offsetWidth;
+          pill.classList.add("bump");
+        }
+        renderDrawer();
+      }
+    }
+
     var lixiBtn = document.querySelector("[data-act=lixi]");
     if (lixiBtn) {
-      lixiBtn.addEventListener("click", function () {
-        if (BCWallet.claimLiXi()) {
-          BCBadges.check("lixi");
-          BCAudio.drum();
-          BCUI.toast(BCi18n.t("drawer.lixiGot"), "win");
-          renderDrawer();
-        } else {
-          BCUI.toast(BCi18n.t("drawer.lixiDone"));
-        }
-      });
+      lixiBtn.addEventListener("click", handleClaim);
     }
+    document.querySelectorAll("[data-act=quick-lixi]").forEach(function (btn) {
+      btn.addEventListener("click", handleClaim);
+    });
 
     // active nav link
     var page = document.body.dataset.page;

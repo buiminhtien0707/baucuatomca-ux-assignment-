@@ -324,8 +324,8 @@ window.BCGame = (function () {
     });
 
     document.addEventListener("keydown", function (e) {
-      if (e.target && (e.target.matches("input, textarea, select") || e.target.isContentEditable)) return;
-      var key = e.key.toLowerCase();
+      if (e.target && e.target.matches && (e.target.matches("input, textarea, select") || e.target.isContentEditable)) return;
+      var key = (e.key || "").toLowerCase();
       if ((e.key === "Enter" || e.code === "Space") && state === "IDLE") {
         e.preventDefault();
         shake();
@@ -354,6 +354,16 @@ window.BCGame = (function () {
         if (rBtn && !rBtn.disabled) { e.preventDefault(); rBtn.click(); }
         return;
       }
+      if (state === "IDLE" && key === "l") {
+        e.preventDefault();
+        var qBtn = document.querySelector("[data-act=quick-lixi]");
+        if (qBtn) qBtn.click();
+        return;
+      }
+    });
+
+    BCWallet.onChange(function () {
+      refreshChipAvailability();
     });
 
     BCi18n.onLangChange(function () {

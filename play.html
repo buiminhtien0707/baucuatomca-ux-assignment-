@@ -33,6 +33,7 @@
         </div>
         <button class="icon-btn" data-act="sound" data-i18n-aria="a11y.sound"><svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg><svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 9l5 6M21 9l-5 6"/></svg></button>
         <button class="coin-pill" data-act="drawer-open" data-i18n-aria="a11y.coin"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#B8860B" stroke="#141414" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#141414" stroke-width="1.6"/></svg><span>1.000 xu</span></button>
+        <button class="btn-bc btn-xs btn-red quick-lixi-btn" data-act="quick-lixi" data-i18n="nav.quickLixi" title="Nhận +500 xu vô cực" aria-label="Nhận +500 xu">+500 xu</button>
       </div>
     </div>
   </nav>
@@ -47,7 +48,10 @@
         <div>
           <div class="board" aria-label="Betting board"></div>
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:18px 0 0">
-            <h3 style="margin:0" data-i18n="play.chips"></h3>
+            <div style="display:flex;align-items:center;gap:10px">
+              <h3 style="margin:0" data-i18n="play.chips"></h3>
+              <button class="btn-bc btn-xs btn-red quick-lixi-btn" data-act="quick-lixi" data-i18n="play.quickLixi" title="Nhận +500 xu vô cực (Phím: L)">+500 xu 🧧</button>
+            </div>
             <span class="mono mut" style="font-size:12px;font-weight:700" data-i18n="play.betLimit"></span>
           </div>
           <div class="chip-tray"></div>

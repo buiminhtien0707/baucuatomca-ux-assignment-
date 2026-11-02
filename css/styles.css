@@ -81,6 +81,13 @@ img{ max-width:100%; }
 .btn-indigo{ background:var(--indigo); color:var(--ink-on-dark); }
 .btn-green{ background:var(--green); color:var(--ink-on-dark); }
 .btn-sm{ padding:6px 12px; font-size:14px; border-width:2px; }
+.btn-xs{ padding:4px 9px; font-size:12px; border-width:2px; border-radius:999px; }
+.quick-lixi-btn{
+  background:var(--red); color:#ffffff !important; font-family:var(--font-mono); font-weight:800;
+  box-shadow:2.5px 2.5px 0 var(--ink); white-space:nowrap; cursor:pointer;
+}
+.quick-lixi-btn:hover{ transform:translate(-1.5px,-1.5px); box-shadow:3.5px 3.5px 0 var(--ink); }
+.quick-lixi-btn:active{ transform:translate(2px,2px); box-shadow:0 0 0 var(--ink); }
 
 /* ---------- cards / stickers ---------- */
 .card-bc{
@@ -171,6 +178,7 @@ img{ max-width:100%; }
   .bc-nav .inner{ padding:6px 10px; gap:6px; }
   .brand{ font-size:16px; padding:3px 8px; border-width:2.5px; }
   .coin-pill{ font-size:12px; padding:4px 8px; gap:4px; }
+  .quick-lixi-btn{ padding:4px 7px; font-size:11px; }
   .nav-toggle{ width:36px; height:36px; }
   .drawer{ padding:14px; width:min(320px, 94vw); }
   .badge-grid{ grid-template-columns:repeat(3,1fr); gap:8px; }
@@ -180,6 +188,7 @@ img{ max-width:100%; }
 @media (max-width:360px){
   .coin-pill svg{ display:none; }
   .coin-pill{ padding:3px 6px; font-size:11px; }
+  .quick-lixi-btn{ padding:3px 6px; font-size:10px; }
   .brand{ font-size:14px; padding:2px 6px; }
 }
 
