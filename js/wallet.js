@@ -91,14 +91,12 @@ window.BCWallet = (function () {
     return { net: net, perCell: perCell, matches: matches };
   }
 
-  /* ---------- lì xì: never a dead end ---------- */
+  /* ---------- lì xì: unlimited ---------- */
   function today() { return new Date().toISOString().slice(0, 10); }
   function canClaimLiXi() {
-    var st = s();
-    return st.lastLiXi !== today() || st.balance === 0;
+    return true;
   }
   function claimLiXi() {
-    if (!canClaimLiXi()) return false;
     var st = s();
     st.balance += 500;
     st.lastLiXi = today();
