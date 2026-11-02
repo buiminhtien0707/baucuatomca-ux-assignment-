@@ -53,25 +53,31 @@
         <div class="timeline" id="tet-timeline"></div>
       </div>
       <div style="height:26px"></div>
-      <div class="card-bc form-wrap">
+      <div class="form-wrap">
         <h3 data-i18n="tet.formTitle"></h3>
         <form id="fb-form" novalidate>
           <div class="field">
-            <label for="fb-name" data-i18n="tet.name"></label>
-            <input id="fb-name" name="name" type="text" autocomplete="off">
-          </div>
-          <div class="field">
             <label for="fb-email" data-i18n="tet.email"></label>
-            <input id="fb-email" name="email" type="email" required data-i18n-ph="tet.phEmail" placeholder="you@example.com">
+            <input id="fb-email" name="email" type="email" required data-i18n-ph="tet.phEmail" placeholder="juan.gonza@gmail.com">
             <div class="err" data-i18n="tet.errEmail"></div>
           </div>
           <div class="field">
+            <label for="fb-name" data-i18n="tet.name"></label>
+            <input id="fb-name" name="name" type="text" autocomplete="off" placeholder="Juan Gonzalez">
+          </div>
+          <div class="field">
             <label for="fb-msg" data-i18n="tet.msg"></label>
-            <textarea id="fb-msg" name="message" rows="4"></textarea>
+            <textarea id="fb-msg" name="message" rows="4" placeholder="sudoPass9"></textarea>
             <div class="char-count mono"><span id="fb-count">0 ký tự</span></div>
             <div class="err" data-i18n="tet.errMsg"></div>
           </div>
-          <button class="btn-bc btn-green" type="submit" data-i18n="tet.send"></button>
+          <p class="form-disclaimer">
+            Bằng cách gửi góp ý, bạn đồng ý với <a href="learn.html">Quy định cộng đồng</a> &amp; <a href="tet.html">Bảo mật thông tin</a>.
+          </p>
+          <button class="btn-brutal-reg" type="submit" data-i18n="tet.send"></button>
+          <p class="form-bottom-link">
+            Đã thử vận may hôm nay chưa? <a href="play.html">Vào bàn lắc Bầu Cua</a>
+          </p>
         </form>
       </div>
     </section></main>

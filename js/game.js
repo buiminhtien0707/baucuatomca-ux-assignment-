@@ -225,7 +225,13 @@ window.BCGame = (function () {
     dice.forEach(function (id, i) {
       var die = document.createElement("div");
       die.className = "die";
-      die.textContent = EMOJI[id];
+      var img = document.createElement("img");
+      img.src = "assets/img/animals/" + id + ".svg";
+      img.alt = BCi18n.L(byId(id).name);
+      img.width = 42;
+      img.height = 42;
+      img.style.imageRendering = "pixelated";
+      die.appendChild(img);
       die.setAttribute("aria-label", BCi18n.L(byId(id).name));
       if (delayMs) {
         setTimeout(function () {
@@ -263,7 +269,9 @@ window.BCGame = (function () {
     st.rounds.forEach(function (r) {
       var div = document.createElement("div");
       div.className = "hist-round";
-      div.innerHTML = r.dice.map(function (id) { return EMOJI[id]; }).join("") +
+      div.innerHTML = r.dice.map(function (id) {
+        return '<img src="assets/img/animals/' + id + '.svg" width="22" height="22" alt="" style="image-rendering:pixelated;vertical-align:middle;margin:0 2px">';
+      }).join("") +
         '<span class="net ' + (r.net > 0 ? "pos" : "neg") + '">' +
         (r.net > 0 ? "+" : "") + r.net + "</span>";
       zone.appendChild(div);

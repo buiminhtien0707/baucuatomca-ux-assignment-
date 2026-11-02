@@ -307,9 +307,54 @@ details.faq .a{ padding:0 16px 14px; }
   border:var(--border); border-radius:var(--radius); background:var(--green); color:var(--ink-on-dark);
   box-shadow:var(--shadow); padding:20px; margin:28px 0;
 }
-.form-wrap{ max-width:620px; margin-top:28px; }
-.field{ margin-bottom:16px; }
-.field label{ display:block; margin-bottom:6px; font-weight:700; }
+/* ---------- brutalist feedback form (photo 2 reference) ---------- */
+.form-wrap{
+  max-width:440px; margin:32px auto 0;
+  background:#FAF3E7; border:2.5px solid var(--ink); border-radius:4px;
+  box-shadow:6px 6px 0 var(--ink); padding:28px 24px;
+}
+.form-wrap h3{
+  font-family:var(--font-display); font-size:26px; font-weight:900;
+  margin:0 0 20px; color:var(--ink);
+}
+.field{ margin-bottom:18px; }
+.field label{
+  display:block; margin-bottom:6px; font-weight:700; font-size:14px; color:var(--ink);
+}
+.field input, .field textarea{
+  width:100%; border:2px solid var(--ink); border-radius:2px;
+  padding:12px 14px; font-family:var(--font-mono); font-size:14.5px;
+  background:#ffffff; color:var(--ink); box-sizing:border-box;
+  outline:none;
+}
+.field input:focus, .field textarea:focus{
+  border-color:var(--ink); box-shadow:2px 2px 0 var(--ink);
+}
+.form-disclaimer{
+  font-size:12.5px; line-height:1.5; color:var(--ink); text-align:center;
+  margin:14px 0 18px; opacity:.85;
+}
+.form-disclaimer a{ color:var(--ink); font-weight:700; text-decoration:underline; }
+.btn-brutal-reg{
+  display:block; width:100%; border:2px solid #191A1C; border-radius:2px;
+  background:#191A1C; color:#ffffff !important;
+  font-family:var(--font-body); font-weight:800; font-size:16px;
+  padding:13px 20px; text-align:center; cursor:pointer;
+  box-shadow:4px 4px 0 #9EF01A;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn-brutal-reg:hover{
+  transform:translate(-1px,-1px); box-shadow:5px 5px 0 #9EF01A;
+}
+.btn-brutal-reg:active{
+  transform:translate(2px,2px); box-shadow:1px 1px 0 #9EF01A;
+}
+.form-bottom-link{
+  text-align:center; font-size:13.5px; font-weight:600; margin:16px 0 0; color:var(--ink);
+}
+.form-bottom-link a{
+  color:var(--ink); font-weight:800; text-decoration:underline;
+}
 
 /* ---------- coach overlay ---------- */
 .coach{
