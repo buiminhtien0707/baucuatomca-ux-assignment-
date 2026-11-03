@@ -60,29 +60,86 @@
     </section>
 
     <!-- how it works -->
-    <section class="section">
+    <section class="section" id="how-to-play">
       <div class="section-head">
-        <span class="sticker" data-i18n="how.title"></span>
-        <h2 data-i18n="how.sub"></h2>
+        <h2 class="section-title" data-i18n="how.title"></h2>
+        <p class="section-desc" data-i18n="how.sub"></p>
       </div>
       <div class="row g-4">
-        <div class="col-md-4"><div class="card-bc how-card">
-          <div class="ic sticker">1</div><h3 data-i18n="how.1t"></h3><p data-i18n="how.1d"></p>
-        </div></div>
-        <div class="col-md-4"><div class="card-bc how-card">
-          <div class="ic sticker">2</div><h3 data-i18n="how.2t"></h3><p data-i18n="how.2d"></p>
-        </div></div>
-        <div class="col-md-4"><div class="card-bc how-card">
-          <div class="ic sticker">3</div><h3 data-i18n="how.3t"></h3><p data-i18n="how.3d"></p>
-        </div></div>
+        <div class="col-md-4">
+          <div class="card-bc how-card">
+            <div class="how-step-header">
+              <span class="how-step-num">01</span>
+              <span class="how-badge" data-i18n="how.step1Tag"></span>
+            </div>
+            <h3 data-i18n="how.1t"></h3>
+            <p data-i18n="how.1d"></p>
+            <div class="how-visual">
+              <div class="how-chip-demo">
+                <span class="demo-chip">10</span>
+                <span class="demo-chip">50</span>
+                <span class="demo-chip active">100</span>
+                <span class="demo-chip">500</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-bc how-card">
+            <div class="how-step-header">
+              <span class="how-step-num">02</span>
+              <span class="how-badge" data-i18n="how.step2Tag"></span>
+            </div>
+            <h3 data-i18n="how.2t"></h3>
+            <p data-i18n="how.2d"></p>
+            <div class="how-visual">
+              <div class="how-cell-demo">
+                <div class="cell-info">
+                  <img src="assets/img/animals/cua.svg" alt="Cua" width="38" height="38">
+                  <span class="cell-label">CUA</span>
+                </div>
+                <span class="cell-bet-pill">+100 xu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-bc how-card">
+            <div class="how-step-header">
+              <span class="how-step-num">03</span>
+              <span class="how-badge" data-i18n="how.step3Tag"></span>
+            </div>
+            <h3 data-i18n="how.3t"></h3>
+            <p data-i18n="how.3d"></p>
+            <div class="how-visual">
+              <div class="how-dice-demo">
+                <div class="demo-dice-wrap">
+                  <div class="demo-die"><img src="assets/img/animals/cua.svg" alt="Cua"></div>
+                  <div class="demo-die"><img src="assets/img/animals/cua.svg" alt="Cua"></div>
+                  <div class="demo-die"><img src="assets/img/animals/ca.svg" alt="Cá"></div>
+                </div>
+                <div class="demo-payout-pill" data-i18n="how.payoutDemo"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick summary banner -->
+      <div class="how-summary-banner">
+        <div class="summary-left">
+          <strong class="summary-title" data-i18n="how.ruleSummaryTitle"></strong>
+          <span class="summary-payouts" data-i18n="how.ruleSummaryDesc"></span>
+        </div>
+        <a href="play.html" class="btn-bc btn-red how-summary-btn" data-i18n="how.tryBtn"></a>
       </div>
     </section>
 
     <!-- animals -->
     <section class="section">
       <div class="section-head">
-        <span class="sticker indigo" data-i18n="animals.title"></span>
-        <h2 data-i18n="animals.sub"></h2>
+        <h2 class="section-title" data-i18n="animals.title"></h2>
+        <p class="section-desc" data-i18n="animals.sub"></p>
       </div>
       <div class="carousel-wrap">
         <button class="car-btn prev" data-act="car-prev" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3"/></svg></button>
@@ -94,7 +151,8 @@
     <!-- faq -->
     <section class="section">
       <div class="section-head">
-        <span class="sticker" data-i18n="faq.title"></span>
+        <h2 class="section-title" data-i18n="faq.title"></h2>
+        <p class="section-desc" data-i18n="faq.sub"></p>
       </div>
       <div id="faq-zone"></div>
     </section>

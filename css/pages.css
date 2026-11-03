@@ -3,10 +3,11 @@
    BẦU CUA VUI — per-page layouts
    ============================================================ */
 
-.section{ padding:54px 16px 28px; max-width:1160px; margin:0 auto; }
+.section{ padding:54px 16px 28px; max-width:1160px; margin:0 auto; scroll-margin-top:70px; }
 .section-head{ display:flex; flex-direction:column; align-items:flex-start; gap:8px; margin-bottom:28px; }
 .section-head .sticker{ align-self:flex-start; width:fit-content; max-width:max-content; white-space:nowrap; }
-.section-head h2{ font-size:clamp(24px,4vw,36px); margin:0; line-height:1.2; }
+.section-head h1, .section-head h2{ font-size:clamp(24px,4vw,36px); margin:0; line-height:1.2; }
+.section-head .section-desc{ font-size:16px; color:var(--mut-ink); margin:0; max-width:65ch; line-height:1.55; }
 
 /* ---------- home hero ---------- */
 .hero{ padding:52px 16px 44px; max-width:1160px; margin:0 auto; }
@@ -79,39 +80,214 @@
   .car-btn{ display:none; }
 }
 
-/* ---------- how it works ---------- */
+/* ---------- how it works (redesigned gameplay guide) ---------- */
 .how-card{
   height:100%;
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
-  padding:24px 22px 26px;
+  align-items:stretch;
+  padding:22px 20px;
+  background:var(--cream);
+  border:var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
-.how-card .step{ font-family:var(--font-mono); font-weight:700; }
-.how-card .ic{
-  display:inline-flex;
+.how-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+.how-step-header{
+  display:flex;
+  justify-content:space-between;
   align-items:center;
-  justify-content:center;
-  min-width:44px;
-  height:44px;
-  padding:4px 14px;
-  font-size:24px;
+  margin-bottom:14px;
+}
+.how-step-num{
+  font-family:var(--font-mono);
   font-weight:800;
-  margin-bottom:18px;
+  font-size:22px;
+  color:var(--red);
   line-height:1;
-  transform:rotate(-2deg);
+}
+.how-badge{
+  font-family:var(--font-mono);
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:700;
+  padding:3px 8px;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:6px;
 }
 .how-card h3{
-  font-size:22px;
-  margin:0 0 10px;
-  line-height:1.25;
+  font-size:19px;
+  margin:0 0 8px;
+  line-height:1.3;
 }
 .how-card p{
-  margin:0;
+  margin:0 0 16px;
   color:var(--mut-ink);
-  line-height:1.6;
-  font-size:15px;
+  line-height:1.5;
+  font-size:14px;
   flex-grow:1;
+}
+.how-visual{
+  margin-top:auto;
+  padding:12px;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:74px;
+}
+/* Demo 1: Chip tray demo */
+.how-chip-demo{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.demo-chip{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:2px solid var(--ink);
+  background:var(--cream);
+  font-family:var(--font-mono);
+  font-weight:800;
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:2px 2px 0 var(--ink);
+}
+.demo-chip.active{
+  background:var(--gold);
+  transform:scale(1.12);
+  box-shadow:0 0 0 3px var(--red), 2px 3px 0 var(--ink);
+}
+/* Demo 2: Board cell demo */
+.how-cell-demo{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  padding:4px 8px;
+  background:var(--cream);
+  border:2px solid var(--ink);
+  border-radius:8px;
+}
+.cell-info{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.cell-info img{
+  width:38px;
+  height:38px;
+  image-rendering:pixelated;
+}
+.cell-info .cell-label{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:15px;
+  letter-spacing:.5px;
+}
+.cell-bet-pill{
+  font-family:var(--font-mono);
+  font-weight:800;
+  font-size:11px;
+  padding:4px 8px;
+  background:var(--red);
+  color:var(--ink-on-dark);
+  border:2px solid var(--ink);
+  border-radius:6px;
+  box-shadow:2px 2px 0 var(--ink);
+}
+/* Demo 3: Dice result demo */
+.how-dice-demo{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  width:100%;
+}
+.demo-dice-wrap{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+}
+.demo-die{
+  width:34px;
+  height:34px;
+  background:var(--cream);
+  border:2px solid var(--ink);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:2px 2px 0 var(--ink);
+  padding:3px;
+}
+.demo-die img{
+  width:100%;
+  height:100%;
+  image-rendering:pixelated;
+}
+.demo-payout-pill{
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:700;
+  color:var(--ink);
+  background:var(--gold);
+  border:2px solid var(--ink);
+  padding:3px 8px;
+  border-radius:6px;
+  text-align:center;
+  box-shadow:1px 1px 0 var(--ink);
+  white-space:nowrap;
+}
+
+/* Quick summary banner */
+.how-summary-banner{
+  margin-top:24px;
+  padding:16px 22px;
+  background:var(--cream);
+  border:var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.summary-left{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  max-width:700px;
+}
+.summary-title{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:16px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.summary-payouts{
+  font-size:14px;
+  color:var(--mut-ink);
+  line-height:1.45;
+}
+.how-summary-btn{
+  flex-shrink:0;
+  white-space:nowrap;
 }
 
 /* ---------- faq ---------- */
