@@ -35,6 +35,7 @@
 /* ---------- base ---------- */
 *{ box-sizing:border-box; }
 html,body{ overflow-x:clip; }
+html{ scroll-behavior:smooth; }
 body{
   background:var(--paper);
   color:var(--ink);

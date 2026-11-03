@@ -435,6 +435,50 @@ details.faq .a{ padding:0 16px 14px; }
 }
 .tab.active{ background:var(--indigo); color:var(--ink-on-dark); }
 .learn-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; }
+.learn-full{ display:block; width:100%; }
+.learn-static-box{ padding:26px 24px; max-width:840px; margin:0 auto; }
+.learn-rules-box{ padding:28px 24px; max-width:960px; margin:0 auto; }
+.rules-header{ margin-bottom:22px; border-bottom:2px dashed var(--ink); padding-bottom:14px; }
+.rules-header h2{ font-size:24px; margin:0 0 6px; }
+.rules-steps-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:22px; }
+.rules-step-card{
+  background:var(--paper); border:2px solid var(--ink); border-radius:10px;
+  padding:16px; box-shadow:3px 3px 0 var(--ink);
+}
+.rules-step-card .step-num{ font-family:var(--font-mono); font-weight:800; font-size:18px; color:var(--red); margin-bottom:6px; }
+.rules-step-card h4{ font-size:16px; margin:0 0 6px; font-family:var(--font-display); font-weight:800; text-transform:uppercase; }
+.rules-step-card p{ font-size:14px; color:var(--mut-ink); margin:0; line-height:1.45; }
+.payout-table-card{
+  background:var(--cream); border:2px solid var(--ink); border-radius:12px;
+  padding:20px; margin-bottom:20px; box-shadow:var(--shadow);
+}
+.payout-table-card h3{ font-size:18px; margin:0 0 14px; }
+.payout-rows{ display:flex; flex-direction:column; gap:8px; }
+.payout-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 14px; border:2px solid var(--ink); border-radius:8px;
+  background:var(--paper); font-size:14px; gap:12px;
+}
+.payout-row .badge-tag{ font-family:var(--font-mono); font-weight:700; min-width:140px; }
+.payout-row .calc{ flex-grow:1; color:var(--mut-ink); }
+.payout-row .res{
+  font-family:var(--font-mono); font-weight:800; font-size:14px;
+  padding:3px 8px; border-radius:6px; border:2px solid var(--ink);
+}
+.payout-row.lose .res{ background:var(--minus); color:var(--ink); }
+.payout-row.win1 .res{ background:var(--gold); }
+.payout-row.win2 .res{ background:var(--gold); font-size:15px; }
+.payout-row.win3 .res{ background:var(--red); color:var(--ink-on-dark); font-size:15px; }
+.example-box{
+  margin-top:12px; padding:12px 14px; background:var(--paper);
+  border-left:4px solid var(--indigo); border-radius:6px; font-size:14px; line-height:1.5;
+}
+.rules-cta-bar{ display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+@media (max-width:768px){
+  .rules-steps-grid{ grid-template-columns:1fr; gap:12px; }
+  .payout-row{ flex-direction:column; align-items:flex-start; gap:4px; }
+  .payout-row .badge-tag{ min-width:auto; }
+}
 .story-card{ cursor:pointer; }
 .story-card .emoji{ font-size:38px; }
 
