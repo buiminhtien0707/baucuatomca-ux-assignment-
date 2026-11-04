@@ -139,7 +139,9 @@ window.BCUI = (function () {
     wireSound();
     renderCoins();
 
-    document.querySelector("[data-act=drawer-open]").addEventListener("click", openDrawer);
+    document.querySelectorAll("[data-act=drawer-open]").forEach(function (b) {
+      b.addEventListener("click", openDrawer);
+    });
     document.querySelector("[data-act=drawer-close]").addEventListener("click", closeDrawer);
     document.querySelector(".drawer-backdrop").addEventListener("click", closeDrawer);
     document.addEventListener("keydown", function (e) {
