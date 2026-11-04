@@ -144,8 +144,23 @@ window.BCUI = (function () {
     });
     document.querySelector("[data-act=drawer-close]").addEventListener("click", closeDrawer);
     document.querySelector(".drawer-backdrop").addEventListener("click", closeDrawer);
+
+    // Close any modal when clicking backdrop outside .box
+    document.querySelectorAll(".modal-bc").forEach(function (m) {
+      m.addEventListener("click", function (e) {
+        if (e.target === m) {
+          m.classList.remove("show");
+        }
+      });
+    });
+
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeDrawer();
+      if (e.key === "Escape") {
+        closeDrawer();
+        document.querySelectorAll(".modal-bc.show").forEach(function (m) {
+          m.classList.remove("show");
+        });
+      }
     });
 
     function handleClaim(e) {

@@ -157,13 +157,23 @@ window.BCPageLearn = (function () {
       BCBadges.check("animal_viewed");
     }
     var modal = document.querySelector("#modal-animal");
+    var lang = (BCStore.load && BCStore.load().lang) || "vn";
+    var altNames = [];
+    if (lang !== "vn") altNames.push(a.name.vn);
+    if (lang !== "en") altNames.push(a.name.en);
+    if (lang !== "zh") altNames.push(a.name.zh);
+    var altStr = altNames.length ? ' <span class="mono mut">(' + altNames.join(" · ") + ")</span>" : "";
+
     modal.querySelector(".box").innerHTML =
-      '<div class="close-row"><button class="icon-btn" data-act="modal-close">✕</button></div>' +
-      '<img src="' + a.img + '" alt="' + BCi18n.L(a.name) + '" style="width:100%;border:3px solid var(--ink);border-radius:12px;">'
-      + "<h3>" + BCi18n.L(a.name) + ' <span class="mono mut">(' + a.name.en + " · " + a.name.zh + ")</span></h3>"
+      '<div class="close-row"><button class="icon-btn" data-act="modal-close" aria-label="Close">✕</button></div>' +
+      '<img src="' + a.img + '" alt="' + BCi18n.L(a.name) + '" style="width:100%;border:3px solid var(--ink);border-radius:12px;display:block;">'
+      + "<h3 style=\"margin:14px 0 6px\">" + BCi18n.L(a.name) + altStr + "</h3>"
       + "<p><strong>" + BCi18n.L(a.line) + "</strong></p>"
-      + "<p>" + BCi18n.L(a.fact) + "</p>";
+      + "<p style=\"margin:0\">" + BCi18n.L(a.fact) + "</p>";
     modal.classList.add("show");
+    modal.onclick = function (e) {
+      if (e.target === modal) modal.classList.remove("show");
+    };
     modal.querySelector("[data-act=modal-close]").addEventListener("click", function () {
       modal.classList.remove("show");
     });

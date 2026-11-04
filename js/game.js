@@ -405,6 +405,9 @@ window.BCGame = (function () {
       "</ul>" +
       "<a class=\"btn-bc btn-sm\" href=\"learn.html\">" + BCi18n.t("help.link") + "</a>";
     m.classList.add("show");
+    m.onclick = function (e) {
+      if (e.target === m) m.classList.remove("show");
+    };
     m.querySelector("[data-act=help-close]").addEventListener("click", function () {
       m.classList.remove("show");
     });
