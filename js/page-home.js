@@ -29,10 +29,91 @@ window.BCPageHome = (function () {
     });
 
     renderFaq();
+    initHeroShaker();
     BCi18n.onLangChange(function () {
       zone.innerHTML = "";
       BC_DATA.ANIMALS.forEach(function (a) { addCard(zone, a); });
       renderFaq();
+    });
+  }
+
+  /* hero interactive shaker teaser */
+  function initHeroShaker() {
+    var btn = document.querySelector("#btn-hero-shake");
+    if (!btn) return;
+
+    var dice = [
+      document.querySelector("#hdice-0"),
+      document.querySelector("#hdice-1"),
+      document.querySelector("#hdice-2")
+    ];
+    var fortuneEl = document.querySelector("#hero-fortune");
+    var statusEl = document.querySelector("#hero-shaker-status");
+    var isRolling = false;
+    var rollCount = 0;
+
+    btn.addEventListener("click", function () {
+      if (isRolling) return;
+      isRolling = true;
+      rollCount++;
+
+      if (window.BCAudio) BCAudio.rattle(0.65);
+
+      dice.forEach(function (d) { if (d) d.classList.add("is-rolling"); });
+      if (fortuneEl) fortuneEl.innerHTML = '<span style="color:var(--gold);font-weight:800;animation:pulseLive 0.8s infinite">🎲 Đang xóc đĩa... lộc đang tới!</span>';
+      btn.disabled = true;
+      btn.style.opacity = "0.7";
+
+      var shuffle = setInterval(function () {
+        dice.forEach(function (d) {
+          if (!d) return;
+          var rand = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
+          var img = d.querySelector("img");
+          var lbl = d.querySelector(".die-label");
+          if (img) img.src = rand.img;
+          if (lbl) lbl.textContent = BCi18n.L(rand.name);
+        });
+      }, 70);
+
+      setTimeout(function () {
+        clearInterval(shuffle);
+        dice.forEach(function (d) { if (d) d.classList.remove("is-rolling"); });
+
+        var r0 = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
+        var r1 = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
+        var r2 = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
+
+        var res = [r0, r1, r2];
+        res.forEach(function (r, idx) {
+          if (!dice[idx]) return;
+          var img = dice[idx].querySelector("img");
+          var lbl = dice[idx].querySelector(".die-label");
+          if (img) img.src = r.img;
+          if (lbl) lbl.textContent = BCi18n.L(r.name);
+        });
+
+        if (statusEl) statusEl.textContent = "Ván #" + rollCount + " · Lắc vui";
+
+        // Fortune text
+        var msg = "";
+        if (r0.id === r1.id && r1.id === r2.id) {
+          msg = "🔥 TAM HOA 3 CON " + BCi18n.L(r0.name).toUpperCase() + "! Đại hồng phát cả năm!";
+        } else if (r0.id === r1.id || r1.id === r2.id || r0.id === r2.id) {
+          var pair = (r0.id === r1.id) ? r0 : r2;
+          msg = "🎋 Về Cặp 2 " + BCi18n.L(pair.name) + "! Tài lộc nhân đôi, may mắn ngập tràn!";
+        } else {
+          msg = "✨ Ra 3 mặt " + BCi18n.L(r0.name) + " · " + BCi18n.L(r1.name) + " · " + BCi18n.L(r2.name) + "! Khai xuân đắc lộc!";
+        }
+
+        if (fortuneEl) fortuneEl.innerHTML = '<span style="color:var(--red)">' + msg + '</span>';
+
+        if (window.BCAudio) BCAudio.win();
+        if (window.BCFx) BCFx.confetti(false);
+
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        isRolling = false;
+      }, 700);
     });
   }
 

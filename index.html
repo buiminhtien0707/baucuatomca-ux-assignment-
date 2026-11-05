@@ -42,38 +42,104 @@
     <!-- hero -->
     <section class="hero hero-centered">
       <div class="hero-wrap">
-        <!-- Left flank cards -->
+        <!-- Left flank cards: Cua & Bầu -->
         <div class="hero-flank flank-left" aria-hidden="true">
-          <div class="big-sticker s-cua">
-            <img src="assets/img/animals/cua.svg" alt="" width="58" height="58">
-            <small>Cua</small>
+          <div class="mascot-card m-cua">
+            <div class="mc-tag">TẾT 2026 · 1:1</div>
+            <div class="mc-avatar">
+              <img src="assets/img/animals/cua.svg" alt="Cua" width="56" height="56">
+            </div>
+            <div class="mc-body">
+              <strong>Cua Biển</strong>
+              <small>Ngang tàng · Lộc lớn</small>
+            </div>
           </div>
-          <div class="big-sticker s-lixi">
-            <svg viewBox="0 0 44 44" width="40" aria-hidden="true"><rect x="6" y="8" width="32" height="30" rx="4" fill="#E8442E" stroke="#141414" stroke-width="3"/><path d="M6 14l16 9 16-9" fill="none" stroke="#FFC93C" stroke-width="3"/><circle cx="22" cy="27" r="4" fill="#FFC93C" stroke="#141414" stroke-width="2"/></svg>
-            <small>lì xì</small>
+          <div class="mascot-card m-bau">
+            <div class="mc-tag">PHÚC LỘC · 1:1</div>
+            <div class="mc-avatar">
+              <img src="assets/img/animals/bau.svg" alt="Bầu" width="56" height="56">
+            </div>
+            <div class="mc-body">
+              <strong>Bầu Hồ Lô</strong>
+              <small>Bình an · Đủ đầy</small>
+            </div>
           </div>
         </div>
 
         <!-- Center content -->
         <div class="hero-center">
-          <h1><span data-i18n="hero.t1"></span><br><span class="hl" data-i18n="hero.t2"></span></h1>
+          <div class="hero-kicker-bar">
+            <span class="kicker-pill"><span class="kicker-ic">🏮</span> <span data-i18n="hero.kicker">Trò chơi Tết Việt Nam</span></span>
+            <span class="kicker-badge"><span class="kicker-dot"></span> 100% Xu Ảo</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="t-line-1" data-i18n="hero.t1"></span><br>
+            <span class="hl-wrap">
+              <span class="hl" data-i18n="hero.t2"></span>
+              <span class="hl-sparkle" aria-hidden="true">★</span>
+            </span>
+          </h1>
+
           <p class="lead" data-i18n="hero.sub"></p>
-          <div class="cta">
-            <a class="btn-bc btn-red" href="play.html" data-i18n="hero.ctaPlay"></a>
+
+          <!-- Interactive Mini-Shaker Teaser -->
+          <div class="hero-shaker-card" id="hero-mini-shaker">
+            <div class="shaker-top">
+              <span class="shaker-title">🎲 MÂM LẮC THỬ VẬN</span>
+              <span class="shaker-status" id="hero-shaker-status">Miễn phí · 0 đồng</span>
+            </div>
+            <div class="shaker-dice-row" id="hero-dice-stage">
+              <div class="shaker-die" id="hdice-0">
+                <img src="assets/img/animals/cua.svg" alt="" width="44" height="44">
+                <span class="die-label">Cua</span>
+              </div>
+              <div class="shaker-die" id="hdice-1">
+                <img src="assets/img/animals/ca.svg" alt="" width="44" height="44">
+                <span class="die-label">Cá</span>
+              </div>
+              <div class="shaker-die" id="hdice-2">
+                <img src="assets/img/animals/bau.svg" alt="" width="44" height="44">
+                <span class="die-label">Bầu</span>
+              </div>
+            </div>
+            <div class="shaker-fortune" id="hero-fortune">
+              <span>✨ Chạm nút dưới để lắc thử quẻ đầu năm!</span>
+            </div>
+            <button type="button" class="btn-bc btn-red btn-shake-teaser" id="btn-hero-shake">
+              <span>🎲</span> LẮC THỬ VẬN MAY
+            </button>
+          </div>
+
+          <!-- Main CTAs -->
+          <div class="cta hero-cta-group">
+            <a class="btn-bc btn-gold" href="play.html" data-i18n="hero.ctaPlay"></a>
             <a class="btn-bc btn-ghost" href="#how-to-play" data-i18n="hero.ctaLearn"></a>
           </div>
-          <p class="mono mut disclaimer" style="margin-top:14px" data-i18n="footer.warn"></p>
+          <p class="mono mut disclaimer" style="margin-top:12px" data-i18n="footer.warn"></p>
         </div>
 
-        <!-- Right flank cards -->
+        <!-- Right flank cards: Cá & Tôm -->
         <div class="hero-flank flank-right" aria-hidden="true">
-          <div class="big-sticker s-ca">
-            <img src="assets/img/animals/ca.svg" alt="" width="58" height="58">
-            <small>Cá</small>
+          <div class="mascot-card m-ca">
+            <div class="mc-tag">DƯ DẢ · 1:1</div>
+            <div class="mc-avatar">
+              <img src="assets/img/animals/ca.svg" alt="Cá" width="56" height="56">
+            </div>
+            <div class="mc-body">
+              <strong>Cá Chép</strong>
+              <small>Năm dư · Tháng đủ</small>
+            </div>
           </div>
-          <div class="big-sticker s-dice">
-            <svg viewBox="0 0 44 44" width="40" aria-hidden="true"><rect x="3" y="3" width="38" height="38" rx="9" fill="#FAF3E7" stroke="#191A1C" stroke-width="3"/><circle cx="14" cy="14" r="4" fill="#191A1C"/><circle cx="22" cy="22" r="4" fill="#E8442E"/><circle cx="30" cy="30" r="4" fill="#191A1C"/></svg>
-            <small>xí ngầu</small>
+          <div class="mascot-card m-tom">
+            <div class="mc-tag">BẬT CAO · 1:1</div>
+            <div class="mc-avatar">
+              <img src="assets/img/animals/tom.svg" alt="Tôm" width="56" height="56">
+            </div>
+            <div class="mc-body">
+              <strong>Tôm Càng</strong>
+              <small>Công danh · Bật vọt</small>
+            </div>
           </div>
         </div>
       </div>
