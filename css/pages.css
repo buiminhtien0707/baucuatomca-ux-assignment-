@@ -94,27 +94,19 @@
   position: relative;
   box-sizing: border-box;
 }
-.shaker-top{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px dashed var(--ink);
-  padding-bottom: 8px;
+/* Shaker Top Simple (Clean Title, No Right Pill, No Dashed Line) */
+.shaker-top-simple{
+  text-align: center;
   margin-bottom: 12px;
+}
+.shaker-top-simple .shaker-title{
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
-}
-.shaker-top .shaker-title{
+  letter-spacing: 0.06em;
   color: var(--ink);
-}
-.shaker-top .shaker-status{
-  color: var(--red);
-  background: #FFF0E8;
-  padding: 2px 8px;
-  border-radius: 6px;
-  border: 1px solid var(--red);
+  display: inline-block;
 }
 .shaker-dice-row{
   display: flex;
@@ -213,118 +205,79 @@
   text-align: center;
 }
 
-/* Flanks (2 bên - Mascot Cards) */
+/* Flanks (Cards containing ONLY image) */
 .hero-flank{
   position: relative;
-  min-height: 380px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   z-index: 1;
 }
-.mascot-card{
+.pixel-card{
   background: var(--cream);
   border: 3px solid var(--ink);
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 4px 4px 0 var(--ink);
-  padding: 12px 14px;
-  width: 100%;
-  max-width: 190px;
-  text-align: center;
+  padding: 14px;
+  width: 108px;
+  height: 108px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   transition: transform .2s ease, box-shadow .2s ease;
   user-select: none;
   box-sizing: border-box;
 }
-.mascot-card:hover{
-  transform: scale(1.06) rotate(0deg) !important;
+.pixel-card:hover{
+  transform: scale(1.08) rotate(0deg) !important;
   box-shadow: 6px 6px 0 var(--ink);
 }
-.mascot-card .mc-tag{
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  background: #fff;
-  border: 1.5px solid var(--ink);
-  border-radius: 999px;
-  padding: 2px 8px;
-  margin-bottom: 8px;
-  display: inline-block;
-}
-.mascot-card .mc-avatar{
-  width: 64px;
-  height: 64px;
-  background: #fff;
-  border: 2px solid var(--ink);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  box-shadow: 2px 2px 0 rgba(0,0,0,0.06);
-}
-.mascot-card .mc-avatar img{
-  width: 52px;
-  height: 52px;
+.pixel-card img{
+  width: 68px;
+  height: 68px;
   image-rendering: pixelated;
   display: block;
-}
-.mascot-card .mc-body strong{
-  display: block;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.2;
-  color: var(--ink);
-}
-.mascot-card .mc-body small{
-  display: block;
-  font-size: 11px;
-  color: var(--mut-ink);
-  margin-top: 2px;
-  font-family: var(--font-mono);
-  font-weight: 600;
 }
 
 /* Left Flank */
 .flank-left{
   align-items: flex-start;
 }
-.flank-left .m-cua{
-  transform: rotate(-4deg);
-  margin-left: 6px;
+.flank-left .card-cua{
+  transform: rotate(-6deg);
+  margin-left: 14px;
 }
-.flank-left .m-bau{
-  transform: rotate(3deg);
-  margin-left: 20px;
+.flank-left .card-lixi{
+  transform: rotate(5deg);
+  margin-left: 32px;
+  background: #FFF4F0;
 }
 
 /* Right Flank */
 .flank-right{
   align-items: flex-end;
 }
-.flank-right .m-ca{
-  transform: rotate(4deg);
-  margin-right: 6px;
+.flank-right .card-ca{
+  transform: rotate(6deg);
+  margin-right: 14px;
 }
-.flank-right .m-tom{
-  transform: rotate(-3deg);
-  margin-right: 20px;
+.flank-right .card-dice{
+  transform: rotate(-5deg);
+  margin-right: 32px;
+  background: #FFFDF5;
 }
 
 @media (max-width: 960px){
   .hero-wrap{
-    grid-template-columns: 150px 1fr 150px;
-    gap: 14px;
+    grid-template-columns: 120px 1fr 120px;
+    gap: 12px;
   }
-  .hero-flank{ min-height: 320px; }
-  .mascot-card{ padding: 10px; max-width: 146px; }
-  .mascot-card .mc-avatar{ width: 50px; height: 50px; }
-  .mascot-card .mc-avatar img{ width: 40px; height: 40px; }
-  .flank-left .m-cua, .flank-left .m-bau,
-  .flank-right .m-ca, .flank-right .m-tom{ margin: 0; }
+  .hero-flank{ min-height: 280px; }
+  .pixel-card{ width: 88px; height: 88px; padding: 10px; }
+  .pixel-card img{ width: 56px; height: 56px; }
+  .flank-left .card-cua, .flank-left .card-lixi,
+  .flank-right .card-ca, .flank-right .card-dice{ margin: 0; }
   .hero-center p.lead{ font-size: 15px; }
   .shaker-die{ width: 62px; height: 62px; }
   .shaker-die img{ width: 34px; height: 34px; }
@@ -346,24 +299,20 @@
     min-height: auto;
     flex-direction: row;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
-    flex-wrap: wrap;
   }
   .flank-left{ order: 2; }
   .flank-right{ order: 3; }
-  .flank-left .m-cua, .flank-left .m-bau,
-  .flank-right .m-ca, .flank-right .m-tom{
+  .flank-left .card-cua, .flank-left .card-lixi,
+  .flank-right .card-ca, .flank-right .card-dice{
     margin: 0;
     transform: none;
-    max-width: calc(50% - 8px);
-    flex: 1 1 135px;
-    padding: 10px 8px;
+    width: 82px;
+    height: 82px;
+    padding: 10px;
   }
-  .mascot-card .mc-avatar{ width: 48px; height: 48px; }
-  .mascot-card .mc-avatar img{ width: 38px; height: 38px; }
-  .mascot-card .mc-body strong{ font-size: 13px; }
-  .mascot-card .mc-body small{ font-size: 10px; }
+  .pixel-card img{ width: 52px; height: 52px; }
   .hero-title{ font-size: clamp(28px, 7.5vw, 40px); }
   .hero-center p.lead{ font-size: 14px; }
   .hero-shaker-card{ max-width: 100%; padding: 12px 12px; margin-bottom: 16px; }
