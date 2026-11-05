@@ -199,11 +199,6 @@
 .hero-cta-group .btn-gold:hover{
   background: #FFD566;
 }
-.hero-center .disclaimer{
-  font-size: 12px;
-  margin: 0;
-  text-align: center;
-}
 
 /* Flanks (Cards containing ONLY image) */
 .hero-flank{
