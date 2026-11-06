@@ -74,141 +74,10 @@
 .hero-center p.lead{
   font-size: 17px;
   max-width: 48ch;
-  margin: 0 auto 18px;
+  margin: 0 auto 28px;
   line-height: 1.55;
   color: var(--ink);
   text-align: center;
-}
-
-/* 6-Animal Mascot Showcase & Lucky Mascot Picker */
-.hero-mascots-card{
-  background: var(--surface, #FFFDF8);
-  border: 3.5px solid var(--ink, #191A1C);
-  border-radius: 20px;
-  box-shadow: 5px 5px 0 var(--ink, #191A1C);
-  padding: 16px 18px 14px;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto 22px;
-  text-align: center;
-  position: relative;
-  box-sizing: border-box;
-}
-.mascots-card-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  padding: 0 4px;
-}
-.mascots-card-title{
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink, #191A1C);
-}
-.btn-random-text{
-  background: var(--gold, #FFC93C);
-  border: 2px solid var(--ink, #191A1C);
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink, #191A1C);
-  padding: 5px 12px;
-  box-shadow: 2px 2px 0 var(--ink, #191A1C);
-  cursor: pointer;
-  transition: transform .12s, box-shadow .12s, background .12s;
-  white-space: nowrap;
-}
-.btn-random-text:hover{
-  transform: translateY(-2px);
-  box-shadow: 3px 3px 0 var(--ink, #191A1C);
-  background: #FFE066;
-}
-.btn-random-text:active{
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink, #191A1C);
-}
-.mascots-card-grid{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-  margin-bottom: 12px;
-}
-.mascot-pick-tile{
-  background: var(--cream, #FAF3E7);
-  border: 2.5px solid var(--ink, #191A1C);
-  border-radius: 12px;
-  box-shadow: 2px 2px 0 var(--ink, #191A1C);
-  padding: 8px 4px 6px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  cursor: pointer;
-  transition: transform .14s ease, background .14s ease, box-shadow .14s ease;
-  user-select: none;
-  width: 100%;
-}
-.mascot-pick-tile:hover{
-  transform: translateY(-3px);
-  background: #FFE885;
-  box-shadow: 3px 3px 0 var(--ink, #191A1C);
-}
-.mascot-pick-tile:active{
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--ink, #191A1C);
-}
-.mascot-pick-tile.selected{
-  background: var(--gold, #FFC93C);
-  transform: translateY(-2px);
-  box-shadow: 2.5px 2.5px 0 var(--ink, #191A1C);
-}
-.mascot-pick-tile.is-animating{
-  animation: mascotPopBounce 0.35s ease;
-}
-@keyframes mascotPopBounce{
-  0% { transform: scale(0.9); }
-  50% { transform: scale(1.15) translateY(-4px); }
-  100% { transform: scale(1) translateY(-2px); }
-}
-.mascot-pick-tile img{
-  width: 36px;
-  height: 36px;
-  image-rendering: pixelated;
-  display: block;
-}
-.mascot-pick-tile .tile-label{
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--ink, #191A1C);
-  text-transform: uppercase;
-}
-.mascot-lucky-status{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #615647;
-  padding: 4px 8px;
-  background: #F5EFE4;
-  border-radius: 8px;
-}
-.mascot-lucky-status .status-prefix{
-  color: #7A6F60;
-}
-.mascot-lucky-status .status-mascot{
-  color: var(--red, #E8442E);
-  font-weight: 800;
 }
 
 /* CTAs */
@@ -338,10 +207,6 @@
   .pixel-card img{ width: 52px; height: 52px; }
   .hero-title{ font-size: clamp(28px, 7.5vw, 40px); }
   .hero-center p.lead{ font-size: 14px; }
-  .hero-mascots-card{ max-width: 100%; padding: 12px 10px 10px; margin-bottom: 16px; }
-  .mascots-card-grid{ grid-template-columns: repeat(3, 1fr); gap: 6px; }
-  .mascot-pick-tile{ padding: 6px 4px 5px; }
-  .mascot-pick-tile img{ width: 32px; height: 32px; }
   .hero-cta-group{ flex-direction: column; width: 100%; gap: 10px; }
   .hero-cta-group .btn-bc{ width: 100%; text-align: center; }
 }
