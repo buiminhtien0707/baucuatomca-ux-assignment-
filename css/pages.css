@@ -80,105 +80,134 @@
   text-align: center;
 }
 
-/* Interactive Mini-Shaker Teaser */
-.hero-shaker-card{
-  background: #fff;
-  border: 3px solid var(--ink);
-  border-radius: 18px;
-  box-shadow: 5px 5px 0 var(--ink);
-  padding: 14px 18px 16px;
+/* 6-Animal Mascot Showcase & Lucky Mascot Picker */
+.hero-mascots-card{
+  background: var(--surface, #FFFDF8);
+  border: 3.5px solid var(--ink, #191A1C);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 var(--ink, #191A1C);
+  padding: 16px 18px 14px;
   width: 100%;
-  max-width: 440px;
-  margin: 0 auto 20px;
+  max-width: 500px;
+  margin: 0 auto 22px;
   text-align: center;
   position: relative;
   box-sizing: border-box;
 }
-/* Shaker Top Simple (Clean Title, No Right Pill, No Dashed Line) */
-.shaker-top-simple{
-  text-align: center;
+.mascots-card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 12px;
+  padding: 0 4px;
 }
-.shaker-top-simple .shaker-title{
+.mascots-card-title{
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--ink);
-  display: inline-block;
+  color: var(--ink, #191A1C);
 }
-.shaker-dice-row{
+.btn-random-mascot{
+  background: var(--gold, #FFC93C);
+  border: 2px solid var(--ink, #191A1C);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 15px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  justify-content: center;
+  box-shadow: 2px 2px 0 var(--ink, #191A1C);
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s;
+  padding: 0;
 }
-.shaker-die{
-  width: 70px;
-  height: 70px;
-  background: var(--cream);
-  border: 2.5px solid var(--ink);
-  border-radius: 14px;
-  box-shadow: 3px 3px 0 var(--ink);
+.btn-random-mascot:hover{
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--ink, #191A1C);
+  background: #FFE066;
+}
+.btn-random-mascot:active{
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink, #191A1C);
+}
+.mascots-card-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.mascot-pick-tile{
+  background: var(--cream, #FAF3E7);
+  border: 2.5px solid var(--ink, #191A1C);
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 var(--ink, #191A1C);
+  padding: 8px 4px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-  transition: transform .15s ease;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform .14s ease, background .14s ease, box-shadow .14s ease;
   user-select: none;
+  width: 100%;
 }
-.shaker-die img{
-  width: 40px;
-  height: 40px;
+.mascot-pick-tile:hover{
+  transform: translateY(-3px);
+  background: #FFE885;
+  box-shadow: 3px 3px 0 var(--ink, #191A1C);
+}
+.mascot-pick-tile:active{
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink, #191A1C);
+}
+.mascot-pick-tile.selected{
+  background: var(--gold, #FFC93C);
+  transform: translateY(-2px);
+  box-shadow: 2.5px 2.5px 0 var(--ink, #191A1C);
+}
+.mascot-pick-tile.is-animating{
+  animation: mascotPopBounce 0.35s ease;
+}
+@keyframes mascotPopBounce{
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.15) translateY(-4px); }
+  100% { transform: scale(1) translateY(-2px); }
+}
+.mascot-pick-tile img{
+  width: 36px;
+  height: 36px;
   image-rendering: pixelated;
   display: block;
 }
-.shaker-die .die-label{
+.mascot-pick-tile .tile-label{
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  color: var(--ink);
-  margin-top: 2px;
+  color: var(--ink, #191A1C);
+  text-transform: uppercase;
 }
-.shaker-die.is-rolling{
-  animation: diceRollShake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
-}
-@keyframes diceRollShake{
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  25% { transform: translateY(-6px) rotate(-8deg) scale(1.06); }
-  50% { transform: translateY(4px) rotate(6deg) scale(0.96); }
-  75% { transform: translateY(-4px) rotate(-4deg) scale(1.02); }
-}
-
-.shaker-fortune{
-  min-height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--red);
-  margin-bottom: 10px;
-  padding: 0 4px;
-}
-.btn-shake-teaser{
-  width: 100%;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  border-radius: 12px;
-  border: 2.5px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
-  cursor: pointer;
+.mascot-lucky-status{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 600;
+  color: #615647;
+  padding: 4px 8px;
+  background: #F5EFE4;
+  border-radius: 8px;
+}
+.mascot-lucky-status .status-prefix{
+  color: #7A6F60;
+}
+.mascot-lucky-status .status-mascot{
+  color: var(--red, #E8442E);
+  font-weight: 800;
 }
 
 /* CTAs */
@@ -310,7 +339,10 @@
   .pixel-card img{ width: 52px; height: 52px; }
   .hero-title{ font-size: clamp(28px, 7.5vw, 40px); }
   .hero-center p.lead{ font-size: 14px; }
-  .hero-shaker-card{ max-width: 100%; padding: 12px 12px; margin-bottom: 16px; }
+  .hero-mascots-card{ max-width: 100%; padding: 12px 10px 10px; margin-bottom: 16px; }
+  .mascots-card-grid{ grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .mascot-pick-tile{ padding: 6px 4px 5px; }
+  .mascot-pick-tile img{ width: 32px; height: 32px; }
   .hero-cta-group{ flex-direction: column; width: 100%; gap: 10px; }
   .hero-cta-group .btn-bc{ width: 100%; text-align: center; }
 }

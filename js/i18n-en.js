@@ -7,6 +7,8 @@ window.BC_I18N_EN = {
   "hero.kicker": "A Vietnamese Tết folk game",
   "hero.sub": "Learn the rules in 30 seconds, shake the bowl with virtual coins, then run the odds yourself, so the next time you're invited to a Tết table, you're ready.",
   "hero.ctaPlay": "Play now", "hero.ctaLearn": "Learn in 30s",
+  "hero.mascotTitle": "6 Traditional Folk Mascots",
+  "hero.luckyPrefix": "Lucky mascot:",
   "ticker.1": "🧧 Virtual coins: just for fun", "ticker.2": "🎲 Shake for a lucky start", "ticker.3": "🐟 Six animals, one Tết day",
 
   "how.title": "How to Play Bầu Cua",

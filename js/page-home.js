@@ -29,92 +29,109 @@ window.BCPageHome = (function () {
     });
 
     renderFaq();
-    initHeroShaker();
+    initMascotPicker();
     BCi18n.onLangChange(function () {
       zone.innerHTML = "";
       BC_DATA.ANIMALS.forEach(function (a) { addCard(zone, a); });
       renderFaq();
+      updateMascotLanguage();
     });
   }
 
-  /* hero interactive shaker teaser */
-  function initHeroShaker() {
-    var btn = document.querySelector("#btn-hero-shake");
-    if (!btn) return;
+  /* 6-animal mascot showcase & lucky mascot picker */
+  var meanings = {
+    bau: { vn: "Bầu (Bình an & Sung túc)", en: "Gourd (Peace & Abundance)", zh: "葫芦（平安富贵）" },
+    cua: { vn: "Cua (Vững vàng & Tài lộc)", en: "Crab (Strength & Wealth)", zh: "螃蟹（四平八稳）" },
+    tom: { vn: "Tôm (Bứt phá & Thuận buồm)", en: "Shrimp (Leap & Smooth Sailing)", zh: "大虾（步步高升）" },
+    ca: { vn: "Cá (Dư dả & Thịnh vượng)", en: "Fish (Surplus & Prosperity)", zh: "金鱼（年年有余）" },
+    ga: { vn: "Gà (Đại cát & Tinh anh)", en: "Rooster (Good Luck & Vitality)", zh: "雄鸡（大吉大利）" },
+    huou: { vn: "Hươu (Trường thọ & May mắn)", en: "Stag (Longevity & Fortune)", zh: "吉祥鹿（福禄双全）" }
+  };
 
-    var dice = [
-      document.querySelector("#hdice-0"),
-      document.querySelector("#hdice-1"),
-      document.querySelector("#hdice-2")
-    ];
-    var fortuneEl = document.querySelector("#hero-fortune");
-    var statusEl = document.querySelector("#hero-shaker-status");
-    var isRolling = false;
-    var rollCount = 0;
+  function updateMascotLanguage() {
+    var descEl = document.querySelector("#lucky-mascot-desc");
+    if (!descEl) return;
+    var currentId = "bau";
+    try {
+      currentId = localStorage.getItem("bc_lucky_mascot") || "bau";
+    } catch (e) {}
+    var m = meanings[currentId];
+    if (m) {
+      var lang = (window.BCi18n && BCi18n.currentLang) || "vn";
+      descEl.textContent = m[lang] || m.vn;
+    }
+  }
 
-    btn.addEventListener("click", function () {
-      if (isRolling) return;
-      isRolling = true;
-      rollCount++;
+  function initMascotPicker() {
+    var tiles = document.querySelectorAll(".mascot-pick-tile");
+    var descEl = document.querySelector("#lucky-mascot-desc");
+    var randomBtn = document.querySelector("#btn-random-mascot");
+    if (!tiles.length) return;
 
-      if (window.BCAudio) BCAudio.rattle(0.65);
-
-      dice.forEach(function (d) { if (d) d.classList.add("is-rolling"); });
-      if (fortuneEl) fortuneEl.innerHTML = '<span style="color:var(--gold);font-weight:800;animation:pulseLive 0.8s infinite">🎲 Đang xóc đĩa... lộc đang tới!</span>';
-      btn.disabled = true;
-      btn.style.opacity = "0.7";
-
-      var shuffle = setInterval(function () {
-        dice.forEach(function (d) {
-          if (!d) return;
-          var rand = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
-          var img = d.querySelector("img");
-          var lbl = d.querySelector(".die-label");
-          if (img) img.src = rand.img;
-          if (lbl) lbl.textContent = BCi18n.L(rand.name);
-        });
-      }, 70);
-
-      setTimeout(function () {
-        clearInterval(shuffle);
-        dice.forEach(function (d) { if (d) d.classList.remove("is-rolling"); });
-
-        var r0 = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
-        var r1 = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
-        var r2 = BC_DATA.ANIMALS[Math.floor(Math.random() * BC_DATA.ANIMALS.length)];
-
-        var res = [r0, r1, r2];
-        res.forEach(function (r, idx) {
-          if (!dice[idx]) return;
-          var img = dice[idx].querySelector("img");
-          var lbl = dice[idx].querySelector(".die-label");
-          if (img) img.src = r.img;
-          if (lbl) lbl.textContent = BCi18n.L(r.name);
-        });
-
-        if (statusEl) statusEl.textContent = "Ván #" + rollCount + " · Lắc vui";
-
-        // Fortune text
-        var msg = "";
-        if (r0.id === r1.id && r1.id === r2.id) {
-          msg = "🔥 TAM HOA 3 CON " + BCi18n.L(r0.name).toUpperCase() + "! Đại hồng phát cả năm!";
-        } else if (r0.id === r1.id || r1.id === r2.id || r0.id === r2.id) {
-          var pair = (r0.id === r1.id) ? r0 : r2;
-          msg = "🎋 Về Cặp 2 " + BCi18n.L(pair.name) + "! Tài lộc nhân đôi, may mắn ngập tràn!";
-        } else {
-          msg = "✨ Ra 3 mặt " + BCi18n.L(r0.name) + " · " + BCi18n.L(r1.name) + " · " + BCi18n.L(r2.name) + "! Khai xuân đắc lộc!";
+    function selectMascot(animalId, playAudio) {
+      tiles.forEach(function (t) {
+        var isThis = t.getAttribute("data-animal") === animalId;
+        t.classList.toggle("selected", isThis);
+        if (isThis && playAudio) {
+          t.classList.remove("is-animating");
+          void t.offsetWidth;
+          t.classList.add("is-animating");
         }
+      });
 
-        if (fortuneEl) fortuneEl.innerHTML = '<span style="color:var(--red)">' + msg + '</span>';
+      var m = meanings[animalId];
+      if (m && descEl) {
+        var lang = (window.BCi18n && BCi18n.currentLang) || "vn";
+        descEl.textContent = m[lang] || m.vn;
+      }
 
-        if (window.BCAudio) BCAudio.win();
-        if (window.BCFx) BCFx.confetti(false);
+      try {
+        localStorage.setItem("bc_lucky_mascot", animalId);
+      } catch (e) {}
 
-        btn.disabled = false;
-        btn.style.opacity = "1";
-        isRolling = false;
-      }, 700);
+      if (playAudio && window.BCAudio && BCAudio.chip) {
+        BCAudio.chip();
+      }
+    }
+
+    tiles.forEach(function (t) {
+      t.addEventListener("click", function () {
+        var id = t.getAttribute("data-animal");
+        selectMascot(id, true);
+      });
     });
+
+    if (randomBtn) {
+      var isSpinning = false;
+      randomBtn.addEventListener("click", function () {
+        if (isSpinning) return;
+        isSpinning = true;
+        randomBtn.style.opacity = "0.6";
+        var animalIds = ["bau", "cua", "tom", "ca", "ga", "huou"];
+        var counter = 0;
+        var maxSteps = 10;
+        var spinInterval = setInterval(function () {
+          var rand = animalIds[Math.floor(Math.random() * animalIds.length)];
+          selectMascot(rand, false);
+          counter++;
+          if (counter >= maxSteps) {
+            clearInterval(spinInterval);
+            isSpinning = false;
+            randomBtn.style.opacity = "1";
+            var finalPick = animalIds[Math.floor(Math.random() * animalIds.length)];
+            selectMascot(finalPick, true);
+            if (window.BCAudio && BCAudio.win) BCAudio.win();
+          }
+        }, 60);
+      });
+    }
+
+    // Initialize with saved or default
+    var initial = "bau";
+    try {
+      initial = localStorage.getItem("bc_lucky_mascot") || "bau";
+    } catch (e) {}
+    selectMascot(initial, false);
   }
 
   function addCard(zone, a) {

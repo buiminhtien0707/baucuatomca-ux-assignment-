@@ -7,6 +7,8 @@ window.BC_I18N_ZH = {
   "hero.kicker": "越南春节民间游戏",
   "hero.sub": "30 秒学会规则，用虚拟金币摇盅，再亲手跑一遍概率——下次被邀请上桌，你已胸有成竹。",
   "hero.ctaPlay": "立即开玩", "hero.ctaLearn": "30 秒学规则",
+  "hero.mascotTitle": "六大民间生肖吉祥物",
+  "hero.luckyPrefix": "今日吉祥物：",
   "ticker.1": "🧧 虚拟金币——只为好玩", "ticker.2": "🎲 摇盅迎春", "ticker.3": "🐟 六只动物，一个春节",
 
   "how.title": "游戏玩法指南",
