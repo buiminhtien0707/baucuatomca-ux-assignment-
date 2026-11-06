@@ -2,7 +2,7 @@
 window.BCLab = (function () {
   "use strict";
 
-  var cells = 1, rounds = 100, speed = "fast", running = false;
+  var cells = 1, rounds = 100, speed = "slow", running = false;
   var matchCounts = [0, 0, 0, 0];
   var series = [1000];
   var stakedTotal = 0;
@@ -19,6 +19,7 @@ window.BCLab = (function () {
     });
     document.querySelectorAll('input[name="speed"]').forEach(function (r) {
       r.addEventListener("change", function () { speed = r.value; });
+      if (r.checked) speed = r.value;
     });
     document.querySelector("[data-act=lab-run]").addEventListener("click", run);
     BCi18n.onLangChange(function () { BCLabCharts.draw(matchCounts, series); });
