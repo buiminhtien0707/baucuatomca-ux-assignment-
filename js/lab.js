@@ -89,8 +89,7 @@ window.BCLab = (function () {
     }
 
     function finish() {
-      var ev = ((coins - 1000) / stakedTotal) * 100;
-      live().textContent = BCi18n.t("lab.evReal", { x: ev.toFixed(1) });
+      live().textContent = BCi18n.t("lab.done", { x: rounds });
       running = false;
       if (runBtn) runBtn.disabled = false;
       BCBadges.check("lab_run");

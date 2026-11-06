@@ -99,7 +99,7 @@ window.BC_I18N_EN = {
   "lab.run": "Run simulation", "lab.runLabel": "Run simulation", "lab.running": "Running… {x}%",
   "lab.chart1": "Rounds by number of matches", "lab.chart2": "Coins across rounds",
   "lab.evTheory": "Math says: EV ≈ −7.9% per xu bet: the house edge is real but small.",
-  "lab.evReal": "This simulation: {x}% of total stake",
+  "lab.done": "Completed {x} rounds",
   "lab.staked": "Total stake simulated",
 
   "tet.title": "Bầu Cua & Tết",

@@ -98,7 +98,7 @@ window.BC_I18N_ZH = {
   "lab.run": "运行模拟", "lab.running": "运行中…… {x}%",
   "lab.chart1": "各命中数的局数", "lab.chart2": "金币走势",
   "lab.evTheory": "数学说：期望 ≈ −7.9%/注——庄家优势是真的，但很小。",
-  "lab.evReal": "本次模拟：占总注 {x}%",
+  "lab.done": "已完成 {x} 局模拟",
   "lab.staked": "模拟总注",
 
   "tet.title": "骰宝与春节",

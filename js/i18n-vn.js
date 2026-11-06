@@ -99,7 +99,7 @@ window.BC_I18N_VN = {
   "lab.run": "Chạy mô phỏng", "lab.running": "Đang chạy… {x}%",
   "lab.chart1": "Ván theo số mặt khớp", "lab.chart2": "Tổng xu qua các ván",
   "lab.evTheory": "Toán nói: EV ≈ −7,9% mỗi xu cược: người cầm bát luôn lãi nhẹ về dài hạn.",
-  "lab.evReal": "Mô phỏng vừa chạy: {x}% tổng cược",
+  "lab.done": "Đã hoàn thành {x} ván",
   "lab.staked": "Tổng cược đã mô phỏng",
 
   "tet.title": "Bầu Cua & Ngày Tết",
