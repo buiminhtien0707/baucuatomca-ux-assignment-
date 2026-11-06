@@ -9,6 +9,7 @@ window.BC_I18N_VN = {
   "hero.ctaPlay": "Chơi ngay", "hero.ctaLearn": "Học luật 30 giây",
   "hero.mascotTitle": "6 Linh Vật Bầu Cua Dân Gian",
   "hero.luckyPrefix": "Linh vật may mắn:",
+  "hero.randomBtn": "Chọn ngẫu nhiên",
   "ticker.1": "🧧 Xu ảo, vui thôi", "ticker.2": "🎲 Lắc ngay khai xuân", "ticker.3": "🐟 Sáu con vật: cả một ngày Tết",
 
   "how.title": "Cách chơi Bầu Cua",

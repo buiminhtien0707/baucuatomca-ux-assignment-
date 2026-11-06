@@ -9,6 +9,7 @@ window.BC_I18N_EN = {
   "hero.ctaPlay": "Play now", "hero.ctaLearn": "Learn in 30s",
   "hero.mascotTitle": "6 Traditional Folk Mascots",
   "hero.luckyPrefix": "Lucky mascot:",
+  "hero.randomBtn": "Random pick",
   "ticker.1": "🧧 Virtual coins: just for fun", "ticker.2": "🎲 Shake for a lucky start", "ticker.3": "🐟 Six animals, one Tết day",
 
   "how.title": "How to Play Bầu Cua",

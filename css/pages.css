@@ -109,27 +109,28 @@
   letter-spacing: 0.06em;
   color: var(--ink, #191A1C);
 }
-.btn-random-mascot{
+.btn-random-text{
   background: var(--gold, #FFC93C);
   border: 2px solid var(--ink, #191A1C);
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink, #191A1C);
+  padding: 5px 12px;
   box-shadow: 2px 2px 0 var(--ink, #191A1C);
   cursor: pointer;
-  transition: transform .12s, box-shadow .12s;
-  padding: 0;
+  transition: transform .12s, box-shadow .12s, background .12s;
+  white-space: nowrap;
 }
-.btn-random-mascot:hover{
+.btn-random-text:hover{
   transform: translateY(-2px);
   box-shadow: 3px 3px 0 var(--ink, #191A1C);
   background: #FFE066;
 }
-.btn-random-mascot:active{
+.btn-random-text:active{
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--ink, #191A1C);
 }
@@ -286,10 +287,10 @@
   transform: rotate(6deg);
   margin-right: 14px;
 }
-.flank-right .card-dice{
+.flank-right .card-tom{
   transform: rotate(-5deg);
   margin-right: 32px;
-  background: #FFFDF5;
+  background: #FFF5EE;
 }
 
 @media (max-width: 960px){
@@ -301,10 +302,8 @@
   .pixel-card{ width: 88px; height: 88px; padding: 10px; }
   .pixel-card img{ width: 56px; height: 56px; }
   .flank-left .card-cua, .flank-left .card-lixi,
-  .flank-right .card-ca, .flank-right .card-dice{ margin: 0; }
+  .flank-right .card-ca, .flank-right .card-tom{ margin: 0; }
   .hero-center p.lead{ font-size: 15px; }
-  .shaker-die{ width: 62px; height: 62px; }
-  .shaker-die img{ width: 34px; height: 34px; }
 }
 
 @media (max-width: 720px){
@@ -329,7 +328,7 @@
   .flank-left{ order: 2; }
   .flank-right{ order: 3; }
   .flank-left .card-cua, .flank-left .card-lixi,
-  .flank-right .card-ca, .flank-right .card-dice{
+  .flank-right .card-ca, .flank-right .card-tom{
     margin: 0;
     transform: none;
     width: 82px;
