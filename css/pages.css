@@ -147,10 +147,10 @@
   transform: rotate(6deg);
   margin-right: 14px;
 }
-.flank-right .card-tom{
+.flank-right .card-dice{
   transform: rotate(-5deg);
   margin-right: 32px;
-  background: #FFF5EE;
+  background: #FFFDF8;
 }
 
 @media (max-width: 960px){
@@ -162,7 +162,7 @@
   .pixel-card{ width: 88px; height: 88px; padding: 10px; }
   .pixel-card img{ width: 56px; height: 56px; }
   .flank-left .card-cua, .flank-left .card-lixi,
-  .flank-right .card-ca, .flank-right .card-tom{ margin: 0; }
+  .flank-right .card-ca, .flank-right .card-dice{ margin: 0; }
   .hero-center p.lead{ font-size: 15px; }
 }
 
@@ -188,7 +188,7 @@
   .flank-left{ order: 2; }
   .flank-right{ order: 3; }
   .flank-left .card-cua, .flank-left .card-lixi,
-  .flank-right .card-ca, .flank-right .card-tom{
+  .flank-right .card-ca, .flank-right .card-dice{
     margin: 0;
     transform: none;
     width: 82px;
