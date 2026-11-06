@@ -61,15 +61,6 @@
   box-shadow: 4px 4px 0 var(--ink);
   border-radius: 8px;
 }
-.hero-title .hl-sparkle{
-  position: absolute;
-  top: -12px;
-  right: -16px;
-  font-size: 22px;
-  color: var(--red);
-  transform: rotate(15deg);
-  pointer-events: none;
-}
 
 .hero-center p.lead{
   font-size: 17px;
