@@ -157,7 +157,7 @@ window.BCPageLearn = (function () {
       BCBadges.check("animal_viewed");
     }
     var modal = document.querySelector("#modal-animal");
-    var lang = (BCStore.load && BCStore.load().lang) || "vn";
+    var lang = (BCStore.load && BCStore.load().lang) || "en";
     var altNames = [];
     if (lang !== "vn") altNames.push(a.name.vn);
     if (lang !== "en") altNames.push(a.name.en);

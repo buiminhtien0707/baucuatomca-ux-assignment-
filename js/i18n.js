@@ -1,4 +1,4 @@
-/* i18n.js — language switching (vn default, en, zh) */
+/* i18n.js — language switching (en default, vn, zh) */
 window.BCi18n = (function () {
   "use strict";
   var DICTS = {
@@ -6,11 +6,11 @@ window.BCi18n = (function () {
   };
   var listeners = [];
 
-  function lang() { return BCStore.load().lang || "vn"; }
+  function lang() { return (window.BCStore && BCStore.load().lang) || "en"; }
 
   function t(key, vars) {
-    var d = DICTS[lang()] || DICTS.vn;
-    var s = d[key] !== undefined ? d[key] : (DICTS.vn[key] || key);
+    var d = DICTS[lang()] || DICTS.en || DICTS.vn;
+    var s = d[key] !== undefined ? d[key] : (DICTS.en && DICTS.en[key] !== undefined ? DICTS.en[key] : (DICTS.vn && DICTS.vn[key] !== undefined ? DICTS.vn[key] : key));
     if (vars) {
       Object.keys(vars).forEach(function (k) {
         s = s.split("{" + k + "}").join(String(vars[k]));
@@ -21,11 +21,11 @@ window.BCi18n = (function () {
 
   function L(obj) { /* pick field from a {vn,en,zh} object */
     if (obj == null) return "";
-    return obj[lang()] !== undefined ? obj[lang()] : obj.vn;
+    return obj[lang()] !== undefined ? obj[lang()] : (obj.en || obj.vn || "");
   }
 
   function apply() {
-    document.documentElement.lang = lang() === "zh" ? "zh-CN" : lang();
+    document.documentElement.lang = lang() === "zh" ? "zh-CN" : (lang() === "vn" ? "vi" : "en");
     var page = document.body.dataset.page;
     if (page) document.title = t("brand.full") + ": " + t("nav." + page);
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -46,6 +46,7 @@ window.BCi18n = (function () {
   function setLang(l) {
     var s = BCStore.load();
     s.lang = l;
+    try { localStorage.setItem("bc_lang_user_chosen", "true"); } catch (e) {}
     BCStore.save();
     apply();
   }

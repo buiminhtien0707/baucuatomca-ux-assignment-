@@ -4,7 +4,7 @@ window.BCStore = (function () {
   var KEY = "bc_state_v1";
 
   var DEFAULTS = {
-    v: 1, lang: "vn", muted: false,
+    v: 1, lang: "en", muted: false,
     balance: 1000, lastLiXi: "", lastVisit: "",
     rounds: [],            // [{dice:[i,i,i], net:int}] — last 10
     stats: { played: 0, won: 0, lost: 0, streak: 0, bestStreak: 0, peak: 1000 },
@@ -27,6 +27,12 @@ window.BCStore = (function () {
     Object.keys(DEFAULTS).forEach(function (k) {
       if (state[k] === undefined) state[k] = JSON.parse(JSON.stringify(DEFAULTS[k]));
     });
+    // Default to English unless user has explicitly chosen another language
+    var userChosen = false;
+    try { userChosen = localStorage.getItem("bc_lang_user_chosen") === "true"; } catch (e) {}
+    if (!userChosen) {
+      state.lang = "en";
+    }
     return state;
   }
 
