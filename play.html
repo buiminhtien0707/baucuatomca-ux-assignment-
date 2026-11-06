@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Bầu Cua Vui: học và chơi bầu cua tôm cá bằng xu ảo. Không nạp, không rút, chỉ để vui ngày Tết.">
   <title>BẦU CUA VUI: Play</title>
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=11">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=12">
   <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=11">
-  <link rel="stylesheet" href="css/pages.css?v=11">
+  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="stylesheet" href="css/pages.css?v=12">
 </head>
 <body data-page="play">
   <noscript><p style="padding:10px 16px;background:#E8442E;color:#FFFDF8;font-weight:700">Trang này cần JavaScript để chơi — hãy bật JS trong trình duyệt.</p></noscript>
@@ -45,35 +45,25 @@
         <p class="section-desc" data-i18n="play.sub"></p>
       </div>
       <div class="play-grid">
-        <div>
-          <div class="board" aria-label="Betting board"></div>
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:18px 0 0">
-            <div style="display:flex;align-items:center;gap:10px">
-              <h3 style="margin:0" data-i18n="play.chips"></h3>
-              <button class="btn-bc btn-xs btn-red quick-lixi-btn" data-act="quick-lixi" data-i18n="play.quickLixi" title="Nhận +500 xu vô cực (Phím: L)">+500 xu 🧧</button>
+        <div class="play-col-left">
+          <div class="play-board-area">
+            <div class="board" aria-label="Betting board"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:18px 0 0">
+              <div style="display:flex;align-items:center;gap:10px">
+                <h3 style="margin:0" data-i18n="play.chips"></h3>
+                <button class="btn-bc btn-xs btn-red quick-lixi-btn" data-act="quick-lixi" data-i18n="play.quickLixi" title="Nhận +500 xu vô cực (Phím: L)">+500 xu 🧧</button>
+              </div>
+              <span class="mono mut" style="font-size:12px;font-weight:700" data-i18n="play.betLimit"></span>
             </div>
-            <span class="mono mut" style="font-size:12px;font-weight:700" data-i18n="play.betLimit"></span>
+            <div class="chip-tray"></div>
+            <div class="play-actions">
+              <button class="icon-btn" data-act="help" aria-label="Luật 30 giay" style="width:38px;height:38px;font-weight:800">?</button>
+              <button class="btn-bc btn-sm" data-act="undo" data-i18n="play.undo" title="Phím tắt: U / Ctrl+Z"></button>
+              <button class="btn-bc btn-sm" data-act="clear" data-i18n="play.clear" title="Phím tắt: C"></button>
+              <button class="btn-bc btn-sm" data-act="rebet" data-i18n="play.rebet" title="Phím tắt: R"></button>
+            </div>
           </div>
-          <div class="chip-tray"></div>
-          <div class="play-actions">
-            <button class="icon-btn" data-act="help" aria-label="Luật 30 giay" style="width:38px;height:38px;font-weight:800">?</button>
-            <button class="btn-bc btn-sm" data-act="undo" data-i18n="play.undo" title="Phím tắt: U / Ctrl+Z"></button>
-            <button class="btn-bc btn-sm" data-act="clear" data-i18n="play.clear" title="Phím tắt: C"></button>
-            <button class="btn-bc btn-sm" data-act="rebet" data-i18n="play.rebet" title="Phím tắt: R"></button>
-          </div>
-          <div class="bowl-zone">
-            <div class="bowl" aria-hidden="true"><svg class="bowl-svg" viewBox="0 0 120 70" width="110" aria-hidden="true"><path d="M10 30h100a50 34 0 0 1-100 0z" fill="#FAF3E7" stroke="#191A1C" stroke-width="3"/><rect x="4" y="22" width="112" height="9" rx="4.5" fill="#FFC93C" stroke="#191A1C" stroke-width="3"/></svg></div>
-            <div class="dice-row" aria-live="polite"></div>
-            <div class="status-line">…</div>
-            <button class="btn-bc btn-gold btn-shake" data-act="shake" data-i18n="play.shake" aria-keyshortcuts="Space" title="Phím tắt: Space"></button>
-          </div>
-        </div>
-        <div>
-          <div class="card-bc">
-            <h3 data-i18n="play.history"></h3>
-            <div class="history-strip"></div>
-          </div>
-          <div class="card-bc leader">
+          <div class="card-bc leader play-leader-card">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
               <h3 data-i18n="lb.title"></h3>
               <span class="sticker red" data-i18n="lb.soon"></span>
@@ -86,8 +76,21 @@
             <table class="lb-table">
               <thead><tr><th data-i18n="lb.rank"></th><th data-i18n="lb.name"></th><th data-i18n="lb.xu"></th></tr></thead>
               <tbody id="lb-body"></tbody>
-</table>
+            </table>
             <div class="lb-desc" data-i18n="lb.desc"></div>
+          </div>
+        </div>
+
+        <div class="play-col-right">
+          <div class="bowl-zone">
+            <div class="bowl" aria-hidden="true"><svg class="bowl-svg" viewBox="0 0 120 70" width="110" aria-hidden="true"><path d="M10 30h100a50 34 0 0 1-100 0z" fill="#FAF3E7" stroke="#191A1C" stroke-width="3"/><rect x="4" y="22" width="112" height="9" rx="4.5" fill="#FFC93C" stroke="#191A1C" stroke-width="3"/></svg></div>
+            <div class="dice-row" aria-live="polite"></div>
+            <div class="status-line">…</div>
+            <button class="btn-bc btn-gold btn-shake" data-act="shake" data-i18n="play.shake" aria-keyshortcuts="Space" title="Phím tắt: Space"></button>
+          </div>
+          <div class="card-bc play-history-card">
+            <h3 data-i18n="play.history"></h3>
+            <div class="history-strip"></div>
           </div>
         </div>
       </div>
@@ -134,21 +137,21 @@
   <div class="modal-bc" id="modal-help" role="dialog" aria-modal="true"><div class="box" id="help-box"></div></div>
   <div class="toast-zone"></div>
 
-  <script src="js/data-core.js?v=11"></script>
-  <script src="js/data-content.js?v=11"></script>
-  <script src="js/i18n-vn.js?v=11"></script>
-  <script src="js/i18n-en.js?v=11"></script>
-  <script src="js/i18n-zh.js?v=11"></script>
-  <script src="js/i18n.js?v=11"></script>
-  <script src="js/store.js?v=11"></script>
-  <script src="js/audio.js?v=11"></script>
-  <script src="js/wallet.js?v=11"></script>
-  <script src="js/badges.js?v=11"></script>
-  <script src="js/ui.js?v=11"></script>
-  <script src="js/fx.js?v=11"></script>
-  <script src="js/game-core.js?v=11"></script>
-  <script src="js/game.js?v=11"></script>
-  <script src="js/page-home.js?v=11"></script>
+  <script src="js/data-core.js?v=12"></script>
+  <script src="js/data-content.js?v=12"></script>
+  <script src="js/i18n-vn.js?v=12"></script>
+  <script src="js/i18n-en.js?v=12"></script>
+  <script src="js/i18n-zh.js?v=12"></script>
+  <script src="js/i18n.js?v=12"></script>
+  <script src="js/store.js?v=12"></script>
+  <script src="js/audio.js?v=12"></script>
+  <script src="js/wallet.js?v=12"></script>
+  <script src="js/badges.js?v=12"></script>
+  <script src="js/ui.js?v=12"></script>
+  <script src="js/fx.js?v=12"></script>
+  <script src="js/game-core.js?v=12"></script>
+  <script src="js/game.js?v=12"></script>
+  <script src="js/page-home.js?v=12"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       BCUI.boot();
