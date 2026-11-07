@@ -96,6 +96,7 @@ window.BC_I18N_ZH = {
   "lab.r100": "100 局", "lab.r1000": "1000 局",
   "lab.speedFast": "瞬间完成", "lab.speedSlow": "逐局播放",
   "lab.run": "运行模拟", "lab.running": "运行中…… {x}%",
+  "lab.progress": "运行中…… {x}%（{d}/{r} 局 · {c} 金币）",
   "lab.chart1": "各命中数的局数", "lab.chart2": "金币走势",
   "lab.evTheory": "数学说：期望 ≈ −7.9%/注——庄家优势是真的，但很小。",
   "lab.done": "已完成 {x} 局模拟",

@@ -97,6 +97,7 @@ window.BC_I18N_EN = {
   "lab.r100": "100 rounds", "lab.r1000": "1,000 rounds",
   "lab.speedFast": "Instant", "lab.speedSlow": "Step-by-step",
   "lab.run": "Run simulation", "lab.runLabel": "Run simulation", "lab.running": "Running… {x}%",
+  "lab.progress": "Running… {x}% ({d}/{r} rounds · {c} xu)",
   "lab.chart1": "Rounds by number of matches", "lab.chart2": "Coins across rounds",
   "lab.evTheory": "Math says: EV ≈ −7.9% per xu bet: the house edge is real but small.",
   "lab.done": "Completed {x} rounds",

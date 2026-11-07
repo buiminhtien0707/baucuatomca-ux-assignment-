@@ -54,7 +54,7 @@ window.BCLab = (function () {
 
       BCLabCharts.draw(matchCounts, series);
       var pct = Math.floor((done / rounds) * 100);
-      live().textContent = BCi18n.t("lab.running", { x: pct }) + " (" + done + "/" + rounds + " ván · " + coins + " xu)";
+      live().textContent = BCi18n.t("lab.progress", { x: pct, d: done, r: rounds, c: coins.toLocaleString("vi-VN") });
 
       if (done < rounds) {
         setTimeout(stepOne, 75);
@@ -81,7 +81,7 @@ window.BCLab = (function () {
       }
       BCLabCharts.draw(matchCounts, series);
       var pct = Math.floor((done / rounds) * 100);
-      live().textContent = BCi18n.t("lab.running", { x: pct });
+      live().textContent = BCi18n.t("lab.progress", { x: pct, d: done, r: rounds, c: coins.toLocaleString("vi-VN") });
       if (done < rounds) {
         requestAnimationFrame(chunk);
       } else {

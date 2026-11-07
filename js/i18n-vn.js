@@ -97,6 +97,7 @@ window.BC_I18N_VN = {
   "lab.r100": "100 ván", "lab.r1000": "1.000 ván",
   "lab.speedFast": "Chạy tức thì (instant)", "lab.speedSlow": "Từng ván (step-by-step)",
   "lab.run": "Chạy mô phỏng", "lab.running": "Đang chạy… {x}%",
+  "lab.progress": "Đang chạy… {x}% ({d}/{r} ván · {c} xu)",
   "lab.chart1": "Ván theo số mặt khớp", "lab.chart2": "Tổng xu qua các ván",
   "lab.evTheory": "Toán nói: EV ≈ −7,9% mỗi xu cược: người cầm bát luôn lãi nhẹ về dài hạn.",
   "lab.done": "Đã hoàn thành {x} ván",
