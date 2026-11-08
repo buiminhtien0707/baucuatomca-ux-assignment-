@@ -164,7 +164,9 @@ window.BCGame = (function () {
     if (!reduced && "vibrate" in navigator) {
       try { navigator.vibrate([25, 40, 30, 40, 35]); } catch (e) {}
     }
-    $(".bowl").classList.add("shaking");
+    var bowl = $(".bowl");
+    bowl.classList.remove("lifted");
+    bowl.classList.add("shaking");
     pendingTimer = setTimeout(finishRound, secs * 1000);
   }
 
@@ -174,7 +176,9 @@ window.BCGame = (function () {
     var res = BCWallet.settle(dice);
     var reduced = BCUI.reducedMotion();
 
-    $(".bowl").classList.remove("shaking");
+    var bowlEl = $(".bowl");
+    bowlEl.classList.remove("shaking");
+    bowlEl.classList.add("lifted");
     renderDice(dice, reduced ? 0 : 260);
     highlightWinners(res.perCell, reduced ? 0 : 500);
     var msgKey = res.net > 0

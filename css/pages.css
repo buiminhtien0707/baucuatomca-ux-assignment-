@@ -727,19 +727,38 @@ details.faq .a{ padding:0 16px 14px; }
 .bowl-zone{
   margin-top:0; border:var(--border); border-radius:var(--radius);
   background:var(--indigo); color:var(--ink-on-dark); box-shadow:var(--shadow);
-  padding:14px 16px; text-align:center; position:relative; overflow:hidden;
+  padding:12px 14px; text-align:center; position:relative; overflow:hidden;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   box-sizing:border-box; align-self:start; width:100%;
 }
-.bowl{ font-size:74px; display:inline-block; }
-.bowl.shaking{ animation:shake .5s ease-in-out infinite; }
+.bowl-stage{
+  position:relative; width:100%; height:88px;
+  display:flex; align-items:flex-end; justify-content:center;
+}
+.bowl{
+  position:absolute; bottom:2px; left:50%; z-index:2;
+  transform:translateX(-50%);
+  transition:transform .32s var(--spring), opacity .22s ease;
+}
+.bowl.lifted{
+  transform:translateX(-50%) translateY(-52px) rotate(-14deg) scale(.92);
+  opacity:0; pointer-events:none;
+}
+.bowl.shaking{ animation:rattle .34s ease-in-out infinite; }
+@keyframes rattle{
+  0%,100%{ transform:translateX(-50%) rotate(0); }
+  20%{ transform:translateX(calc(-50% - 8px)) rotate(-10deg) scale(1.05); }
+  40%{ transform:translateX(calc(-50% + 7px)) rotate(9deg); }
+  60%{ transform:translateX(calc(-50% - 6px)) rotate(-8deg) scale(1.05); }
+  80%{ transform:translateX(calc(-50% + 6px)) rotate(7deg); }
+}
 @keyframes shake{
   0%,100%{ transform:translate(0,0) rotate(0); }
   25%{ transform:translate(-7px,2px) rotate(-7deg); }
   50%{ transform:translate(6px,-3px) rotate(6deg); }
   75%{ transform:translate(-4px,4px) rotate(-4deg); }
 }
-.dice-row{ display:flex; gap:10px; justify-content:center; min-height:60px; align-items:center; margin-top:8px; margin-bottom:2px; }
+.dice-row{ display:flex; gap:10px; justify-content:center; align-items:center; height:88px; }
 .die{
   width:60px; height:60px; border:var(--border); border-radius:12px;
   background:var(--cream); color:var(--ink); font-size:30px;
