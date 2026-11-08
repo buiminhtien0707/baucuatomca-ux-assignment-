@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Bầu Cua Vui: học và chơi bầu cua tôm cá bằng xu ảo. Không nạp, không rút, chỉ để vui ngày Tết.">
   <title>BẦU CUA VUI: Play</title>
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=16">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=17">
   <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=16">
-  <link rel="stylesheet" href="css/pages.css?v=16">
+  <link rel="stylesheet" href="css/styles.css?v=17">
+  <link rel="stylesheet" href="css/pages.css?v=17">
 </head>
 <body data-page="play">
   <noscript><p style="padding:10px 16px;background:#E8442E;color:#FFFDF8;font-weight:700">Trang này cần JavaScript để chơi — hãy bật JS trong trình duyệt.</p></noscript>
@@ -64,38 +64,38 @@
             </div>
           </div>
 
-          <div class="bowl-zone">
-            <div class="bowl-stage">
-              <div class="dice-row" aria-live="polite"></div>
-              <div class="bowl" aria-hidden="true"><svg class="bowl-svg" viewBox="0 0 120 70" width="76" aria-hidden="true"><path d="M10 30h100a50 34 0 0 1-100 0z" fill="#FAF3E7" stroke="#191A1C" stroke-width="3"/><rect x="4" y="22" width="112" height="9" rx="4.5" fill="#FFC93C" stroke="#191A1C" stroke-width="3"/></svg></div>
+          <div class="play-side-col">
+            <div class="bowl-zone">
+              <div class="bowl-stage">
+                <div class="dice-row" aria-live="polite"></div>
+                <div class="bowl" aria-hidden="true"><svg class="bowl-svg" viewBox="0 0 120 70" width="76" aria-hidden="true"><path d="M10 30h100a50 34 0 0 1-100 0z" fill="#FAF3E7" stroke="#191A1C" stroke-width="3"/><rect x="4" y="22" width="112" height="9" rx="4.5" fill="#FFC93C" stroke="#191A1C" stroke-width="3"/></svg></div>
+              </div>
+              <div class="status-line">…</div>
+              <button class="btn-bc btn-gold btn-shake" data-act="shake" data-i18n="play.shake" aria-keyshortcuts="Space" title="Phím tắt: Space"></button>
             </div>
-            <div class="status-line">…</div>
-            <button class="btn-bc btn-gold btn-shake" data-act="shake" data-i18n="play.shake" aria-keyshortcuts="Space" title="Phím tắt: Space"></button>
+
+            <div class="card-bc play-history-card">
+              <h3 data-i18n="play.history"></h3>
+              <div class="history-strip"></div>
+            </div>
           </div>
         </div>
 
-        <div class="play-bottom-grid">
-          <div class="card-bc play-history-card">
-            <h3 data-i18n="play.history"></h3>
-            <div class="history-strip"></div>
+        <div class="card-bc leader play-leader-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+            <h3 data-i18n="lb.title"></h3>
+            <span class="sticker red" data-i18n="lb.soon"></span>
           </div>
-
-          <div class="card-bc leader play-leader-card">
-            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-              <h3 data-i18n="lb.title"></h3>
-              <span class="sticker red" data-i18n="lb.soon"></span>
-            </div>
-            <div class="podium" aria-hidden="true">
-              <div class="step-bc p2"><strong>2</strong><br>Cô Hoang</div>
-              <div class="step-bc p1"><strong>1</strong><br>Chú Tễu</div>
-              <div class="step-bc p3"><strong>3</strong><br>Bác Ba</div>
-            </div>
-            <table class="lb-table">
-              <thead><tr><th data-i18n="lb.rank"></th><th data-i18n="lb.name"></th><th data-i18n="lb.xu"></th></tr></thead>
-              <tbody id="lb-body"></tbody>
-            </table>
-            <div class="lb-desc" data-i18n="lb.desc"></div>
+          <div class="podium" aria-hidden="true">
+            <div class="step-bc p2"><strong>2</strong><br>Cô Hoang</div>
+            <div class="step-bc p1"><strong>1</strong><br>Chú Tễu</div>
+            <div class="step-bc p3"><strong>3</strong><br>Bác Ba</div>
           </div>
+          <table class="lb-table">
+            <thead><tr><th data-i18n="lb.rank"></th><th data-i18n="lb.name"></th><th data-i18n="lb.xu"></th></tr></thead>
+            <tbody id="lb-body"></tbody>
+          </table>
+          <div class="lb-desc" data-i18n="lb.desc"></div>
         </div>
       </div>
     </section></main>
@@ -141,21 +141,21 @@
   <div class="modal-bc" id="modal-help" role="dialog" aria-modal="true"><div class="box" id="help-box"></div></div>
   <div class="toast-zone"></div>
 
-  <script src="js/data-core.js?v=16"></script>
-  <script src="js/data-content.js?v=16"></script>
-  <script src="js/i18n-vn.js?v=16"></script>
-  <script src="js/i18n-en.js?v=16"></script>
-  <script src="js/i18n-zh.js?v=16"></script>
-  <script src="js/i18n.js?v=16"></script>
-  <script src="js/store.js?v=16"></script>
-  <script src="js/audio.js?v=16"></script>
-  <script src="js/wallet.js?v=16"></script>
-  <script src="js/badges.js?v=16"></script>
-  <script src="js/ui.js?v=16"></script>
-  <script src="js/fx.js?v=16"></script>
-  <script src="js/game-core.js?v=16"></script>
-  <script src="js/game.js?v=16"></script>
-  <script src="js/page-home.js?v=16"></script>
+  <script src="js/data-core.js?v=17"></script>
+  <script src="js/data-content.js?v=17"></script>
+  <script src="js/i18n-vn.js?v=17"></script>
+  <script src="js/i18n-en.js?v=17"></script>
+  <script src="js/i18n-zh.js?v=17"></script>
+  <script src="js/i18n.js?v=17"></script>
+  <script src="js/store.js?v=17"></script>
+  <script src="js/audio.js?v=17"></script>
+  <script src="js/wallet.js?v=17"></script>
+  <script src="js/badges.js?v=17"></script>
+  <script src="js/ui.js?v=17"></script>
+  <script src="js/fx.js?v=17"></script>
+  <script src="js/game-core.js?v=17"></script>
+  <script src="js/game.js?v=17"></script>
+  <script src="js/page-home.js?v=17"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       BCUI.boot();
