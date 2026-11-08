@@ -244,11 +244,19 @@
   border:var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  transition:transform .2s ease, box-shadow .2s ease;
+  transition:transform .12s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow .12s ease;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  user-select:none;
 }
 .how-card:hover{
-  transform:translateY(-2px);
+  transform:translate(-2px, -2px);
   box-shadow:var(--shadow-lg);
+}
+.how-card:active{
+  transform:translate(2px, 2px);
+  box-shadow:1.5px 1.5px 0 var(--ink);
 }
 .how-step-header{
   display:flex;
@@ -272,6 +280,12 @@
   background:var(--paper);
   border:2px solid var(--ink);
   border-radius:6px;
+  box-shadow:1.5px 1.5px 0 var(--ink);
+  transition:transform .15s ease, background .15s ease;
+}
+.how-card:hover .how-badge{
+  transform:scale(1.05);
+  background:var(--gold);
 }
 .how-card h3{
   font-size:19px;
@@ -295,7 +309,32 @@
   align-items:center;
   justify-content:center;
   min-height:74px;
+  position:relative;
+  overflow:hidden;
+  transition:box-shadow .15s ease, border-color .15s ease;
 }
+.how-card:hover .how-visual{
+  box-shadow:2px 2px 0 var(--ink);
+}
+
+/* Click Burst / Ripple */
+.how-click-burst{
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255, 201, 60, 0.9) 0%, rgba(232, 68, 46, 0.4) 60%, transparent 100%);
+  border:2px solid var(--ink);
+  pointer-events:none;
+  transform:translate(-50%, -50%) scale(0.5);
+  animation:how-burst-anim .45s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  z-index:20;
+}
+@keyframes how-burst-anim{
+  0%{ transform:translate(-50%, -50%) scale(0.5); opacity:1; }
+  100%{ transform:translate(-50%, -50%) scale(3.5); opacity:0; }
+}
+
 /* Demo 1: Chip tray demo */
 .how-chip-demo{
   display:flex;
@@ -313,16 +352,35 @@
   font-family:var(--font-mono);
   font-weight:800;
   font-size:12px;
-  display:flex;
+  display:inline-flex;
   align-items:center;
   justify-content:center;
   box-shadow:2px 2px 0 var(--ink);
+  cursor:pointer;
+  padding:0;
+  color:var(--ink);
+  transition:transform .15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .15s ease, background .15s ease;
+  user-select:none;
+}
+.demo-chip:hover{
+  transform:translateY(-3px) scale(1.12);
+  box-shadow:2px 4px 0 var(--ink);
+  background:var(--paper);
+}
+.demo-chip:active{
+  transform:translateY(1px) scale(0.95);
+  box-shadow:1px 1px 0 var(--ink);
 }
 .demo-chip.active{
   background:var(--gold);
-  transform:scale(1.12);
+  transform:scale(1.15);
   box-shadow:0 0 0 3px var(--red), 2px 3px 0 var(--ink);
 }
+.demo-chip.active:hover{
+  transform:translateY(-2px) scale(1.2);
+  box-shadow:0 0 0 3px var(--red), 2px 5px 0 var(--ink);
+}
+
 /* Demo 2: Board cell demo */
 .how-cell-demo{
   display:flex;
@@ -333,6 +391,20 @@
   background:var(--cream);
   border:2px solid var(--ink);
   border-radius:8px;
+  cursor:pointer;
+  transition:transform .15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .15s ease, border-color .15s ease;
+  user-select:none;
+}
+.how-cell-demo:hover{
+  transform:translateY(-2px);
+  box-shadow:3px 3px 0 var(--ink);
+}
+.how-cell-demo:active{
+  transform:translateY(1px) scale(0.97);
+  box-shadow:1px 1px 0 var(--ink);
+}
+.how-cell-demo.cell-pulse{
+  animation:pop .25s ease;
 }
 .cell-info{
   display:flex;
@@ -343,6 +415,10 @@
   width:38px;
   height:38px;
   image-rendering:pixelated;
+  transition:transform .15s ease;
+}
+.how-cell-demo:hover .cell-info img{
+  transform:scale(1.1) rotate(-4deg);
 }
 .cell-info .cell-label{
   font-family:var(--font-display);
@@ -360,7 +436,9 @@
   border:2px solid var(--ink);
   border-radius:6px;
   box-shadow:2px 2px 0 var(--ink);
+  transition:transform .15s ease;
 }
+
 /* Demo 3: Dice result demo */
 .how-dice-demo{
   display:flex;
@@ -368,12 +446,21 @@
   align-items:center;
   gap:6px;
   width:100%;
+  cursor:pointer;
+  user-select:none;
+}
+.how-dice-demo:hover .demo-dice-wrap{
+  transform:scale(1.08);
+}
+.how-dice-demo:active .demo-dice-wrap{
+  transform:scale(0.95);
 }
 .demo-dice-wrap{
   display:flex;
   gap:8px;
   align-items:center;
   justify-content:center;
+  transition:transform .15s ease;
 }
 .demo-die{
   width:34px;
@@ -386,6 +473,21 @@
   justify-content:center;
   box-shadow:2px 2px 0 var(--ink);
   padding:3px;
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.demo-die.rolling{
+  animation:dice-tumble .35s ease-in-out infinite;
+}
+@keyframes dice-tumble{
+  0%, 100%{ transform:translateY(0) rotate(0deg); }
+  25%{ transform:translateY(-6px) rotate(-10deg); }
+  50%{ transform:translateY(2px) rotate(8deg); }
+  75%{ transform:translateY(-4px) rotate(-6deg); }
+}
+.demo-die.winner{
+  border-color:var(--ink);
+  box-shadow:0 0 0 3px var(--gold), 2px 2px 0 var(--ink);
+  animation:pop .25s ease;
 }
 .demo-die img{
   width:100%;
@@ -404,6 +506,10 @@
   text-align:center;
   box-shadow:1px 1px 0 var(--ink);
   white-space:nowrap;
+  transition:background .2s ease, color .2s ease, transform .15s ease;
+}
+.pop-anim{
+  animation:pop .22s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Quick summary banner */
