@@ -74,7 +74,7 @@
 /* CTAs */
 .hero-cta-group{
   display: flex;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -83,11 +83,36 @@
 .hero-cta-group .btn-gold{
   background: var(--gold);
   color: var(--ink);
-  border: var(--border);
-  box-shadow: var(--shadow);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  padding: 14px 32px;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform .15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .15s ease, background .15s ease;
+  animation: hero-cta-pulse 2.6s infinite ease-in-out;
 }
 .hero-cta-group .btn-gold:hover{
-  background: #FFD566;
+  background: #FFE072;
+  transform: translate(-3px, -3px) scale(1.03);
+  box-shadow: 7px 7px 0 var(--ink);
+  animation: none;
+}
+.hero-cta-group .btn-gold:active{
+  transform: translate(3px, 3px) scale(0.98);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+@keyframes hero-cta-pulse{
+  0%, 100%{
+    transform: scale(1);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  50%{
+    transform: scale(1.03);
+    box-shadow: 5px 5px 0 var(--ink), 0 0 18px rgba(255, 201, 60, 0.45);
+  }
 }
 
 /* Flanks (Cards containing ONLY image) */
@@ -512,41 +537,96 @@
   animation:pop .22s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Quick summary banner */
+/* Quick summary banner & High-Conversion Play CTA */
 .how-summary-banner{
-  margin-top:24px;
-  padding:16px 22px;
-  background:var(--cream);
-  border:var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+  margin-top:28px;
+  padding:22px 28px;
+  background:var(--paper);
+  border:3px solid var(--ink);
+  border-radius:18px;
+  box-shadow:6px 6px 0 var(--ink);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px;
+  gap:20px;
   flex-wrap:wrap;
+  position:relative;
+  transition:box-shadow .2s ease;
+}
+.how-summary-banner:hover{
+  box-shadow:8px 8px 0 var(--ink);
 }
 .summary-left{
   display:flex;
   flex-direction:column;
-  gap:3px;
-  max-width:700px;
+  gap:4px;
+  max-width:620px;
 }
 .summary-title{
   font-family:var(--font-display);
   font-weight:800;
-  font-size:16px;
+  font-size:17px;
   text-transform:uppercase;
-  letter-spacing:.5px;
+  letter-spacing:.6px;
 }
 .summary-payouts{
   font-size:14px;
   color:var(--mut-ink);
-  line-height:1.45;
+  line-height:1.5;
+  font-weight:600;
 }
 .how-summary-btn{
   flex-shrink:0;
   white-space:nowrap;
+  background:var(--red) !important;
+  color:#ffffff !important;
+  font-family:var(--font-display);
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:.6px;
+  padding:15px 32px;
+  border:3.5px solid var(--ink);
+  border-radius:14px;
+  box-shadow:4px 4px 0 var(--ink);
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  transition:transform .15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .15s ease, background .15s ease;
+  animation:how-btn-pulse 2.2s infinite ease-in-out;
+}
+.how-summary-btn:hover{
+  background:#FF3319 !important;
+  transform:translate(-3px, -3px) scale(1.04);
+  box-shadow:7px 7px 0 var(--ink);
+  animation:none;
+}
+.how-summary-btn:active{
+  transform:translate(3px, 3px) scale(0.98);
+  box-shadow:1px 1px 0 var(--ink);
+}
+@keyframes how-btn-pulse{
+  0%, 100%{
+    transform:scale(1);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  50%{
+    transform:scale(1.035);
+    box-shadow:5px 5px 0 var(--ink), 0 0 20px rgba(232, 68, 46, 0.45);
+  }
+}
+@media (max-width:768px){
+  .how-summary-banner{
+    flex-direction:column;
+    align-items:stretch;
+    padding:18px 20px;
+  }
+  .how-summary-btn{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
 }
 
 /* ---------- faq ---------- */
