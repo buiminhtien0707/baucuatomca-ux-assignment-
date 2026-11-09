@@ -93,5 +93,7 @@ window.BC_DATA = (function () {
     { rank: 5, name: "Na Di", xu: 990 }
   ];
 
-  return { ANIMALS: ANIMALS, BADGES: BADGES, LEADER_SAMPLE: LEADER_SAMPLE };
+  var VIDEO_ID = ''; /* paste a YouTube video ID here to show the Tết page video */
+
+  return { ANIMALS: ANIMALS, BADGES: BADGES, LEADER_SAMPLE: LEADER_SAMPLE, VIDEO_ID: VIDEO_ID };
 })();

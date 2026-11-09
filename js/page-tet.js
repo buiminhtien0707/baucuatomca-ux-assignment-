@@ -4,6 +4,12 @@ window.BCPageTet = (function () {
 
   function boot() {
     if (!document.querySelector("#tet-root")) return;
+    var vid = window.BC_DATA && window.BC_DATA.VIDEO_ID;
+    var slot = document.querySelector("#video-slot");
+    if (vid && slot) {
+      document.querySelector("#tet-video").src = "https://www.youtube.com/embed/" + vid;
+      slot.style.display = "block";
+    }
     renderTimeline();
     wireForm();
     BCi18n.onLangChange(renderTimeline);

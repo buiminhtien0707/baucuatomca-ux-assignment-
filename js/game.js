@@ -237,6 +237,10 @@ window.BCGame = (function () {
       img.height = 42;
       img.style.imageRendering = "pixelated";
       die.appendChild(img);
+      var nm = document.createElement("span");
+      nm.className = "die-name";
+      nm.textContent = BCi18n.L(byId(id).name);
+      die.appendChild(nm);
       die.setAttribute("aria-label", BCi18n.L(byId(id).name));
       if (delayMs) {
         setTimeout(function () {

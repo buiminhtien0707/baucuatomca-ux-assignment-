@@ -105,6 +105,7 @@ window.BC_I18N_ZH = {
   "tet.title": "骰宝与春节",
   "tet.sub": "为什么大年初一宴席后，全巷的人都围着骰盅？",
   "tet.tlTitle": "骰宝陪伴的春节一天",
+  "tet.videoTitle": "看看现实中的骰宝", "tet.videoNote": "精选视频——上桌前先看看。",
   "tet.resp": "理性游玩",
   "tet.respBody": "这里的金币 100% 虚拟。不可充值、不可提现、没有兑现广告。开心就好——别让游戏在别处变成金钱。",
   "tet.formTitle": "给我们留言",

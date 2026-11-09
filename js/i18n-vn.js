@@ -106,6 +106,7 @@ window.BC_I18N_VN = {
   "tet.title": "Bầu Cua & Ngày Tết",
   "tet.sub": "Vì sao cả xóm tụ bàn bầu cua sau bữa cỗ mùng 1?",
   "tet.tlTitle": "Một ngày Tết với bầu cua",
+  "tet.videoTitle": "Xem bầu cua ngoài đời", "tet.videoNote": "Một video lựa chọn — xem trước khi vào bàn.",
   "tet.resp": "Chơi có trách nhiệm",
   "tet.respBody": "Bầu cua trên site này dùng xu ảo 100%. Không nạp, không rút, không quảng cáo đổi thưởng. Vui là chính, đừng để trò chơi đổi thành tiền ở bất kỳ đâu ngoài kia.",
   "tet.formTitle": "Góp ý cho tụi mình",

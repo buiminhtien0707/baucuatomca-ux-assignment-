@@ -760,9 +760,9 @@ details.faq .a{ padding:0 16px 14px; }
 }
 .dice-row{ display:flex; gap:10px; justify-content:center; align-items:center; height:88px; }
 .die{
-  width:60px; height:60px; border:var(--border); border-radius:12px;
+  width:auto; min-width:66px; height:auto; padding:8px 8px 5px; border:var(--border); border-radius:12px;
   background:var(--cream); color:var(--ink); font-size:30px;
-  display:flex; align-items:center; justify-content:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;
   box-shadow:var(--shadow); animation:pop .22s ease;
 }
 .status-line{ font-family:var(--font-mono); font-weight:700; margin:8px 0 10px; min-height:22px; font-size:14px; }
@@ -1067,11 +1067,13 @@ details.faq .a{ padding:0 16px 14px; }
 /* ---------- single selection: con được chọn sáng đèn ---------- */
 .cell{ transition:opacity .15s ease, filter .15s ease; }
 .cell.selected{
-  outline:5px solid var(--gold); outline-offset:-5px;
+  outline:4px solid var(--gold); outline-offset:-4px;
   filter:brightness(1.14);
 }
 .cell.selected .name{ background:var(--gold); }
-.board.has-selection .cell:not(.selected){ opacity:.5; }
+.board.has-selection .cell:not(.selected){ opacity:.65; }
 .board.has-selection .cell.selected{ box-shadow:0 0 0 4px rgba(255,201,60,.3), var(--shadow); }
 
 .float-xu.zero{ color:var(--cream); }
+
+.die-name{ font-family:var(--font-body); font-size:11px; font-weight:800; line-height:1; }

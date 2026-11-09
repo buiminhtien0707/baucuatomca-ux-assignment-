@@ -106,6 +106,7 @@ window.BC_I18N_EN = {
   "tet.title": "Bầu Cua & Tết",
   "tet.sub": "Why does the whole neighborhood gather around the bowl after the mùng-1 feast?",
   "tet.tlTitle": "A Tết day with bầu cua",
+  "tet.videoTitle": "See bầu cua in real life", "tet.videoNote": "A hand-picked video — watch before you join a table.",
   "tet.resp": "Play responsibly",
   "tet.respBody": "Coins here are 100% virtual. No deposits, no withdrawals, no cash-out ads. Fun first: never let the game turn into money anywhere else.",
   "tet.formTitle": "Send us your thoughts",
