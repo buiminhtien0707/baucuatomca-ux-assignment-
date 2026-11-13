@@ -45,11 +45,12 @@ Hoặc trong VS Code: cài extension **Live Server** → chuột phải `index.h
 ## ✨ Tính năng
 
 - Đặt cược chip 10/50/100/500 — undo, xóa, đặt lại ván trước
-- "Lì xì" +500 xu mỗi ngày (hết xu vẫn chơi tiếp được — không dead-end)
-- 8 huy hiệu thu thập, thống kê cá nhân trong **Túi xu** (nút 💰 góc phải)
+- "Lì xì" +500 xu không giới hạn từ Túi xu (hết xu vẫn chơi tiếp được — không dead-end)
+- 8 huy hiệu thu thập, thống kê cá nhân trong **Túi xu** (nút góc phải)
+- Tài khoản cục bộ tùy chọn (tên + linh vật + mã PIN 4–6 số băm PBKDF2): chơi ngay như Khách hoặc tạo hồ sơ riêng để tự quản lý số xu, huy hiệu, bảng xếp hạng trên máy và xuất/nhập file lưu `.json`
 - 3 ngôn ngữ: **VN / EN / ZH** (chuyển ở góc trên phải)
 - Âm thanh tổng hợp trực tiếp bằng Web Audio (không file nhạc)
-- Lưu tiến trình tự động (localStorage) — không cần đăng ký tài khoản
+- Lưu tiến trình tự động (localStorage) — chạy 100% offline không cần backend
 
 ## 🛠️ Công nghệ
 

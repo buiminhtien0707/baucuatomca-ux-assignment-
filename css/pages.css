@@ -643,16 +643,19 @@ details.faq[open] summary::after{ content:"–"; }
 details.faq .a{ padding:0 16px 14px; }
 
 /* ---------- play: board ---------- */
-.play-grid{ display:flex; flex-direction:column; gap:28px; }
+body[data-page="play"] .section{ padding:16px 16px 20px; }
+body[data-page="play"] .section-head{ gap:4px; margin-bottom:10px; }
+.play-grid{ display:flex; flex-direction:column; gap:22px; }
 .play-main-stage{ display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:start; }
 .play-board-area{ display:flex; flex-direction:column; }
-.play-side-col{ display:flex; flex-direction:column; gap:20px; }
-.chip-header{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin:0 0 10px; }
+.play-side-col{ display:flex; flex-direction:column; gap:18px; }
+.chip-bar{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 12px; margin:0 0 10px; }
+.chip-header{ display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin:0; }
 .play-history-card, .play-leader-card{ margin-top:0; }
 @media (max-width:900px){
-  .play-grid{ gap:20px; }
-  .play-main-stage{ display:flex; flex-direction:column; gap:20px; }
-  .play-side-col{ gap:20px; }
+  .play-grid{ gap:18px; }
+  .play-main-stage{ display:flex; flex-direction:column; gap:18px; }
+  .play-side-col{ gap:18px; }
 }
 .board{
   display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
@@ -714,10 +717,10 @@ details.faq .a{ padding:0 16px 14px; }
 .cell:not(.locked):hover{ transform:translate(-2px,-2px); box-shadow:var(--shadow); }
 .board.locked .cell{ cursor:not-allowed; opacity:.85; }
 
-.chip-tray{ display:flex; gap:12px; flex-wrap:wrap; margin:0 0 16px; }
+.chip-tray{ display:flex; gap:10px; flex-wrap:wrap; margin:0; }
 .chip{
-  width:64px; height:64px; border-radius:50%; border:var(--border);
-  font-family:var(--font-mono); font-weight:700; font-size:14px; cursor:pointer;
+  width:52px; height:52px; border-radius:50%; border:var(--border);
+  font-family:var(--font-mono); font-weight:700; font-size:13px; cursor:pointer;
   background:var(--cream); box-shadow:var(--shadow);
 }
 .chip:hover{ transform:translateY(-3px); }
@@ -1007,12 +1010,15 @@ details.faq .a{ padding:0 16px 14px; }
 /* responsive tweaks across pages */
 @media (max-width:600px){
   .section{ padding:24px 12px 8px; }
+  body[data-page="play"] .section{ padding:12px 12px 8px; }
+  body[data-page="play"] .section-head{ margin-bottom:8px; }
   .board{ padding:10px; gap:8px; border-radius:12px; }
   .cell{ border-radius:10px; }
   .cell .name{ font-size:11px; padding:0 4px; top:4px; }
   .cell .amt{ font-size:11px; padding:1px 6px; bottom:4px; }
-  .chip-tray{ gap:8px; justify-content:center; margin:12px 0 6px; }
-  .chip{ width:52px; height:52px; font-size:13px; }
+  .chip-bar{ justify-content:center; gap:8px; margin:0 0 8px; }
+  .chip-tray{ gap:8px; justify-content:center; margin:0; }
+  .chip{ width:48px; height:48px; font-size:12.5px; }
   .play-actions{ display:grid; grid-template-columns:40px repeat(3,1fr); gap:6px; margin-top:10px; }
   .play-actions .btn-bc{ padding:8px 4px; font-size:12px; }
   .bowl-zone{ padding:14px 10px; border-radius:12px; }

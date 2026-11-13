@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Bầu Cua Vui: học và chơi bầu cua tôm cá bằng xu ảo. Không nạp, không rút, chỉ để vui ngày Tết.">
   <title>BẦU CUA VUI: Play</title>
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=17">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=18">
   <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=17">
-  <link rel="stylesheet" href="css/pages.css?v=17">
+  <link rel="stylesheet" href="css/styles.css?v=18">
+  <link rel="stylesheet" href="css/pages.css?v=18">
 </head>
 <body data-page="play">
   <noscript><p style="padding:10px 16px;background:#E8442E;color:#FFFDF8;font-weight:700">Trang này cần JavaScript để chơi — hãy bật JS trong trình duyệt.</p></noscript>
@@ -47,14 +47,13 @@
       <div class="play-grid">
         <div class="play-main-stage">
           <div class="play-board-area">
-            <div class="chip-header">
-              <div style="display:flex;align-items:center;gap:10px">
+            <div class="chip-bar">
+              <div class="chip-header">
                 <h3 style="margin:0" data-i18n="play.chips"></h3>
                 <button class="btn-bc btn-xs btn-red quick-lixi-btn" data-act="quick-lixi" data-i18n="play.quickLixi" title="Nhận +500 xu vô cực (Phím: L)">+500 xu 🧧</button>
               </div>
-              <span class="mono mut" style="font-size:12px;font-weight:700" data-i18n="play.betLimit"></span>
+              <div class="chip-tray"></div>
             </div>
-            <div class="chip-tray"></div>
             <div class="board" aria-label="Betting board"></div>
             <div class="play-actions">
               <button class="icon-btn" data-act="help" aria-label="Luật 30 giay" style="width:38px;height:38px;font-weight:800">?</button>
@@ -141,21 +140,23 @@
   <div class="modal-bc" id="modal-help" role="dialog" aria-modal="true"><div class="box" id="help-box"></div></div>
   <div class="toast-zone"></div>
 
-  <script src="js/data-core.js?v=17"></script>
-  <script src="js/data-content.js?v=17"></script>
-  <script src="js/i18n-vn.js?v=17"></script>
-  <script src="js/i18n-en.js?v=17"></script>
-  <script src="js/i18n-zh.js?v=17"></script>
-  <script src="js/i18n.js?v=17"></script>
-  <script src="js/store.js?v=17"></script>
-  <script src="js/audio.js?v=17"></script>
-  <script src="js/wallet.js?v=17"></script>
-  <script src="js/badges.js?v=17"></script>
-  <script src="js/ui.js?v=17"></script>
-  <script src="js/fx.js?v=17"></script>
-  <script src="js/game-core.js?v=17"></script>
-  <script src="js/game.js?v=17"></script>
-  <script src="js/page-home.js?v=17"></script>
+  <script src="js/data-core.js?v=18"></script>
+  <script src="js/data-content.js?v=18"></script>
+  <script src="js/i18n-vn.js?v=18"></script>
+  <script src="js/i18n-en.js?v=18"></script>
+  <script src="js/i18n-zh.js?v=18"></script>
+  <script src="js/i18n.js?v=18"></script>
+  <script src="js/auth.js?v=18"></script>
+  <script src="js/store.js?v=18"></script>
+  <script src="js/audio.js?v=18"></script>
+  <script src="js/wallet.js?v=18"></script>
+  <script src="js/badges.js?v=18"></script>
+  <script src="js/account-ui.js?v=18"></script>
+  <script src="js/ui.js?v=18"></script>
+  <script src="js/fx.js?v=18"></script>
+  <script src="js/game-core.js?v=18"></script>
+  <script src="js/game.js?v=18"></script>
+  <script src="js/page-home.js?v=18"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       BCUI.boot();

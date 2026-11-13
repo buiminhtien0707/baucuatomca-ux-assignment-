@@ -13,6 +13,7 @@ window.BCBadges = (function () {
     if (def) {
       BCUI.toast("🏅 " + BCi18n.t("badge.toast", { x: BCi18n.L(def.name) }), "gold");
       BCAudio.win();
+      if (window.BCAccountUI) BCAccountUI.onBadgeUnlocked();
     }
     return true;
   }

@@ -134,6 +134,7 @@ window.BCUI = (function () {
       links.appendChild(mobileTools);
     }
 
+    if (window.BCAccountUI) BCAccountUI.boot();
     BCi18n.apply();
     wireLang();
     wireSound();
@@ -231,7 +232,7 @@ window.BCUI = (function () {
     }
 
     BCWallet.onChange(function () { renderCoins(); renderDrawer(); });
-    BCi18n.onLangChange(function () { renderDrawer(); });
+    BCi18n.onLangChange(function () { renderCoins(); renderDrawer(); });
     renderDrawer();
   }
 

@@ -114,6 +114,7 @@ window.BCPageHome = (function () {
     updateHowLang = function () {
       var curA = BC_DATA.ANIMALS[currentAnimalIdx];
       if (cellLabel) cellLabel.textContent = getAnimalName(curA);
+      if (betPill) betPill.textContent = "+" + currentChip + " " + BCi18n.t("unit.xu");
       // count current matches
       var matches = currentDiceIdxs.filter(function (idx) { return idx === currentAnimalIdx; }).length;
       updatePayoutText(matches);
@@ -134,7 +135,7 @@ window.BCPageHome = (function () {
         if (window.BCAudio) BCAudio.chip();
 
         if (betPill) {
-          betPill.textContent = "+" + currentChip + " xu";
+          betPill.textContent = "+" + currentChip + " " + BCi18n.t("unit.xu");
           betPill.classList.remove("pop-anim");
           void betPill.offsetWidth;
           betPill.classList.add("pop-anim");
@@ -155,7 +156,7 @@ window.BCPageHome = (function () {
         cellLabel.textContent = getAnimalName(a);
       }
       if (betPill) {
-        betPill.textContent = "+" + currentChip + " xu";
+        betPill.textContent = "+" + currentChip + " " + BCi18n.t("unit.xu");
         betPill.classList.remove("pop-anim");
         void betPill.offsetWidth;
         betPill.classList.add("pop-anim");

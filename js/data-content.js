@@ -39,10 +39,10 @@ window.BC_CONTENT = (function () {
     {
       q: { vn: "Đặt 100 vào 1 ô, 2 viên trùng ô đó: ăn bao nhiêu?", en: "Bet 100 on one cell, 2 dice match: what do you get?", zh: "押 100 到一格，两颗命中——拿多少？" },
       opts: [
-        { vn: "200 xu", en: "200 xu", zh: "200 金币" },
-        { vn: "300 xu", en: "300 xu", zh: "300 金币" },
-        { vn: "400 xu", en: "400 xu", zh: "400 金币" },
-        { vn: "500 xu", en: "500 xu", zh: "500 金币" }
+        { vn: "200 xu", en: "200 coins", zh: "200 金币" },
+        { vn: "300 xu", en: "300 coins", zh: "300 金币" },
+        { vn: "400 xu", en: "400 coins", zh: "400 金币" },
+        { vn: "500 xu", en: "500 coins", zh: "500 金币" }
       ],
       a: 1,
       why: { vn: "Stake 100 + thưởng 2× = 300.", en: "Stake 100 + 2× prize = 300.", zh: "本金 100 + 2× 奖金 = 300。" }
@@ -67,7 +67,7 @@ window.BC_CONTENT = (function () {
         { vn: "Thẻ quà tặng", en: "A gift card", zh: "礼品卡" }
       ],
       a: 0,
-      why: { vn: "Lì xì = +500 xu ảo mỗi ngày, không tiền thật.", en: "Lì xì = +500 virtual xu daily, never real money.", zh: "利是 = 每日 +500 虚拟金币，绝非真钱。" }
+      why: { vn: "Lì xì = +500 xu ảo mỗi lần nhận, không tiền thật.", en: "Lì xì = +500 virtual coins per claim, never real money.", zh: "利是 = 每次领取 +500 虚拟金币，绝非真钱。" }
     },
     {
       q: { vn: "Về dài hạn, người cầm bát thắng thế nào?", en: "In the long run, why does the bowl-keeper win?", zh: "长期来看，庄家为何总是赢？" },
@@ -78,7 +78,7 @@ window.BC_CONTENT = (function () {
         { vn: "Vì may mắn", en: "Pure luck", zh: "纯运气" }
       ],
       a: 2,
-      why: { vn: "Đúng: EV ≈ −7,9%/xu cược là ở chính luật trả thưởng.", en: "Right: EV ≈ −7.9% per xu is baked into the payout table.", zh: "对——期望 ≈ −7.9% 就藏在赔率表里。" }
+      why: { vn: "Đúng: EV ≈ −7,9%/xu cược là ở chính luật trả thưởng.", en: "Right: EV ≈ −7.9% per coin bet is baked into the payout table.", zh: "对——期望 ≈ −7.9% 就藏在赔率表里。" }
     },
     {
       q: { vn: "Con Cá mang ý nghĩa gì?", en: "What does the fish symbolize?", zh: "鱼象征什么？" },
@@ -99,13 +99,13 @@ window.BC_CONTENT = (function () {
     { q: { vn: "Trò này có ăn tiền thật không?", en: "Does this game use real money?", zh: "这个游戏用真钱吗？" },
       a: { vn: "Không. Toàn bộ xu trên site là xu ảo: không nạp, không rút.", en: "No. All coins here are virtual: no deposits, no withdrawals.", zh: "不。这里所有金币都是虚拟的——不可充值、不可提现。" } },
     { q: { vn: "Lì xì là gì?", en: "What is lì xì?", zh: "什么是“利是”？", },
-      a: { vn: "Túi may mắn ngày Tết. Ở đây: +500 xu ảo mỗi ngày để bạn không bao giờ bị chặn khỏi trò chơi.", en: "A Tết lucky pouch. Here: +500 virtual xu daily so you're never locked out of play.", zh: "春节红包。这里是每日 +500 虚拟金币，绝不让您被挡在游戏之外。" } },
+      a: { vn: "Túi may mắn ngày Tết. Ở đây: nhận +500 xu ảo bất cứ lúc nào để bạn không bao giờ bị chặn khỏi trò chơi.", en: "A Tết lucky red envelope. Here: +500 virtual coins per claim so you're never locked out of play.", zh: "春节红包。这里可随时领取 +500 虚拟金币，绝不让您被挡在游戏之外。" } },
     { q: { vn: "Vì sao nhà cầm bát luôn lãi?", en: "Why does the bowl-keeper profit?", zh: "为什么庄家总赚钱？" },
       a: { vn: "Luật trả thưởng thấp hơn xác suất thật: chênh ≈ 7,9%. Xem Lab để tự chạy 1.000 ván.", en: "Payouts sit below true odds: a gap of about 7.9%. Run 1,000 rounds in the Lab to see it.", zh: "赔率低于真实概率——差距约 7.9%。去实验室跑 1000 局看看。" } },
     { q: { vn: "Chơi trên điện thoại được không?", en: "Can I play on my phone?", zh: "可以用手机玩吗？" },
       a: { vn: "Được chứ — cả trang thiết kế cho một tay cầm điện thoại: ô cược to, chip to, chạm là chơi. Và vì dùng xu ảo nên thua cũng không mất gì.", en: "Absolutely: the whole page is built for one-handed phone play with big cells and big chips. And since coins are virtual, losing costs nothing.", zh: "可以——为单手设计，格子大、筹码大。" } },
     { q: { vn: "Có cần đăng ký tài khoản không?", en: "Do I need an account?", zh: "需要注册账号吗？" },
-      a: { vn: "Không cần. Không đăng ký, không thu thập dữ liệu.", en: "No account, no data collection.", zh: "无需注册，不收集数据。" } }
+      a: { vn: "Không bắt buộc: vào là chơi ngay ở chế độ Khách, hoặc tạo hồ sơ cục bộ trên máy (tên + mã PIN) để giữ riêng số xu và huy hiệu.", en: "Not required: play immediately as a Guest, or create an optional local profile on your device (name + PIN) to keep your own coins and badges.", zh: "非强制：可直接以游客身份畅玩，也可在此设备上创建本地档案（名称 + PIN 码）来单独保存金币和徽章。" } }
   ];
 
   var TIMELINE = [
