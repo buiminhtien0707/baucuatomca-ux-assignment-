@@ -16,6 +16,14 @@ window.BCPageTet = (function () {
   }
   document.addEventListener("DOMContentLoaded", boot);
 
+  function updateCounter() {
+    var msg = document.querySelector("#fb-msg");
+    var counter = document.querySelector("#fb-count");
+    if (msg && counter) {
+      counter.textContent = BCi18n.t("tet.counter", { n: msg.value.length });
+    }
+  }
+
   function renderTimeline() {
     var zone = document.querySelector("#tet-timeline");
     zone.innerHTML = "";
@@ -25,6 +33,7 @@ window.BCPageTet = (function () {
       div.innerHTML = "<h4>" + BCi18n.L(item.t) + "</h4><p>" + BCi18n.L(item.d) + "</p>";
       zone.appendChild(div);
     });
+    updateCounter();
   }
 
   function wireForm() {

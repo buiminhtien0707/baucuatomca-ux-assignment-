@@ -74,13 +74,13 @@
           </div>
           <div class="field">
             <label for="fb-msg" data-i18n="tet.msg"></label>
-            <textarea id="fb-msg" name="message" rows="4" placeholder="sudoPass9"></textarea>
-            <div class="char-count mono"><span id="fb-count">0 ký tự</span></div>
+            <textarea id="fb-msg" name="message" rows="4" data-i18n-ph="tet.phMsg" placeholder="Share what you liked or what felt unclear (min 10 chars)..."></textarea>
+            <div class="char-count mono"><span id="fb-count">0 characters</span></div>
             <div class="err" data-i18n="tet.errMsg"></div>
           </div>
           <button class="btn-brutal-reg" type="submit" data-i18n="tet.send"></button>
           <p class="form-bottom-link">
-            Đã thử vận may hôm nay chưa? <a href="play.html">Vào bàn lắc Bầu Cua</a>
+            <span data-i18n="tet.bottomPrompt">Tried your luck today?</span> <a href="play.html" data-i18n="tet.bottomLink">Go to the Bầu Cua table</a>
           </p>
         </form>
       </div>
@@ -128,9 +128,9 @@
 
   <script src="js/data-core.js?v=18"></script>
   <script src="js/data-content.js?v=18"></script>
-  <script src="js/i18n-vn.js?v=18"></script>
-  <script src="js/i18n-en.js?v=18"></script>
-  <script src="js/i18n-zh.js?v=18"></script>
+  <script src="js/i18n-vn.js?v=19"></script>
+  <script src="js/i18n-en.js?v=19"></script>
+  <script src="js/i18n-zh.js?v=19"></script>
   <script src="js/i18n.js?v=18"></script>
   <script src="js/auth.js?v=18"></script>
   <script src="js/store.js?v=18"></script>
@@ -139,7 +139,7 @@
   <script src="js/badges.js?v=18"></script>
   <script src="js/account-ui.js?v=18"></script>
   <script src="js/ui.js?v=18"></script>
-  <script src="js/page-tet.js?v=18"></script>
+  <script src="js/page-tet.js?v=19"></script>
   <script src="js/page-home.js?v=18"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
